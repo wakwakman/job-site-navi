@@ -90,7 +90,8 @@
           "フロッグ「2026年6月度 リクナビリニューアル分析レポート」",
           "https://prtimes.jp/main/html/rd/p/000000143.000148054.html"
         ]
-      ]
+      ],
+      "icon": "icons/rikunabi.png"
     },
     {
       "id": "mynavi",
@@ -109,7 +110,8 @@
           "https://www.neo-career.co.jp/humanresource/mynavi2027"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/mynavi.png"
     },
     {
       "id": "caritasu",
@@ -128,7 +130,8 @@
           "https://www.neo-career.co.jp/humanresource/kyaritasuforum"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/caritasu.png"
     },
     {
       "id": "recampus",
@@ -151,7 +154,8 @@
           "https://www.neo-career.co.jp/humanresource/newgradservice/directrecruiting/asagakunavi/price"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/recampus.png"
     },
     {
       "id": "offerbox",
@@ -170,7 +174,8 @@
           "https://www.neo-career.co.jp/humanresource/offerbox/price"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/offerbox.png"
     },
     {
       "id": "dodacampus",
@@ -189,7 +194,8 @@
           "https://www.hrpro.co.jp/provide_company_detail.php?ccd=00709"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/dodacampus.png"
     },
     {
       "id": "kimisuka",
@@ -208,7 +214,8 @@
           "https://www.neo-career.co.jp/humanresource/kimisuka/strong"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/kimisuka.png"
     },
     {
       "id": "labbase",
@@ -226,7 +233,8 @@
           "BRIDGE LabBase（旧POL）資金調達",
           "https://thebridge.jp/2022/09/labbase-series-b-round-funding/"
         ]
-      ]
+      ],
+      "icon": "icons/labbase.png"
     },
     {
       "id": "acaric",
@@ -244,7 +252,8 @@
           "アカリク 会社概要（採用ページ）",
           "https://hrmos.co/pages/acaric/jobs/0000008"
         ]
-      ]
+      ],
+      "icon": "icons/acaric.png"
     },
     {
       "id": "onecareer",
@@ -262,7 +271,8 @@
           "ワンキャリア 決算資料（会員数）",
           "https://www2.jpx.co.jp/disc/43770/140120230515571727.pdf"
         ]
-      ]
+      ],
+      "icon": "icons/onecareer.png"
     },
     {
       "id": "gaishishukatsu",
@@ -280,7 +290,8 @@
           "ハウテレビジョン 会社ページ（Green）",
           "https://www.green-japan.com/company/3125"
         ]
-      ]
+      ],
+      "icon": "icons/gaishishukatsu.png"
     },
     {
       "id": "matcher",
@@ -298,7 +309,8 @@
           "Matcher 会社のストーリー（Wantedly）",
           "https://www.wantedly.com/companies/matcher/post_articles/183442"
         ]
-      ]
+      ],
+      "icon": "icons/matcher.png"
     },
     {
       "id": "careerticket",
@@ -316,7 +328,8 @@
           "レバレジーズ キャリアチケット ニュースリリース",
           "https://leverages.jp/wp-content/uploads/2020/03/【ニュースリリース】内定取り消しになった学生の紹介料を無料に.pdf"
         ]
-      ]
+      ],
+      "icon": "icons/careerticket.png"
     },
     {
       "id": "supporterz",
@@ -338,7 +351,8 @@
           "VOYAGE GROUP「株式会社サポーターズを設立」",
           "https://www.value-press.com/pressrelease/96668"
         ]
-      ]
+      ],
+      "icon": "icons/supporterz.png"
     },
     {
       "id": "levtech-rookie",
@@ -356,7 +370,8 @@
           "レバテック レバテックルーキー プレスリリース",
           "https://leverages.jp/wp-content/uploads/2021/08/27cdcda02cdf2e946ae534030441d8cf.pdf"
         ]
-      ]
+      ],
+      "icon": "icons/levtech-rookie.png"
     },
     {
       "id": "rikunabi-next",
@@ -378,7 +393,8 @@
           "Indeed「Indeed PLUSに新しく4つの求人サイトが参画」",
           "https://jp.indeed.com/news/releases/20240312"
         ]
-      ]
+      ],
+      "icon": "icons/rikunabi-next.png"
     },
     {
       "id": "doda",
@@ -396,7 +412,8 @@
           "パーソルキャリア doda転職求人倍率レポート",
           "https://www.saiyo-doda.jp/wp-content/uploads/doda_KyujinbairitsuReport_202101b.pdf"
         ]
-      ]
+      ],
+      "icon": "icons/doda.png"
     },
     {
       "id": "mynavi-tenshoku",
@@ -415,7 +432,8 @@
           "https://www.neo-career.co.jp/humanresource/middlecareerservice/site/mynavitensyoku/price/"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/mynavi-tenshoku.png"
     },
     {
       "id": "en-tenshoku",
@@ -434,7 +452,8 @@
           "https://www.neo-career.co.jp/humanresource/middlecareerservice/site/entensyoku/price"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/en-tenshoku.png"
     },
     {
       "id": "type",
@@ -453,7 +472,8 @@
           "https://www.onamae.com/business/article/305810/"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/type.png"
     },
     {
       "id": "green",
@@ -472,7 +492,8 @@
           "https://boxil.jp/service/673/"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/green.png"
     },
     {
       "id": "r-agent",
@@ -494,7 +515,8 @@
           "リクルートエージェント 法人向け解説（紹介手数料）",
           "https://www.r-agent.com/business/knowhow/article/22565/"
         ]
-      ]
+      ],
+      "icon": "icons/r-agent.png"
     },
     {
       "id": "pasona-career",
@@ -513,7 +535,8 @@
           "https://axxis.co.jp/magazine/58667"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/pasona-career.png"
     },
     {
       "id": "jac",
@@ -532,7 +555,8 @@
           "https://axxis.co.jp/magazine/32976"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/jac.png"
     },
     {
       "id": "levtech-career",
@@ -550,7 +574,8 @@
           "レバテック レバテックキャリア プレスリリース",
           "https://leverages.jp/wp-content/uploads/2021/06/6df908999d6717fa8a349651608ca916.pdf"
         ]
-      ]
+      ],
+      "icon": "icons/levtech-career.png"
     },
     {
       "id": "bizreach",
@@ -569,7 +594,8 @@
           "https://www.neo-career.co.jp/humanresource/bizreach/price/"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/bizreach.png"
     },
     {
       "id": "r-direct-scout",
@@ -587,7 +613,8 @@
           "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
           "https://www.recruit.co.jp/privacy/notice/250303_list/"
         ]
-      ]
+      ],
+      "icon": "icons/r-direct-scout.png"
     },
     {
       "id": "ambi",
@@ -606,7 +633,8 @@
           "https://axxis.co.jp/magazine/55736"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/ambi.png"
     },
     {
       "id": "miidas",
@@ -625,7 +653,8 @@
           "https://www.aspicjapan.org/asu/service/11462"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/miidas.png"
     },
     {
       "id": "findy",
@@ -643,7 +672,8 @@
           "BRIDGE ファインディ紹介",
           "https://thebridge.jp/2022/01/bridge-tokyo-2022-intro-showcase-nominee-findy"
         ]
-      ]
+      ],
+      "icon": "icons/findy.png"
     },
     {
       "id": "forkwell",
@@ -661,7 +691,8 @@
           "ASCII Forkwell（grooves）記事",
           "https://ascii.jp/elem/000/004/063/4063646/"
         ]
-      ]
+      ],
+      "icon": "icons/forkwell.png"
     },
     {
       "id": "re-shukatsu",
@@ -680,7 +711,8 @@
           "https://www.neo-career.co.jp/humanresource/middlecareerservice/site/reshukatsu"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/re-shukatsu.png"
     },
     {
       "id": "jobmedley",
@@ -699,7 +731,8 @@
           "https://www.shopowner-support.net/?p=60336"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/jobmedley.png"
     },
     {
       "id": "indeed",
@@ -725,7 +758,8 @@
           "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
           "https://www.recruit.co.jp/privacy/notice/250303_list/"
         ]
-      ]
+      ],
+      "icon": "icons/indeed.png"
     },
     {
       "id": "kyujinbox",
@@ -744,7 +778,8 @@
           "https://www.neo-career.co.jp/humanresource/kyuzinbox/price"
         ]
       ],
-      "secondary": true
+      "secondary": true,
+      "icon": "icons/kyujinbox.png"
     },
     {
       "id": "openwork",
@@ -762,7 +797,8 @@
           "オープンワーク プレスリリース（評価8項目）",
           "https://kyodonewsprwire.jp/prwfile/release/M102870/202501283428/_prw_PR1fl_6fRZiNFF.pdf"
         ]
-      ]
+      ],
+      "icon": "icons/openwork.png"
     },
     {
       "id": "tenshoku-kaigi",
@@ -780,7 +816,8 @@
           "リブセンス 統合報告書2025",
           "https://www.livesense.co.jp/wp-content/uploads/2025/06/16/1317/integrated-report2025-1.pdf"
         ]
-      ]
+      ],
+      "icon": "icons/tenshoku-kaigi.png"
     },
     {
       "id": "wantedly",
@@ -798,7 +835,8 @@
           "Wantedly 企業向け解説（料金）",
           "https://www.wantedly.com/hiringeek/?p=1108"
         ]
-      ]
+      ],
+      "icon": "icons/wantedly.png"
     },
     {
       "id": "youtrust",
@@ -816,7 +854,8 @@
           "BRIDGE YOUTRUST シリーズC調達",
           "https://thebridge.jp/2024/05/youtrust-series-c-round-funding"
         ]
-      ]
+      ],
+      "icon": "icons/youtrust.png"
     },
     {
       "id": "linkedin",
@@ -834,7 +873,8 @@
           "Business Insider Japan LinkedIn 日本の登録者数",
           "https://www.businessinsider.jp/post-264666"
         ]
-      ]
+      ],
+      "icon": "icons/linkedin.svg"
     }
   ]
 }
