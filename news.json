@@ -1,0 +1,212 @@
+{
+  "updated": "2026-10-25",
+  "period": "2026年9月〜10月（一部それ以前）",
+  "services": {
+    "rikunabi": [
+      {
+        "date": "2026-06-25",
+        "title": "リニューアル後に求人数は約7倍、利用企業数は約3割減との分析",
+        "text": "27卒向けの学年統合・職種単位への切り替えを、フロッグ社が分析した。",
+        "src": [
+          [
+            "フロッグ「2026年6月度 リクナビリニューアル分析レポート」",
+            "https://prtimes.jp/main/html/rd/p/000000143.000148054.html"
+          ]
+        ],
+        "secondary": true
+      }
+    ],
+    "mynavi": [
+      {
+        "date": "2026-10-15",
+        "title": "28卒の9月のインターン等参加率は71.6%",
+        "text": "マイナビの大学生キャリア意向調査（9月）。前月から8.5ポイント下がった。",
+        "src": [
+          [
+            "PR TIMES（マイナビ）",
+            "https://prtimes.jp/main/html/rd/p/000002521.000002955.html"
+          ]
+        ]
+      }
+    ],
+    "caritasu": [],
+    "recampus": [],
+    "offerbox": [
+      {
+        "date": "2026-10-21",
+        "title": "AI面接練習「ミライ就活」が累計2万回を突破",
+        "text": "OfferBox に搭載したAI面接練習サービスの累計実施回数が、2026年9月末時点で2万回を超えた。",
+        "src": [
+          [
+            "PR TIMES（i-plug）",
+            "https://prtimes.jp/main/html/rd/p/000000242.000041771.html"
+          ]
+        ]
+      },
+      {
+        "date": "2026-10-16",
+        "title": "「OfferBox Award 2026」の入賞企業を発表",
+        "text": "授賞式は2026年11月17日に開く予定。",
+        "src": [
+          [
+            "PR TIMES（i-plug）",
+            "https://prtimes.jp/main/html/rd/p/000000236.000041771.html"
+          ]
+        ]
+      },
+      {
+        "date": "2026-10-05",
+        "title": "9月の早期定額型の受注高は4.05億円",
+        "text": "月次KPI速報。単月は前年同月比24.6%減、累計は49.14億円で18.2%増だった。",
+        "src": [
+          [
+            "財経新聞",
+            "https://www.zaikei.co.jp/article/20261007/872689.html"
+          ]
+        ],
+        "secondary": true
+      }
+    ],
+    "dodacampus": [],
+    "kimisuka": [],
+    "labbase": [],
+    "acaric": [],
+    "onecareer": [],
+    "gaishishukatsu": [],
+    "matcher": [],
+    "careerticket": [],
+    "supporterz": [],
+    "levtech-rookie": [],
+    "rikunabi-next": [],
+    "doda": [
+      {
+        "date": "2026-10-22",
+        "title": "9月の転職求人倍率は2.89倍",
+        "text": "doda転職求人倍率レポート。前月から0.03ポイント上がり、7〜9月の平均は2.82倍だった。",
+        "src": [
+          [
+            "PR TIMES（パーソルキャリア）",
+            "https://prtimes.jp/main/html/rd/p/000001107.000022215.html"
+          ]
+        ]
+      }
+    ],
+    "mynavi-tenshoku": [],
+    "en-tenshoku": [],
+    "type": [],
+    "green": [],
+    "r-agent": [],
+    "pasona-career": [],
+    "jac": [],
+    "levtech-career": [],
+    "bizreach": [
+      {
+        "date": "2026-10-06",
+        "title": "JOCと「オリンピックを、仕事にしよう！」を開始",
+        "text": "日本オリンピック委員会が組織改革を担う人材を10職種で募集する。募集開始から10日で2,500件以上の応募があった。",
+        "src": [
+          [
+            "KAB（テレビ朝日系）",
+            "https://www.kab.co.jp/news/article/16945240"
+          ]
+        ]
+      }
+    ],
+    "r-direct-scout": [],
+    "ambi": [],
+    "miidas": [],
+    "findy": [],
+    "forkwell": [],
+    "re-shukatsu": [],
+    "jobmedley": [],
+    "indeed": [
+      {
+        "date": "2026-10-20",
+        "title": "Hi-STANDARD と妻夫木聡さん共演の新CMを公開",
+        "text": "Hi-STANDARD が企業広告に出演するのは初めて。",
+        "src": [
+          [
+            "PR TIMES（Indeed Japan）",
+            "https://prtimes.jp/main/html/rd/p/000000217.000028842.html"
+          ]
+        ]
+      },
+      {
+        "date": "2026-09-07",
+        "title": "「Indeed PLUS AIアシスタント（ベータ版）」を開始",
+        "text": "求人原稿の改善提案をAIが企業に届ける。",
+        "src": [
+          [
+            "PR TIMES（Indeed Japan）",
+            "https://prtimes.jp/main/html/rd/p/000000216.000028842.html"
+          ]
+        ]
+      }
+    ],
+    "kyujinbox": [
+      {
+        "date": "2026-10月",
+        "title": "運営元カカクコムへの非公開化TOB、期限は10月28日",
+        "text": "EQT傘下の Kamgras 1 が実施している。成立するとカカクコムは上場廃止になる予定。",
+        "src": [
+          [
+            "三菱UFJモルガン・スタンレー証券 TOB情報",
+            "https://www.sc.mufg.jp/products/stock/tob/2371.html"
+          ],
+          [
+            "Impress Watch",
+            "https://www.watch.impress.co.jp/docs/news/2108381.html"
+          ]
+        ]
+      }
+    ],
+    "openwork": [],
+    "tenshoku-kaigi": [],
+    "wantedly": [],
+    "youtrust": [],
+    "linkedin": []
+  },
+  "market": [
+    {
+      "date": "2026-10-23",
+      "title": "28卒の4〜9月のインターン等参加率は82.7%",
+      "text": "マイナビの中間総括調査。5日〜1週間程度のプログラムへの参加率は37.1%で、前年から3.0ポイント増えた。",
+      "src": [
+        [
+          "マイナビ キャリアリサーチLab",
+          "https://career-research.mynavi.jp/reserch/20261023_116376/"
+        ],
+        [
+          "PR TIMES（マイナビ）",
+          "https://prtimes.jp/main/html/rd/p/000002523.000002955.html"
+        ]
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "title": "政府が経済団体に就活日程ルールの順守を要請",
+      "text": "説明会3月・選考6月・正式内定10月の日程を守るよう文書で求めた。28年度以降に卒業する学生の就活では見直しを検討する。",
+      "src": [
+        [
+          "共同通信（OANDA掲載）",
+          "https://www.oanda.jp/lab-education/market_news/kn_2026032401000754/"
+        ]
+      ]
+    },
+    {
+      "date": "2025-12-26",
+      "title": "29年春卒業の学生から就活日程の前倒しを検討",
+      "text": "関係省庁連絡会議で確認した。28年春卒業の学生は従来どおりの日程とする。",
+      "src": [
+        [
+          "日本経済新聞",
+          "https://www.nikkei.com/article/DGXZQOUA267JG0W5A221C2000000/"
+        ],
+        [
+          "共同通信（Yahoo!ニュース）",
+          "https://news.yahoo.co.jp/articles/8d84c9029edb1c2fdc96eca1a8877333c109982f"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1253 @@
+{
+  "updated": "2026-10-25",
+  "plans": [
+    {
+      "service": "rikunabi",
+      "models": [
+        "click"
+      ],
+      "summary": "27卒向けからクリック課金に変更。閲覧された分だけ費用が発生",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "クリック課金（求人が閲覧されたときに課金）"
+        },
+        {
+          "name": "変更点",
+          "value": "27卒向けから従来の掲載課金型を廃止"
+        },
+        {
+          "name": "初期費用",
+          "value": "なし（初期費用を抑えて始められる）"
+        },
+        {
+          "name": "影響",
+          "value": "求人数はリニューアル前後で約7倍、利用企業数は約3割減との分析あり"
+        }
+      ],
+      "src": [
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ],
+        [
+          "フロッグ「2026年6月度 リクナビリニューアル分析レポート」",
+          "https://prtimes.jp/main/html/rd/p/000000143.000148054.html"
+        ]
+      ]
+    },
+    {
+      "service": "mynavi",
+      "models": [
+        "post",
+        "ad"
+      ],
+      "summary": "掲載課金のパッケージ制。基本160万円・プレミア295万円が目安",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "掲載課金（年度単位のパッケージ）"
+        },
+        {
+          "name": "基本パッケージ",
+          "value": "160万円（目安）"
+        },
+        {
+          "name": "プレミアパッケージ",
+          "value": "295万円（目安）"
+        },
+        {
+          "name": "オプション",
+          "value": "上位表示・DM配信などを後から追加"
+        },
+        {
+          "name": "イベント",
+          "value": "マイナビ就職EXPOへの出展は別料金"
+        }
+      ],
+      "calc": {
+        "perYear": [
+          160,
+          295
+        ]
+      },
+      "src": [
+        [
+          "ネオキャリア マイナビ2027 掲載社数・料金",
+          "https://www.neo-career.co.jp/humanresource/mynavi2027"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "caritasu",
+      "models": [
+        "post",
+        "ad"
+      ],
+      "summary": "掲載課金＋合同説明会（キャリタス就活フォーラム）の出展料",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "掲載課金（年間プラン）"
+        },
+        {
+          "name": "イベント",
+          "value": "キャリタス就活フォーラムの出展料（全国で年約300回開催）"
+        },
+        {
+          "name": "連携",
+          "value": "学校への求人票配信（キャリタスUC）の実績が学生画面に表示される"
+        },
+        {
+          "name": "金額",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "ネオキャリア キャリタス就活フォーラム 解説",
+          "https://www.neo-career.co.jp/humanresource/kyaritasuforum"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "recampus",
+      "models": [
+        "post",
+        "ad"
+      ],
+      "summary": "期間制のプラン。通年130万〜250万円、12週間60万〜110万円が目安",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "期間単位のプラン料金（スカウト込み）"
+        },
+        {
+          "name": "通年プラン",
+          "value": "ライト130万円〜プラチナ250万円（目安）"
+        },
+        {
+          "name": "12週間プラン",
+          "value": "60万〜110万円（目安）"
+        },
+        {
+          "name": "イベント",
+          "value": "就職博の出展は別料金"
+        }
+      ],
+      "calc": {
+        "per12w": [
+          60,
+          110
+        ],
+        "perYear": [
+          130,
+          250
+        ]
+      },
+      "src": [
+        [
+          "学情 用語解説（Re就活キャンパス・就職博）",
+          "https://kitaishihon.com/company/2301/glossary"
+        ],
+        [
+          "ネオキャリア Re就活キャンパス（旧あさがくナビ）料金",
+          "https://www.neo-career.co.jp/humanresource/newgradservice/directrecruiting/asagakunavi/price"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "offerbox",
+      "models": [
+        "succ",
+        "flat"
+      ],
+      "summary": "成果報酬型（1名45万円目安）か早期定額型（3名枠75万円〜）を選ぶ",
+      "items": [
+        {
+          "name": "成功報酬型",
+          "value": "初期・月額0円。入社承諾1名ごとに課金（27・28卒は1名45万円が目安）"
+        },
+        {
+          "name": "早期定額型",
+          "value": "3名枠75万円〜（目安）。広報解禁前からオファーできる"
+        },
+        {
+          "name": "送信枠",
+          "value": "採用予定1名あたり40枠など、オファー数に上限がある"
+        }
+      ],
+      "calc": {
+        "perHire": [
+          45,
+          45
+        ],
+        "per3": [
+          75,
+          null
+        ]
+      },
+      "src": [
+        [
+          "ネオキャリア OfferBox 料金",
+          "https://www.neo-career.co.jp/humanresource/offerbox/price"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "dodacampus",
+      "models": [
+        "flat"
+      ],
+      "summary": "プラン制。金額は問い合わせ制",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "期間・枠数で決まるプラン制"
+        },
+        {
+          "name": "金額",
+          "value": "非公開（問い合わせ制）"
+        },
+        {
+          "name": "データ",
+          "value": "ベネッセグループの学生データベースを検索できる"
+        }
+      ],
+      "src": [
+        [
+          "HRプロ ベネッセi-キャリア 企業情報",
+          "https://www.hrpro.co.jp/provide_company_detail.php?ccd=00709"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "kimisuka",
+      "models": [
+        "succ",
+        "flat"
+      ],
+      "summary": "成果報酬型と定額型。金額は問い合わせ制",
+      "items": [
+        {
+          "name": "成功報酬型",
+          "value": "採用決定ごとに課金"
+        },
+        {
+          "name": "定額型",
+          "value": "期間契約でスカウトを送る"
+        },
+        {
+          "name": "スカウトの種類",
+          "value": "ゴールド・シルバー・ノーマル（旧プラチナ・本気・気になる）で本気度を示す"
+        }
+      ],
+      "src": [
+        [
+          "ネオキャリア キミスカ 解説",
+          "https://www.neo-career.co.jp/humanresource/kimisuka/strong"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "labbase",
+      "models": [
+        "flat",
+        "succ"
+      ],
+      "summary": "定額型・成功報酬型。金額は問い合わせ制",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "定額型または成功報酬型"
+        },
+        {
+          "name": "金額",
+          "value": "非公開（問い合わせ制）"
+        },
+        {
+          "name": "検索軸",
+          "value": "研究内容・専攻・論文・学会発表"
+        }
+      ],
+      "src": [
+        [
+          "BRIDGE LabBase（旧POL）資金調達",
+          "https://thebridge.jp/2022/09/labbase-series-b-round-funding/"
+        ]
+      ]
+    },
+    {
+      "service": "acaric",
+      "models": [
+        "db",
+        "succ",
+        "ad"
+      ],
+      "summary": "スカウトの利用料、人材紹介の成功報酬、イベント出展",
+      "items": [
+        {
+          "name": "ダイレクトリクルーティング",
+          "value": "大学院生・理系学生へのスカウト利用料"
+        },
+        {
+          "name": "アカリク就職エージェント",
+          "value": "修士・博士の紹介で成功報酬"
+        },
+        {
+          "name": "イベント",
+          "value": "研究職向けイベントの出展"
+        },
+        {
+          "name": "金額",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "アカリク 会社概要（採用ページ）",
+          "https://hrmos.co/pages/acaric/jobs/0000008"
+        ]
+      ]
+    },
+    {
+      "service": "onecareer",
+      "models": [
+        "ad",
+        "post"
+      ],
+      "summary": "企業ページ・イベント・広告の課金。金額は問い合わせ制",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "企業ページの掲載、記事広告、イベント出展"
+        },
+        {
+          "name": "金額",
+          "value": "非公開（問い合わせ制）"
+        }
+      ],
+      "src": [
+        [
+          "ワンキャリア 決算資料（会員数）",
+          "https://www2.jpx.co.jp/disc/43770/140120230515571727.pdf"
+        ]
+      ]
+    },
+    {
+      "service": "gaishishukatsu",
+      "models": [
+        "ad",
+        "post",
+        "db"
+      ],
+      "summary": "掲載・イベント・スカウトの課金",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "企業ページの掲載、イベント、学生へのスカウト"
+        },
+        {
+          "name": "金額",
+          "value": "非公開（問い合わせ制）"
+        }
+      ],
+      "src": [
+        [
+          "ハウテレビジョン 会社ページ（Green）",
+          "https://www.green-japan.com/company/3125"
+        ]
+      ]
+    },
+    {
+      "service": "matcher",
+      "models": [
+        "db"
+      ],
+      "summary": "企業は新卒スカウト「Matcher Scout」のプランを契約",
+      "items": [
+        {
+          "name": "学生・社会人",
+          "value": "無料"
+        },
+        {
+          "name": "企業",
+          "value": "Matcher Scoutの利用料（問い合わせ制）"
+        }
+      ],
+      "src": [
+        [
+          "Matcher 会社のストーリー（Wantedly）",
+          "https://www.wantedly.com/companies/matcher/post_articles/183442"
+        ]
+      ]
+    },
+    {
+      "service": "careerticket",
+      "models": [
+        "succ"
+      ],
+      "summary": "紹介した学生の入社で紹介料が発生する成功報酬",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "成功報酬（紹介料）"
+        },
+        {
+          "name": "料率",
+          "value": "問い合わせ制"
+        },
+        {
+          "name": "特例",
+          "value": "2020年には内定取り消しになった学生の紹介料を無料にする措置を実施"
+        }
+      ],
+      "src": [
+        [
+          "レバレジーズ キャリアチケット ニュースリリース",
+          "https://leverages.jp/wp-content/uploads/2020/03/【ニュースリリース】内定取り消しになった学生の紹介料を無料に.pdf"
+        ]
+      ]
+    },
+    {
+      "service": "supporterz",
+      "models": [
+        "ad",
+        "succ"
+      ],
+      "summary": "イベント参加費と採用時の課金。学生には支援金が出る",
+      "items": [
+        {
+          "name": "イベント",
+          "value": "1on1面談イベント・説明会への参加費"
+        },
+        {
+          "name": "採用",
+          "value": "有料職業紹介の許可あり。採用時の課金もある"
+        },
+        {
+          "name": "学生への支援金",
+          "value": "企業指定の説明会等に参加すると就活資金の一部が支給される"
+        }
+      ],
+      "src": [
+        [
+          "サポーターズ 技育祭 プレスリリース",
+          "https://pc.watch.impress.co.jp/docs/release/newscast/1617707.html"
+        ],
+        [
+          "VOYAGE GROUP「株式会社サポーターズを設立」",
+          "https://www.value-press.com/pressrelease/96668"
+        ]
+      ]
+    },
+    {
+      "service": "levtech-rookie",
+      "models": [
+        "succ",
+        "db"
+      ],
+      "summary": "人材紹介の成功報酬。スカウト機能もある",
+      "items": [
+        {
+          "name": "人材紹介",
+          "value": "入社で成功報酬"
+        },
+        {
+          "name": "スカウト",
+          "value": "プログラミングスキル・志向性で学生を検索して送信"
+        },
+        {
+          "name": "金額",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "レバテック レバテックルーキー プレスリリース",
+          "https://leverages.jp/wp-content/uploads/2021/08/27cdcda02cdf2e946ae534030441d8cf.pdf"
+        ]
+      ]
+    },
+    {
+      "service": "rikunabi-next",
+      "models": [
+        "post"
+      ],
+      "summary": "掲載課金。Indeed PLUS経由で配信される求人もある",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "掲載課金（期間・原稿サイズでプラン）"
+        },
+        {
+          "name": "Indeed PLUS",
+          "value": "連携ATSに投稿した求人がIndeed・タウンワーク等へ自動配信される"
+        },
+        {
+          "name": "スカウト",
+          "value": "オファー機能あり"
+        }
+      ],
+      "src": [
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ],
+        [
+          "Indeed「Indeed PLUSに新しく4つの求人サイトが参画」",
+          "https://jp.indeed.com/news/releases/20240312"
+        ]
+      ]
+    },
+    {
+      "service": "doda",
+      "models": [
+        "post",
+        "succ",
+        "db"
+      ],
+      "summary": "求人広告は掲載課金、エージェントは成功報酬、スカウトは利用料",
+      "items": [
+        {
+          "name": "求人広告",
+          "value": "掲載課金"
+        },
+        {
+          "name": "dodaエージェント",
+          "value": "入社で成功報酬（理論年収の一定割合）"
+        },
+        {
+          "name": "スカウト",
+          "value": "データベース利用料"
+        },
+        {
+          "name": "ハイクラス",
+          "value": "doda X（年収600万円以上向け、2022年にiXから改称）"
+        }
+      ],
+      "src": [
+        [
+          "パーソルキャリア doda転職求人倍率レポート",
+          "https://www.saiyo-doda.jp/wp-content/uploads/doda_KyujinbairitsuReport_202101b.pdf"
+        ]
+      ]
+    },
+    {
+      "service": "mynavi-tenshoku",
+      "models": [
+        "post"
+      ],
+      "summary": "4週間・1職種で20万〜120万円の5プラン（目安）",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "掲載課金（4週間＝1クール）"
+        },
+        {
+          "name": "MT-S",
+          "value": "120万円（4週間・目安）"
+        },
+        {
+          "name": "MT-A",
+          "value": "75万円"
+        },
+        {
+          "name": "MT-B",
+          "value": "50万円"
+        },
+        {
+          "name": "MT-C",
+          "value": "35万円"
+        },
+        {
+          "name": "MT-D",
+          "value": "20万円"
+        },
+        {
+          "name": "長期プラン",
+          "value": "2026年6月新設のプラチナ企画、12週間60万円〜"
+        }
+      ],
+      "calc": {
+        "per4w": [
+          20,
+          120
+        ]
+      },
+      "src": [
+        [
+          "ネオキャリア マイナビ転職 料金",
+          "https://www.neo-career.co.jp/humanresource/middlecareerservice/site/mynavitensyoku/price/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "en-tenshoku",
+      "models": [
+        "post"
+      ],
+      "summary": "掲載課金。金額は問い合わせ制",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "掲載課金（基本企画はプラン制。原稿のボリュームは予算によらず一律）"
+        },
+        {
+          "name": "スカウト",
+          "value": "ターゲットオファー 1,000通20万円〜10,000通140万円（目安）"
+        },
+        {
+          "name": "原稿",
+          "value": "取材担当が「やりがい・厳しさ」「向き・不向き」まで書く"
+        },
+        {
+          "name": "基本企画の金額",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "ネオキャリア エン転職 料金・解説",
+          "https://www.neo-career.co.jp/humanresource/middlecareerservice/site/entensyoku/price"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "type",
+      "models": [
+        "post"
+      ],
+      "summary": "掲載課金。女の転職typeは4週間25万円〜が目安",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "掲載課金"
+        },
+        {
+          "name": "女の転職type",
+          "value": "4週間25万円〜（目安）"
+        },
+        {
+          "name": "イベント",
+          "value": "転職フェアの出展"
+        }
+      ],
+      "calc": {
+        "per4w": [
+          25,
+          null
+        ]
+      },
+      "src": [
+        [
+          "お名前.com 女の転職type 解説",
+          "https://www.onamae.com/business/article/305810/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "green",
+      "models": [
+        "succ"
+      ],
+      "summary": "初期費用＋採用1名30万〜120万円の成功報酬（目安）",
+      "items": [
+        {
+          "name": "初期費用",
+          "value": "あり"
+        },
+        {
+          "name": "成功報酬",
+          "value": "採用1名あたり30万〜120万円（目安）"
+        },
+        {
+          "name": "掲載",
+          "value": "期間・求人数とも無制限"
+        },
+        {
+          "name": "スカウト",
+          "value": "データベース検索と月1,000通までの送信が追加費用なし"
+        }
+      ],
+      "calc": {
+        "perHire": [
+          30,
+          120
+        ]
+      },
+      "src": [
+        [
+          "BOXIL Green 料金",
+          "https://boxil.jp/service/673/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "r-agent",
+      "models": [
+        "succ"
+      ],
+      "summary": "入社者の理論年収の一定割合（業界では35%前後が一般的）",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "成功報酬（入社時）"
+        },
+        {
+          "name": "料率",
+          "value": "理論年収の一定割合。業界では30〜35%程度が一般的"
+        },
+        {
+          "name": "返金",
+          "value": "早期退職時は在籍期間に応じて一部返金"
+        },
+        {
+          "name": "着手金",
+          "value": "なし（一般的な成功報酬型）"
+        }
+      ],
+      "src": [
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ],
+        [
+          "リクルートエージェント 法人向け解説（紹介手数料）",
+          "https://www.r-agent.com/business/knowhow/article/22565/"
+        ]
+      ]
+    },
+    {
+      "service": "pasona-career",
+      "models": [
+        "succ"
+      ],
+      "summary": "入社で成功報酬",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "成功報酬（入社時）"
+        },
+        {
+          "name": "料率",
+          "value": "問い合わせ制"
+        },
+        {
+          "name": "求人",
+          "value": "公開求人約4.9万件（2025年8月時点）、約半数が年収800万円以上"
+        }
+      ],
+      "src": [
+        [
+          "AXXIS パソナキャリア 解説",
+          "https://axxis.co.jp/magazine/58667"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "jac",
+      "models": [
+        "succ"
+      ],
+      "summary": "入社で成功報酬",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "成功報酬（入社時）"
+        },
+        {
+          "name": "料率",
+          "value": "問い合わせ制"
+        },
+        {
+          "name": "体制",
+          "value": "1人のコンサルタントが企業と求職者の両方を担当する両面型"
+        }
+      ],
+      "src": [
+        [
+          "AXXIS JACリクルートメント 解説",
+          "https://axxis.co.jp/magazine/32976"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "levtech-career",
+      "models": [
+        "succ"
+      ],
+      "summary": "入社で成功報酬",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "成功報酬（入社時）"
+        },
+        {
+          "name": "料率",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "レバテック レバテックキャリア プレスリリース",
+          "https://leverages.jp/wp-content/uploads/2021/06/6df908999d6717fa8a349651608ca916.pdf"
+        ]
+      ]
+    },
+    {
+      "service": "bizreach",
+      "models": [
+        "db",
+        "succ"
+      ],
+      "summary": "システム利用料（2プラン）＋採用時の成功報酬",
+      "items": [
+        {
+          "name": "システム利用料",
+          "value": "スタンダード／プレミアム。月ごとのスカウト送信数が決まっている"
+        },
+        {
+          "name": "成功報酬",
+          "value": "ビズリーチ経由で入社したときに発生"
+        },
+        {
+          "name": "金額",
+          "value": "問い合わせ制"
+        },
+        {
+          "name": "求職者",
+          "value": "無料プランと有料プランがある"
+        }
+      ],
+      "src": [
+        [
+          "ネオキャリア ビズリーチ 料金",
+          "https://www.neo-career.co.jp/humanresource/bizreach/price/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "r-direct-scout",
+      "models": [
+        "succ"
+      ],
+      "summary": "ヘッドハンター・企業経由の成功報酬が中心",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "採用時の成功報酬が中心"
+        },
+        {
+          "name": "求職者",
+          "value": "無料"
+        },
+        {
+          "name": "金額",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ]
+      ]
+    },
+    {
+      "service": "ambi",
+      "models": [
+        "db",
+        "succ"
+      ],
+      "summary": "スカウト利用料＋成功報酬",
+      "items": [
+        {
+          "name": "スカウト",
+          "value": "データベース利用料"
+        },
+        {
+          "name": "成功報酬",
+          "value": "採用時に発生"
+        },
+        {
+          "name": "金額",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "AXXIS AMBI 解説",
+          "https://axxis.co.jp/magazine/55736"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "miidas",
+      "models": [
+        "flat"
+      ],
+      "summary": "完全定額制。何人採用しても追加料金なし",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "完全定額制"
+        },
+        {
+          "name": "上限",
+          "value": "求人掲載数・オファー数に関係なし"
+        },
+        {
+          "name": "成果報酬",
+          "value": "なし（採用時の追加料金なし）"
+        },
+        {
+          "name": "金額",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "ASPIC ミイダス サービス紹介",
+          "https://www.aspicjapan.org/asu/service/11462"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "findy",
+      "models": [
+        "db"
+      ],
+      "summary": "スカウト型。料金は非公開",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "スカウトサービスの利用料（詳細は非公開）"
+        },
+        {
+          "name": "金額",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "BRIDGE ファインディ紹介",
+          "https://thebridge.jp/2022/01/bridge-tokyo-2022-intro-showcase-nominee-findy"
+        ]
+      ]
+    },
+    {
+      "service": "forkwell",
+      "models": [
+        "db"
+      ],
+      "summary": "スカウト利用料。金額は問い合わせ制",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "スカウトの利用料"
+        },
+        {
+          "name": "金額",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "ASCII Forkwell（grooves）記事",
+          "https://ascii.jp/elem/000/004/063/4063646/"
+        ]
+      ]
+    },
+    {
+      "service": "re-shukatsu",
+      "models": [
+        "post",
+        "ad"
+      ],
+      "summary": "掲載課金。金額は問い合わせ制",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "掲載課金"
+        },
+        {
+          "name": "イベント",
+          "value": "20代向け転職博の出展"
+        },
+        {
+          "name": "エージェント",
+          "value": "re就活エージェントもある"
+        }
+      ],
+      "src": [
+        [
+          "ネオキャリア Re就活 解説",
+          "https://www.neo-career.co.jp/humanresource/middlecareerservice/site/reshukatsu"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "jobmedley",
+      "models": [
+        "free",
+        "succ"
+      ],
+      "summary": "掲載無料。採用1名4万円〜の成功報酬（目安）",
+      "items": [
+        {
+          "name": "掲載",
+          "value": "無料"
+        },
+        {
+          "name": "成功報酬",
+          "value": "採用1名あたり4万円〜（目安）"
+        }
+      ],
+      "calc": {
+        "perHire": [
+          4,
+          null
+        ]
+      },
+      "src": [
+        [
+          "店舗オーナー支援 ジョブメドレー料金解説",
+          "https://www.shopowner-support.net/?p=60336"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "indeed",
+      "models": [
+        "free",
+        "click"
+      ],
+      "summary": "無料掲載＋クリック課金。Indeed PLUSで連携サイトに自動配信",
+      "items": [
+        {
+          "name": "無料掲載",
+          "value": "可能"
+        },
+        {
+          "name": "有料掲載",
+          "value": "クリック課金（予算は企業が設定）"
+        },
+        {
+          "name": "Indeed PLUS",
+          "value": "2024年1月開始。連携ATSの求人を最適な連携サイトへ自動配信"
+        },
+        {
+          "name": "連携先",
+          "value": "リクナビNEXT、タウンワーク、とらばーゆ、はたらいく、フロム・エー ナビ、他社サイトなど"
+        }
+      ],
+      "src": [
+        [
+          "Indeed「求人配信プラットフォームIndeed PLUS 提供開始」",
+          "https://jp.indeed.com/news/releases/20240130"
+        ],
+        [
+          "Indeed「Indeed PLUSに新しく4つの求人サイトが参画」",
+          "https://jp.indeed.com/news/releases/20240312"
+        ],
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ]
+      ]
+    },
+    {
+      "service": "kyujinbox",
+      "models": [
+        "free",
+        "click"
+      ],
+      "summary": "無料掲載＋クリック単価25円〜1,000円の入札（目安）",
+      "items": [
+        {
+          "name": "無料掲載",
+          "value": "0円"
+        },
+        {
+          "name": "有料掲載",
+          "value": "クリック数×入札単価"
+        },
+        {
+          "name": "入札単価",
+          "value": "25円〜1,000円（目安）"
+        },
+        {
+          "name": "日額予算",
+          "value": "500円から設定可能（目安）"
+        }
+      ],
+      "src": [
+        [
+          "ネオキャリア 求人ボックス 料金",
+          "https://www.neo-career.co.jp/humanresource/kyuzinbox/price"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "openwork",
+      "models": [
+        "post",
+        "db",
+        "succ"
+      ],
+      "summary": "求人掲載・スカウト・成功報酬の組み合わせ",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "求人掲載、スカウト、採用時の成功報酬"
+        },
+        {
+          "name": "金額",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "オープンワーク プレスリリース（評価8項目）",
+          "https://kyodonewsprwire.jp/prwfile/release/M102870/202501283428/_prw_PR1fl_6fRZiNFF.pdf"
+        ]
+      ]
+    },
+    {
+      "service": "tenshoku-kaigi",
+      "models": [
+        "post",
+        "ad"
+      ],
+      "summary": "求人掲載・広告",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "求人掲載、広告"
+        },
+        {
+          "name": "金額",
+          "value": "問い合わせ制"
+        }
+      ],
+      "src": [
+        [
+          "リブセンス 統合報告書2025",
+          "https://www.livesense.co.jp/wp-content/uploads/2025/06/16/1317/integrated-report2025-1.pdf"
+        ]
+      ]
+    },
+    {
+      "service": "wantedly",
+      "models": [
+        "flat"
+      ],
+      "summary": "月額5万円〜の定額。初期費用・成果報酬0円",
+      "items": [
+        {
+          "name": "ライト",
+          "value": "6か月39万円〜（スカウトなし）"
+        },
+        {
+          "name": "スタンダード",
+          "value": "6か月90万円〜（ダイレクトスカウト付き）"
+        },
+        {
+          "name": "プレミアム",
+          "value": "6か月132万円〜"
+        },
+        {
+          "name": "契約期間",
+          "value": "6・12・24か月"
+        },
+        {
+          "name": "成果報酬",
+          "value": "なし（何人採用しても同額）"
+        },
+        {
+          "name": "オプション",
+          "value": "広告は別料金"
+        }
+      ],
+      "calc": {
+        "per6m": [
+          39,
+          132
+        ]
+      },
+      "official": "https://www.wantedly.com/hiringeek/?p=1108",
+      "src": [
+        [
+          "Wantedly 企業向け解説（料金）",
+          "https://www.wantedly.com/hiringeek/?p=1108"
+        ]
+      ]
+    },
+    {
+      "service": "youtrust",
+      "models": [
+        "flat"
+      ],
+      "summary": "法人向けタレントプールのプラン。個人は無料",
+      "items": [
+        {
+          "name": "法人",
+          "value": "タレントプールのプラン（問い合わせ制）"
+        },
+        {
+          "name": "個人",
+          "value": "無料（募集の掲載も可能）"
+        }
+      ],
+      "src": [
+        [
+          "BRIDGE YOUTRUST シリーズC調達",
+          "https://thebridge.jp/2024/05/youtrust-series-c-round-funding"
+        ]
+      ]
+    },
+    {
+      "service": "linkedin",
+      "models": [
+        "db",
+        "post"
+      ],
+      "summary": "リクルーター向け有料ツール＋求人掲載は別売り",
+      "items": [
+        {
+          "name": "Recruiter Lite",
+          "value": "月額約140〜170ドル（目安、月30通のInMail付き）"
+        },
+        {
+          "name": "求人掲載",
+          "value": "別料金"
+        }
+      ],
+      "src": [
+        [
+          "Business Insider Japan LinkedIn 日本の登録者数",
+          "https://www.businessinsider.jp/post-264666"
+        ]
+      ]
+    }
+  ]
+}

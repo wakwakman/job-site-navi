@@ -1,0 +1,664 @@
+{
+  "updated": "2026-10-25",
+  "groups": [
+    {
+      "id": "recruit",
+      "name": "リクルートグループ",
+      "note": "2025年4月の体制変更で、求人サービスの提供会社がリクルートから2社に移りました。"
+    },
+    {
+      "id": "persol",
+      "name": "パーソルグループ",
+      "note": "dodaキャンパスはベネッセホールディングスとの合弁会社が運営しています。"
+    },
+    {
+      "id": "mynavi",
+      "name": "マイナビ",
+      "note": "新卒・中途・エージェントを1社で運営しています。"
+    },
+    {
+      "id": "en",
+      "name": "エン",
+      "note": "2025年10月にエン・ジャパンから商号変更しました。"
+    },
+    {
+      "id": "leverages",
+      "name": "レバレジーズグループ",
+      "note": "新卒エージェントとIT特化の人材紹介を持ちます。"
+    },
+    {
+      "id": "gakujo",
+      "name": "学情",
+      "note": "20代・新卒の採用支援に特化しています。"
+    },
+    {
+      "id": "listed",
+      "name": "上場している独立系",
+      "note": ""
+    },
+    {
+      "id": "sub",
+      "name": "上場企業の子会社",
+      "note": ""
+    },
+    {
+      "id": "private",
+      "name": "非上場・その他",
+      "note": ""
+    }
+  ],
+  "companies": [
+    {
+      "id": "indeed-japan",
+      "name": "Indeed Japan",
+      "group": "recruit",
+      "capital": "リクルートホールディングス傘下。リクナビ（27卒以降向け）・リクナビNEXT・タウンワークなどは2025年4月にリクルートから移管",
+      "listed": "親会社のリクルートホールディングスが東証上場（6098）",
+      "services": [
+        "rikunabi",
+        "rikunabi-next",
+        "indeed"
+      ],
+      "src": [
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ],
+        [
+          "日本経済新聞「リクルートHD、求人サイトをインディードの部門直轄に」",
+          "https://www.nikkei.com/article/DGXZQOUC098IW0Z00C24A9000000/"
+        ],
+        [
+          "みんかぶ 人材紹介関連銘柄",
+          "https://minkabu.jp/theme/人材紹介"
+        ]
+      ]
+    },
+    {
+      "id": "mynavi-corp",
+      "name": "マイナビ",
+      "group": "mynavi",
+      "capital": "1973年に毎日コミュニケーションズとして創業し、2011年に現社名。毎日新聞社の持株比率は10%未満と報じられている",
+      "listed": "—",
+      "services": [
+        "mynavi",
+        "mynavi-tenshoku"
+      ],
+      "src": [
+        [
+          "マイナビ 会社概要（採用資料）",
+          "https://www.mynavi.jp/saiyou/it/wp-content/uploads/2024/04/company_information.pdf"
+        ],
+        [
+          "ONE CAREER PLUS マイナビの解説",
+          "https://plus.onecareer.jp/articles/889"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "disco",
+      "name": "ディスコ",
+      "group": "private",
+      "capital": "独立系。2022年にジャフコグループが資本参加。半導体装置のディスコとは別会社",
+      "listed": "—",
+      "services": [
+        "caritasu"
+      ],
+      "src": [
+        [
+          "ジャフコ グループ ニュースリリース（ディスコへの資本参加）",
+          "https://www.jafco.co.jp/information/news/upload/4dc6dfc6f0548b6d75a5b505f84942060eee8096.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "gakujo",
+      "name": "学情",
+      "group": "gakujo",
+      "capital": "独立系。20代・新卒の採用支援に特化し、合同企業セミナー「就職博」を1984年から開催",
+      "listed": "東証上場（2301）",
+      "services": [
+        "recampus",
+        "re-shukatsu"
+      ],
+      "src": [
+        [
+          "学情 用語解説（Re就活キャンパス・就職博）",
+          "https://kitaishihon.com/company/2301/glossary"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "iplug",
+      "name": "i-plug",
+      "group": "listed",
+      "capital": "独立系",
+      "listed": "東証グロース上場（4177）",
+      "services": [
+        "offerbox"
+      ],
+      "src": [
+        [
+          "i-plug 決算短信（JPX）",
+          "https://www2.jpx.co.jp/disc/41770/140120250514550792.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "benesse-icareer",
+      "name": "ベネッセi-キャリア",
+      "group": "persol",
+      "capital": "ベネッセホールディングスとパーソルキャリアの合弁会社",
+      "listed": "—",
+      "services": [
+        "dodacampus"
+      ],
+      "src": [
+        [
+          "HRプロ ベネッセi-キャリア 企業情報",
+          "https://www.hrpro.co.jp/provide_company_detail.php?ccd=00709"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "growup",
+      "name": "グローアップ",
+      "group": "sub",
+      "capital": "プラスアルファ・コンサルティングの子会社（2022年10月から）",
+      "listed": "親会社のプラスアルファ・コンサルティングが東証プライム上場（4071）",
+      "services": [
+        "kimisuka"
+      ],
+      "src": [
+        [
+          "キャリコネ グローアップの求人情報",
+          "https://careerconnection.jp/job/A0223015659152-detail"
+        ],
+        [
+          "ジョーカツ プラスアルファ・コンサルティングの解説",
+          "https://jo-katsu.com/?p=7766"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "labbase-corp",
+      "name": "LabBase",
+      "group": "private",
+      "capital": "独立系スタートアップ（2016年創業、旧社名 POL）",
+      "listed": "非上場（ベンチャーキャピタルから資金調達）",
+      "services": [
+        "labbase"
+      ],
+      "src": [
+        [
+          "BRIDGE LabBase（旧POL）資金調達",
+          "https://thebridge.jp/2022/09/labbase-series-b-round-funding/"
+        ]
+      ]
+    },
+    {
+      "id": "acaric-corp",
+      "name": "アカリク",
+      "group": "private",
+      "capital": "独立系（2006年創業）",
+      "listed": "—",
+      "services": [
+        "acaric"
+      ],
+      "src": [
+        [
+          "アカリク 会社概要（採用ページ）",
+          "https://hrmos.co/pages/acaric/jobs/0000008"
+        ]
+      ]
+    },
+    {
+      "id": "onecareer-corp",
+      "name": "ワンキャリア",
+      "group": "listed",
+      "capital": "独立系。転職版の ONE CAREER PLUS も運営",
+      "listed": "東証グロース上場（4377）",
+      "services": [
+        "onecareer"
+      ],
+      "src": [
+        [
+          "ワンキャリア 決算資料（会員数）",
+          "https://www2.jpx.co.jp/disc/43770/140120230515571727.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "howtv",
+      "name": "ハウテレビジョン",
+      "group": "listed",
+      "capital": "独立系。社会人向けに外資就活ネクストも運営",
+      "listed": "東証スタンダード上場（7064）。2026年2月にグロースから移行",
+      "services": [
+        "gaishishukatsu"
+      ],
+      "src": [
+        [
+          "ハウテレビジョン 会社ページ（Green）",
+          "https://www.green-japan.com/company/3125"
+        ],
+        [
+          "j-lic ハウテレビジョン（7064）",
+          "https://j-lic.com/companies/7064"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "matcher-corp",
+      "name": "Matcher",
+      "group": "private",
+      "capital": "独立系（2015年創業）",
+      "listed": "—",
+      "services": [
+        "matcher"
+      ],
+      "src": [
+        [
+          "Matcher 会社のストーリー（Wantedly）",
+          "https://www.wantedly.com/companies/matcher/post_articles/183442"
+        ]
+      ]
+    },
+    {
+      "id": "leverages",
+      "name": "レバレジーズ",
+      "group": "leverages",
+      "capital": "独立系。2005年創業で、IT・ヘルスケアなど約60の事業を展開（同社採用ページ）",
+      "listed": "—",
+      "services": [
+        "careerticket"
+      ],
+      "src": [
+        [
+          "レバレジーズ 採用ページ",
+          "https://hrmos.co/pages/leverages/jobs/A_e_00025"
+        ]
+      ]
+    },
+    {
+      "id": "supporterz-corp",
+      "name": "サポーターズ",
+      "group": "sub",
+      "capital": "CARTA HOLDINGS の子会社",
+      "listed": "親会社の CARTA HOLDINGS が東証プライム上場（3688）",
+      "services": [
+        "supporterz"
+      ],
+      "src": [
+        [
+          "サポーターズ 技育祭 プレスリリース",
+          "https://pc.watch.impress.co.jp/docs/release/newscast/1617707.html"
+        ],
+        [
+          "CARTA HOLDINGS 適時開示（JPX）",
+          "https://www2.jpx.co.jp/disc/36880/140120240919586495.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "levtech",
+      "name": "レバテック",
+      "group": "leverages",
+      "capital": "レバレジーズのグループ会社。IT人材の支援事業を担う",
+      "listed": "—",
+      "services": [
+        "levtech-rookie",
+        "levtech-career"
+      ],
+      "src": [
+        [
+          "レバテック レバテックキャリア プレスリリース",
+          "https://leverages.jp/wp-content/uploads/2021/06/6df908999d6717fa8a349651608ca916.pdf"
+        ],
+        [
+          "レバレジーズ 採用ページ",
+          "https://hrmos.co/pages/leverages/jobs/A_e_00025"
+        ]
+      ]
+    },
+    {
+      "id": "persol-career",
+      "name": "パーソルキャリア",
+      "group": "persol",
+      "capital": "パーソルホールディングス傘下",
+      "listed": "親会社のパーソルホールディングスが東証上場（2181）",
+      "services": [
+        "doda"
+      ],
+      "src": [
+        [
+          "パーソルキャリア doda転職求人倍率レポート",
+          "https://www.saiyo-doda.jp/wp-content/uploads/doda_KyujinbairitsuReport_202101b.pdf"
+        ],
+        [
+          "みんかぶ 人材紹介関連銘柄",
+          "https://minkabu.jp/theme/人材紹介"
+        ]
+      ]
+    },
+    {
+      "id": "en",
+      "name": "エン",
+      "group": "en",
+      "capital": "独立系。2025年10月にエン・ジャパンから商号変更",
+      "listed": "東証上場（4849）",
+      "services": [
+        "en-tenshoku",
+        "ambi"
+      ],
+      "src": [
+        [
+          "エン・ジャパン 適時開示（商号変更）",
+          "https://www2.jpx.co.jp/disc/48490/140120250425523949.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "cdc",
+      "name": "キャリアデザインセンター",
+      "group": "listed",
+      "capital": "独立系。1993年から type を運営",
+      "listed": "東証プライム上場（2410）",
+      "services": [
+        "type"
+      ],
+      "src": [
+        [
+          "シェアードリサーチ キャリアデザインセンター（2410）",
+          "https://sharedresearch.jp/ja/companies/2410"
+        ],
+        [
+          "お名前.com 女の転職type 解説",
+          "https://www.onamae.com/business/article/305810/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "atrae",
+      "name": "アトラエ",
+      "group": "listed",
+      "capital": "独立系",
+      "listed": "東証プライム上場（6194）",
+      "services": [
+        "green"
+      ],
+      "src": [
+        [
+          "アトラエ 市場変更のお知らせ（JPX）",
+          "https://www2.jpx.co.jp/disc/61940/140120180612462973.pdf"
+        ],
+        [
+          "j-lic アトラエ（6194）",
+          "https://j-lic.com/companies/6194"
+        ]
+      ]
+    },
+    {
+      "id": "irp",
+      "name": "インディードリクルートパートナーズ",
+      "group": "recruit",
+      "capital": "リクルートホールディングス傘下。リクルートエージェント・リクルートダイレクトスカウトなどは2025年4月にリクルートから移管",
+      "listed": "親会社のリクルートホールディングスが東証上場（6098）",
+      "services": [
+        "r-agent",
+        "r-direct-scout"
+      ],
+      "src": [
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ],
+        [
+          "日本経済新聞「リクルートHD、求人サイトをインディードの部門直轄に」",
+          "https://www.nikkei.com/article/DGXZQOUC098IW0Z00C24A9000000/"
+        ]
+      ]
+    },
+    {
+      "id": "pasona",
+      "name": "パソナ",
+      "group": "sub",
+      "capital": "パソナグループ傘下",
+      "listed": "親会社のパソナグループが東証上場（2168）",
+      "services": [
+        "pasona-career"
+      ],
+      "src": [
+        [
+          "みんかぶ 人材紹介関連銘柄",
+          "https://minkabu.jp/theme/人材紹介"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "jac-corp",
+      "name": "ジェイ エイ シー リクルートメント",
+      "group": "listed",
+      "capital": "独立系",
+      "listed": "東証プライム上場（2124）",
+      "services": [
+        "jac"
+      ],
+      "src": [
+        [
+          "JACリクルートメント プレスリリース（2025年5月）",
+          "https://corp.jac-recruitment.jp/press/info/250501.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "bizreach-corp",
+      "name": "ビズリーチ",
+      "group": "sub",
+      "capital": "Visional（ビジョナル）の子会社",
+      "listed": "親会社の Visional が東証プライム上場（4194）",
+      "services": [
+        "bizreach"
+      ],
+      "src": [
+        [
+          "Visional 適時開示（JPX）",
+          "https://www2.jpx.co.jp/disc/41940/140120230911553050.pdf"
+        ],
+        [
+          "j-lic Visional（4194）",
+          "https://j-lic.com/companies/4194"
+        ]
+      ]
+    },
+    {
+      "id": "miidas-corp",
+      "name": "ミイダス",
+      "group": "persol",
+      "capital": "パーソルグループ。2019年4月にパーソルキャリアの社内ベンチャーから分社",
+      "listed": "—（親会社のパーソルホールディングスは東証上場）",
+      "services": [
+        "miidas"
+      ],
+      "src": [
+        [
+          "ASPIC ミイダス サービス紹介",
+          "https://www.aspicjapan.org/asu/service/11462"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "findy-corp",
+      "name": "ファインディ",
+      "group": "private",
+      "capital": "独立系",
+      "listed": "非上場（上場準備中と自社の求人に記載）",
+      "services": [
+        "findy"
+      ],
+      "src": [
+        [
+          "BRIDGE ファインディ紹介",
+          "https://thebridge.jp/2022/01/bridge-tokyo-2022-intro-showcase-nominee-findy"
+        ],
+        [
+          "ファインディ 採用ページ",
+          "https://herp.careers/v1/findy/ap2DaKlfLHEd"
+        ]
+      ]
+    },
+    {
+      "id": "grooves",
+      "name": "grooves",
+      "group": "private",
+      "capital": "独立系",
+      "listed": "—",
+      "services": [
+        "forkwell"
+      ],
+      "src": [
+        [
+          "ASCII Forkwell（grooves）記事",
+          "https://ascii.jp/elem/000/004/063/4063646/"
+        ]
+      ]
+    },
+    {
+      "id": "medley",
+      "name": "メドレー",
+      "group": "listed",
+      "capital": "独立系",
+      "listed": "東証プライム上場（4480）",
+      "services": [
+        "jobmedley"
+      ],
+      "src": [
+        [
+          "メドレー 決算短信（JPX）",
+          "https://www2.jpx.co.jp/disc/44800/140120230512569278.pdf"
+        ],
+        [
+          "j-lic メドレー（4480）",
+          "https://j-lic.com/companies/4480"
+        ]
+      ]
+    },
+    {
+      "id": "kakaku",
+      "name": "カカクコム",
+      "group": "listed",
+      "capital": "独立系。EQT傘下の Kamgras 1 による非公開化の公開買付けが進行中（期限は2026年10月28日）",
+      "listed": "東証プライム上場（2371）。公開買付けが成立すると上場廃止の予定",
+      "services": [
+        "kyujinbox"
+      ],
+      "src": [
+        [
+          "カカクコム 採用ページ（会社概要）",
+          "https://hrmos.co/pages/kakakucom/jobs/100000035"
+        ],
+        [
+          "三菱UFJモルガン・スタンレー証券 TOB情報（カカクコム）",
+          "https://www.sc.mufg.jp/products/stock/tob/2371.html"
+        ],
+        [
+          "Impress Watch「カカクコム、欧州のファンドが買収」",
+          "https://www.watch.impress.co.jp/docs/news/2108381.html"
+        ]
+      ]
+    },
+    {
+      "id": "openwork-corp",
+      "name": "オープンワーク",
+      "group": "listed",
+      "capital": "独立系",
+      "listed": "東証グロース上場（5139）",
+      "services": [
+        "openwork"
+      ],
+      "src": [
+        [
+          "オープンワーク プレスリリース（評価8項目）",
+          "https://kyodonewsprwire.jp/prwfile/release/M102870/202501283428/_prw_PR1fl_6fRZiNFF.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "livesense",
+      "name": "リブセンス",
+      "group": "listed",
+      "capital": "独立系",
+      "listed": "東証スタンダード上場（6054）",
+      "services": [
+        "tenshoku-kaigi"
+      ],
+      "src": [
+        [
+          "リブセンス 決算短信（JPX）",
+          "https://www2.jpx.co.jp/disc/60540/140120250210568794.pdf"
+        ],
+        [
+          "リブセンス 統合報告書2025",
+          "https://www.livesense.co.jp/wp-content/uploads/2025/06/16/1317/integrated-report2025-1.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "wantedly-corp",
+      "name": "ウォンテッドリー",
+      "group": "listed",
+      "capital": "独立系",
+      "listed": "東証グロース上場（3991）",
+      "services": [
+        "wantedly"
+      ],
+      "src": [
+        [
+          "j-lic ウォンテッドリー（3991）",
+          "https://j-lic.com/companies/3991"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "youtrust-corp",
+      "name": "YOUTRUST",
+      "group": "private",
+      "capital": "独立系スタートアップ（2024年5月にシリーズCで20億円を調達）",
+      "listed": "非上場",
+      "services": [
+        "youtrust"
+      ],
+      "src": [
+        [
+          "BRIDGE YOUTRUST シリーズC調達",
+          "https://thebridge.jp/2024/05/youtrust-series-c-round-funding"
+        ]
+      ]
+    },
+    {
+      "id": "linkedin-corp",
+      "name": "LinkedIn",
+      "group": "private",
+      "capital": "Microsoft の子会社（2016年に約262億ドルで買収）",
+      "listed": "親会社の Microsoft が米国上場",
+      "services": [
+        "linkedin"
+      ],
+      "src": [
+        [
+          "マイクロソフト「マイクロソフト、LinkedIn を買収」",
+          "https://news.microsoft.com/ja-jp/2016/06/14/160614-microsoft-linkedin/"
+        ]
+      ]
+    }
+  ]
+}

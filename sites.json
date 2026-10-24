@@ -1,0 +1,840 @@
+{
+  "updated": "2026-10-25",
+  "segments": {
+    "new": "新卒",
+    "mid": "中途",
+    "both": "新卒・中途"
+  },
+  "changes": [
+    {
+      "date": "2026-06",
+      "title": "マイナビ転職が長期プランを新設",
+      "text": "12週間60万円からのプラチナ企画を追加した。",
+      "service": "mynavi-tenshoku",
+      "src": [
+        [
+          "ネオキャリア マイナビ転職 料金",
+          "https://www.neo-career.co.jp/humanresource/middlecareerservice/site/mynavitensyoku/price/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "date": "2026-03",
+      "title": "政府が就活日程ルールの順守を要請",
+      "text": "28卒は従来日程。29卒以降は選考日程の前倒しを検討している。",
+      "go": "schedule",
+      "src": [
+        [
+          "共同通信（OANDA掲載）「就活日程のルール順守を要請」",
+          "https://www.oanda.jp/lab-education/market_news/kn_2026032401000754/"
+        ]
+      ]
+    },
+    {
+      "date": "2025-10",
+      "title": "エン・ジャパンが「エン」に商号変更",
+      "text": "エン転職・AMBI の運営会社名が変わった。",
+      "service": "en-tenshoku",
+      "src": [
+        [
+          "エン・ジャパン 適時開示（商号変更）",
+          "https://www2.jpx.co.jp/disc/48490/140120250425523949.pdf"
+        ]
+      ]
+    },
+    {
+      "date": "2025-04",
+      "title": "リクルートが求人サービスを再編",
+      "text": "リクナビ・リクナビNEXT は Indeed Japan へ、リクルートエージェントなどはインディードリクルートパートナーズへ移管した。",
+      "go": "operators",
+      "src": [
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ]
+      ]
+    },
+    {
+      "date": "27卒〜",
+      "title": "リクナビが学年統合・クリック課金に",
+      "text": "求人は職種単位になり、掲載課金を廃止した。",
+      "service": "rikunabi",
+      "src": [
+        [
+          "フロッグ「2026年6月度 リクナビリニューアル分析レポート」",
+          "https://prtimes.jp/main/html/rd/p/000000143.000148054.html"
+        ]
+      ],
+      "secondary": true
+    }
+  ],
+  "sites": [
+    {
+      "id": "rikunabi",
+      "name": "リクナビ",
+      "seg": "new",
+      "type": "ナビ",
+      "kind": "就職ナビ（学年統合・職種単位）",
+      "company": "indeed-japan",
+      "info": "職種・コース単位の求人、説明会・インターン予約、エントリー、OpenES。卒業年度別のサイトをやめ全学年共通に",
+      "co": "大手から中小まで全業界。1社が職種ごとに複数の求人を出す形になった",
+      "user": "ほぼ全ての就活生が登録する定番。低学年からの利用も想定",
+      "point": "「企業を探す」から「仕事を探す」への転換。新卒ナビでありながら中途の求人サイトに近い仕組み",
+      "src": [
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ],
+        [
+          "フロッグ「2026年6月度 リクナビリニューアル分析レポート」",
+          "https://prtimes.jp/main/html/rd/p/000000143.000148054.html"
+        ]
+      ]
+    },
+    {
+      "id": "mynavi",
+      "name": "マイナビ",
+      "seg": "new",
+      "type": "ナビ",
+      "kind": "就職ナビ",
+      "company": "mynavi-corp",
+      "info": "採用ページ、説明会予約、合同企業説明会（マイナビ就職EXPO）、地域別の求人",
+      "co": "マイナビ2027の掲載企業は約28,000社。中堅・中小企業や地方企業が特に多い",
+      "user": "マイナビ2027の登録学生は約80万人。地方の学生にも強い",
+      "point": "リクナビがクリック課金に移った後も、掲載課金型の新卒ナビの代表",
+      "src": [
+        [
+          "ネオキャリア マイナビ2027 掲載社数・料金",
+          "https://www.neo-career.co.jp/humanresource/mynavi2027"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "caritasu",
+      "name": "キャリタス就活",
+      "seg": "new",
+      "type": "ナビ",
+      "kind": "就職ナビ",
+      "company": "disco",
+      "info": "採用ページ、業界研究、合同企業説明会「キャリタス就活フォーラム」、学校への求人票配信の実績表示",
+      "co": "大手・優良企業が中心。BtoBメーカーや老舗企業が目立つ",
+      "user": "大手志向の学生、理系学生",
+      "point": "就職活動の調査データを定期的に公開している",
+      "src": [
+        [
+          "ネオキャリア キャリタス就活フォーラム 解説",
+          "https://www.neo-career.co.jp/humanresource/kyaritasuforum"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "recampus",
+      "name": "Re就活キャンパス",
+      "seg": "new",
+      "type": "逆求人",
+      "kind": "スカウト型の通年採用（旧あさがくナビ）",
+      "company": "gakujo",
+      "info": "全学年共通の企業ページ、学年別のインターン・採用情報、スカウト、就職博との連携",
+      "co": "中堅・中小企業、東名阪の企業",
+      "user": "大学1〜4年生（全学年対象）",
+      "point": "あさがくナビから改称し全学年統合。就職博は1984年に学情が始めた対面の合同セミナー",
+      "src": [
+        [
+          "学情 用語解説（Re就活キャンパス・就職博）",
+          "https://kitaishihon.com/company/2301/glossary"
+        ],
+        [
+          "ネオキャリア Re就活キャンパス（旧あさがくナビ）料金",
+          "https://www.neo-career.co.jp/humanresource/newgradservice/directrecruiting/asagakunavi/price"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "offerbox",
+      "name": "OfferBox",
+      "seg": "new",
+      "type": "逆求人",
+      "kind": "逆求人（オファー型）",
+      "company": "iplug",
+      "info": "学生のプロフィール、自己PR、写真・動画、適性診断の結果",
+      "co": "大手からベンチャーまで。母集団形成に悩む中堅企業の利用が多い",
+      "user": "逆求人サイトの中で利用学生が最も多い部類",
+      "point": "一括送信より個別に選んで送る設計",
+      "src": [
+        [
+          "ネオキャリア OfferBox 料金",
+          "https://www.neo-career.co.jp/humanresource/offerbox/price"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "dodacampus",
+      "name": "dodaキャンパス",
+      "seg": "new",
+      "type": "逆求人",
+      "kind": "逆求人（オファー型）",
+      "company": "benesse-icareer",
+      "info": "プロフィール（キャリアノート）、経験・スキル、オファー、イベント",
+      "co": "大手・中堅・ベンチャーまで。低学年との接点を作りたい企業",
+      "user": "大学1〜2年生から登録できる",
+      "point": "早い時期からのキャリア教育コンテンツが厚い",
+      "src": [
+        [
+          "HRプロ ベネッセi-キャリア 企業情報",
+          "https://www.hrpro.co.jp/provide_company_detail.php?ccd=00709"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "kimisuka",
+      "name": "キミスカ",
+      "seg": "new",
+      "type": "逆求人",
+      "kind": "逆求人（オファー型）",
+      "company": "growup",
+      "info": "プロフィール、選考状況、適性検査、スカウト",
+      "co": "中堅・中小・ベンチャーが中心",
+      "user": "他社の選考状況も含めて評価してほしい学生",
+      "point": "スカウトのランクで企業の本気度がわかる",
+      "src": [
+        [
+          "ネオキャリア キミスカ 解説",
+          "https://www.neo-career.co.jp/humanresource/kimisuka/strong"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "labbase",
+      "name": "LabBase就職",
+      "seg": "new",
+      "type": "逆求人",
+      "kind": "理系特化の逆求人",
+      "company": "labbase-corp",
+      "info": "研究内容、専攻、論文・学会発表、スキル",
+      "co": "メーカー、化学、IT、研究開発職を持つ企業",
+      "user": "理系の学部生・大学院生",
+      "point": "研究内容そのものを企業が読んでスカウトする",
+      "src": [
+        [
+          "BRIDGE LabBase（旧POL）資金調達",
+          "https://thebridge.jp/2022/09/labbase-series-b-round-funding/"
+        ]
+      ]
+    },
+    {
+      "id": "acaric",
+      "name": "アカリク",
+      "seg": "new",
+      "type": "エージェント",
+      "kind": "大学院生向け",
+      "company": "acaric-corp",
+      "info": "大学院生・理系学生向けのスカウト、アカリク就職エージェント、イベント",
+      "co": "研究開発型メーカー、データサイエンス、コンサル。延べ3,000社以上が利用（同社発表）",
+      "user": "修士・博士・ポスドク。大学院生の4人に1人が登録（同社発表）",
+      "point": "研究・教育支援や産学連携も手がける",
+      "src": [
+        [
+          "アカリク 会社概要（採用ページ）",
+          "https://hrmos.co/pages/acaric/jobs/0000008"
+        ]
+      ]
+    },
+    {
+      "id": "onecareer",
+      "name": "ONE CAREER",
+      "seg": "new",
+      "type": "口コミ・情報",
+      "kind": "口コミ・選考体験記",
+      "company": "onecareer-corp",
+      "info": "選考体験記、通過ES、面接の質問、インターン情報、締切カレンダー",
+      "co": "大手人気企業、総合商社、コンサル、金融、メガベンチャー",
+      "user": "早期から動く学生、上位校の学生。累計会員127万人（2022年末時点）",
+      "point": "体験記は運営の審査を経て掲載され、投稿者にはギフト券が出る",
+      "src": [
+        [
+          "ワンキャリア 決算資料（会員数）",
+          "https://www2.jpx.co.jp/disc/43770/140120230515571727.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "gaishishukatsu",
+      "name": "外資就活ドットコム",
+      "seg": "new",
+      "type": "口コミ・情報",
+      "kind": "コミュニティ・情報",
+      "company": "howtv",
+      "info": "外資・日系トップ企業の選考情報、コラム、掲示板、締切情報",
+      "co": "外資系投資銀行、戦略コンサル、総合商社、外資メーカー",
+      "user": "外資・難関企業を目指す学生",
+      "point": "選考時期が早い企業の情報が早く集まる",
+      "src": [
+        [
+          "ハウテレビジョン 会社ページ（Green）",
+          "https://www.green-japan.com/company/3125"
+        ]
+      ]
+    },
+    {
+      "id": "matcher",
+      "name": "Matcher",
+      "seg": "new",
+      "type": "OB・OG訪問",
+      "kind": "OB・OG訪問",
+      "company": "matcher-corp",
+      "info": "社会人のプロフィール、相談テーマ、面談予約",
+      "co": "社会人個人の登録が中心。企業はスカウト機能を使う",
+      "user": "大学の人脈がなくても社会人に話を聞きたい学生",
+      "point": "大学を問わずOB・OG訪問ができる",
+      "src": [
+        [
+          "Matcher 会社のストーリー（Wantedly）",
+          "https://www.wantedly.com/companies/matcher/post_articles/183442"
+        ]
+      ]
+    },
+    {
+      "id": "careerticket",
+      "name": "キャリアチケット",
+      "seg": "new",
+      "type": "エージェント",
+      "kind": "新卒エージェント",
+      "company": "leverages",
+      "info": "面談、企業紹介、ES添削、面接対策",
+      "co": "中堅・中小・ベンチャーが中心",
+      "user": "何から始めるか迷っている学生、短期間で決めたい学生",
+      "point": "2017年開始。若手向けのキャリアチケット転職エージェントもある",
+      "src": [
+        [
+          "レバレジーズ キャリアチケット ニュースリリース",
+          "https://leverages.jp/wp-content/uploads/2020/03/【ニュースリリース】内定取り消しになった学生の紹介料を無料に.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "supporterz",
+      "name": "サポーターズ",
+      "seg": "new",
+      "type": "イベント",
+      "kind": "エンジニア志望向けイベント",
+      "company": "supporterz-corp",
+      "info": "1on1面談イベント、説明会・懇親会、テックカンファレンス「技育祭」（春・秋の年2回）",
+      "co": "IT企業、Web系、メガベンチャー",
+      "user": "エンジニア志望の学生（学年不問の技育プロジェクトもある）",
+      "point": "学生が交通費などの支援金を受け取れる珍しい仕組み",
+      "src": [
+        [
+          "サポーターズ 技育祭 プレスリリース",
+          "https://pc.watch.impress.co.jp/docs/release/newscast/1617707.html"
+        ],
+        [
+          "VOYAGE GROUP「株式会社サポーターズを設立」",
+          "https://www.value-press.com/pressrelease/96668"
+        ]
+      ]
+    },
+    {
+      "id": "levtech-rookie",
+      "name": "レバテックルーキー",
+      "seg": "new",
+      "type": "エージェント",
+      "kind": "エンジニア新卒エージェント",
+      "company": "levtech",
+      "info": "IT企業の求人紹介、面接対策、エンジニア志望学生のデータベース",
+      "co": "自社開発のIT企業、Web系",
+      "user": "プログラミング経験のある学生",
+      "point": "入社後のキャリアパスまで相談できる",
+      "src": [
+        [
+          "レバテック レバテックルーキー プレスリリース",
+          "https://leverages.jp/wp-content/uploads/2021/08/27cdcda02cdf2e946ae534030441d8cf.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "rikunabi-next",
+      "name": "リクナビNEXT",
+      "seg": "mid",
+      "type": "求人広告",
+      "kind": "転職サイト（求人広告）",
+      "company": "indeed-japan",
+      "info": "求人原稿、スカウト（オファー）、自己分析ツール（グッドポイント診断）",
+      "co": "中小〜大手まで全業界。営業・販売・事務・技術職などの一般職",
+      "user": "20〜30代を中心に幅広い。初めての転職者が多い",
+      "point": "Indeed PLUSの連携求人サイトの一つ",
+      "src": [
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ],
+        [
+          "Indeed「Indeed PLUSに新しく4つの求人サイトが参画」",
+          "https://jp.indeed.com/news/releases/20240312"
+        ]
+      ]
+    },
+    {
+      "id": "doda",
+      "name": "doda",
+      "seg": "mid",
+      "type": "総合型",
+      "kind": "転職サイト＋エージェント＋スカウト",
+      "company": "persol-career",
+      "info": "公開求人、非公開求人、スカウト、年収査定、転職フェア、転職求人倍率レポート",
+      "co": "大手・中堅が多い。メーカー、IT、営業、管理部門",
+      "user": "20〜40代。自分で探す・紹介してもらうを1つのIDで併用したい人",
+      "point": "求人広告と人材紹介の両方を一社で持つ",
+      "src": [
+        [
+          "パーソルキャリア doda転職求人倍率レポート",
+          "https://www.saiyo-doda.jp/wp-content/uploads/doda_KyujinbairitsuReport_202101b.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "mynavi-tenshoku",
+      "name": "マイナビ転職",
+      "seg": "mid",
+      "type": "求人広告",
+      "kind": "転職サイト（求人広告）",
+      "company": "mynavi-corp",
+      "info": "求人原稿、スカウト、転職フェア、地域別の求人",
+      "co": "中堅・中小企業、地方企業",
+      "user": "20〜30代の若手。地方で転職したい人",
+      "point": "マイナビエージェント、20代向けのマイナビジョブ20'sもある",
+      "src": [
+        [
+          "ネオキャリア マイナビ転職 料金",
+          "https://www.neo-career.co.jp/humanresource/middlecareerservice/site/mynavitensyoku/price/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "en-tenshoku",
+      "name": "エン転職",
+      "seg": "mid",
+      "type": "求人広告",
+      "kind": "転職サイト（求人広告）",
+      "company": "en",
+      "info": "取材をもとにした求人原稿、仕事の厳しさ・向いていない人、社員の口コミ",
+      "co": "中小・中堅企業。営業・販売・サービス・未経験歓迎の求人",
+      "user": "20〜30代、未経験職種へ挑戦したい人",
+      "point": "良い面だけでなく大変な点も載せる方針",
+      "src": [
+        [
+          "ネオキャリア エン転職 料金・解説",
+          "https://www.neo-career.co.jp/humanresource/middlecareerservice/site/entensyoku/price"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "type",
+      "name": "type",
+      "seg": "mid",
+      "type": "求人広告",
+      "kind": "転職サイト（求人広告）",
+      "company": "cdc",
+      "info": "求人原稿、スカウト、転職フェア、キャリア記事",
+      "co": "首都圏の企業。IT・Web、営業、エンジニア",
+      "user": "首都圏の20〜30代。女の転職typeは会員227万人超（同社発表）",
+      "point": "エンジニアとキャリア志向の女性に強い",
+      "src": [
+        [
+          "お名前.com 女の転職type 解説",
+          "https://www.onamae.com/business/article/305810/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "green",
+      "name": "Green",
+      "seg": "mid",
+      "type": "求人広告",
+      "kind": "IT・Web特化（成果報酬型）",
+      "company": "atrae",
+      "info": "求人、職場写真、社員紹介、「気になる」機能による相互アプローチ",
+      "co": "IT・Web系のスタートアップ、ベンチャー、メガベンチャー",
+      "user": "IT・Web業界のエンジニア、デザイナー、営業、マーケター",
+      "point": "採れなければ初期費用以外かからないので、小さな企業も使いやすい",
+      "src": [
+        [
+          "BOXIL Green 料金",
+          "https://boxil.jp/service/673/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "r-agent",
+      "name": "リクルートエージェント",
+      "seg": "mid",
+      "type": "エージェント",
+      "kind": "人材紹介（総合型）",
+      "company": "irp",
+      "info": "非公開求人を含む求人紹介、職務経歴書の添削、面接対策、年収交渉",
+      "co": "大手〜中堅中心に全業界。非公開で採りたい企業",
+      "user": "20〜50代まで幅広い",
+      "point": "求人数が国内最大級の人材紹介サービス",
+      "src": [
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ],
+        [
+          "リクルートエージェント 法人向け解説（紹介手数料）",
+          "https://www.r-agent.com/business/knowhow/article/22565/"
+        ]
+      ]
+    },
+    {
+      "id": "pasona-career",
+      "name": "パソナキャリア",
+      "seg": "mid",
+      "type": "エージェント",
+      "kind": "人材紹介（ハイクラス寄り）",
+      "company": "pasona",
+      "info": "求人紹介、キャリア相談、書類添削、面接対策",
+      "co": "大手・中堅の管理職・専門職",
+      "user": "年収600万円以上が目安の層、女性の転職者、地方在住者",
+      "point": "女性活躍推進コンサルティングチームを置き、全国47都道府県に拠点",
+      "src": [
+        [
+          "AXXIS パソナキャリア 解説",
+          "https://axxis.co.jp/magazine/58667"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "jac",
+      "name": "JACリクルートメント",
+      "seg": "mid",
+      "type": "エージェント",
+      "kind": "ハイクラス人材紹介",
+      "company": "jac-corp",
+      "info": "管理職・専門職・外資の求人、英文レジュメ対応",
+      "co": "外資系企業、日系グローバル企業、大手の管理職ポジション",
+      "user": "30〜50代の管理職・専門職、英語を使う仕事を探す人",
+      "point": "累計転職支援は約43万人（2025年9月時点の公表値）",
+      "src": [
+        [
+          "AXXIS JACリクルートメント 解説",
+          "https://axxis.co.jp/magazine/32976"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "levtech-career",
+      "name": "レバテックキャリア",
+      "seg": "mid",
+      "type": "エージェント",
+      "kind": "IT特化の人材紹介",
+      "company": "levtech",
+      "info": "エンジニア・クリエイターの求人、技術面接対策、年収交渉",
+      "co": "Web系、SaaS、SIer、事業会社のIT部門",
+      "user": "経験のあるエンジニア、デザイナー",
+      "point": "技術スタックまで踏み込んで紹介する",
+      "src": [
+        [
+          "レバテック レバテックキャリア プレスリリース",
+          "https://leverages.jp/wp-content/uploads/2021/06/6df908999d6717fa8a349651608ca916.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "bizreach",
+      "name": "ビズリーチ",
+      "seg": "mid",
+      "type": "スカウト",
+      "kind": "ハイクラススカウト",
+      "company": "bizreach-corp",
+      "info": "職務経歴の登録、企業・ヘッドハンターからのスカウト、公開求人",
+      "co": "大手の管理職・専門職、外資、成長ベンチャー、ヘッドハンター",
+      "user": "年収600万円以上が目安のミドル・ハイクラス層",
+      "point": "自治体の幹部人材公募に使われた例もある",
+      "src": [
+        [
+          "ネオキャリア ビズリーチ 料金",
+          "https://www.neo-career.co.jp/humanresource/bizreach/price/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "r-direct-scout",
+      "name": "リクルートダイレクトスカウト",
+      "seg": "mid",
+      "type": "スカウト",
+      "kind": "ハイクラススカウト",
+      "company": "irp",
+      "info": "レジュメ登録、ヘッドハンター・企業からのスカウト",
+      "co": "大手・外資の管理職、技術専門職。ヘッドハンター経由の求人が多い",
+      "user": "30〜50代のハイクラス層",
+      "point": "ヘッドハンターを指名して相談できる",
+      "src": [
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ]
+      ]
+    },
+    {
+      "id": "ambi",
+      "name": "AMBI",
+      "seg": "mid",
+      "type": "スカウト",
+      "kind": "若手ハイキャリア向け",
+      "company": "en",
+      "info": "求人、スカウト、応募前の合格可能性判定（企業・ヘッドハンターが大・中・小で返す）",
+      "co": "成長企業、コンサル、ITの若手ポジション",
+      "user": "20代〜30代前半で年収アップを狙う人",
+      "point": "応募前に書類が通りそうかの目安がわかる",
+      "src": [
+        [
+          "AXXIS AMBI 解説",
+          "https://axxis.co.jp/magazine/55736"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "miidas",
+      "name": "ミイダス",
+      "seg": "mid",
+      "type": "スカウト",
+      "kind": "診断×スカウト",
+      "company": "miidas-corp",
+      "info": "コンピテンシー診断、想定年収の算出、企業からのオファー",
+      "co": "中小〜中堅企業が多い",
+      "user": "自分の市場価値を知りたい人",
+      "point": "入社後に活躍する人材の分析にも使える",
+      "src": [
+        [
+          "ASPIC ミイダス サービス紹介",
+          "https://www.aspicjapan.org/asu/service/11462"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "findy",
+      "name": "Findy",
+      "seg": "mid",
+      "type": "スカウト",
+      "kind": "エンジニア特化スカウト",
+      "company": "findy-corp",
+      "info": "GitHub連携によるスキル偏差値・適正年収の可視化、スカウト、カジュアル面談",
+      "co": "Web系企業、スタートアップ、メガベンチャー",
+      "user": "コードを公開しているエンジニア",
+      "point": "スコアが低いとスカウトが届きにくい",
+      "src": [
+        [
+          "BRIDGE ファインディ紹介",
+          "https://thebridge.jp/2022/01/bridge-tokyo-2022-intro-showcase-nominee-findy"
+        ]
+      ]
+    },
+    {
+      "id": "forkwell",
+      "name": "Forkwell",
+      "seg": "mid",
+      "type": "スカウト",
+      "kind": "エンジニア特化スカウト",
+      "company": "grooves",
+      "info": "技術ポートフォリオ、スカウト、勉強会イベント",
+      "co": "技術力を重視するIT企業",
+      "user": "成長志向のエンジニア",
+      "point": "エンジニアのコミュニティ・イベントを自ら運営している",
+      "src": [
+        [
+          "ASCII Forkwell（grooves）記事",
+          "https://ascii.jp/elem/000/004/063/4063646/"
+        ]
+      ]
+    },
+    {
+      "id": "re-shukatsu",
+      "name": "Re就活",
+      "seg": "mid",
+      "type": "求人広告",
+      "kind": "20代・第二新卒向け",
+      "company": "gakujo",
+      "info": "求人、スカウト、20代向け転職博",
+      "co": "若手を育てたい中堅・中小企業、未経験歓迎の求人",
+      "user": "会員280万人のうち93.3%が20代（2026年7月時点、同社発表）",
+      "point": "20代専門の転職サイト",
+      "src": [
+        [
+          "ネオキャリア Re就活 解説",
+          "https://www.neo-career.co.jp/humanresource/middlecareerservice/site/reshukatsu"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "jobmedley",
+      "name": "ジョブメドレー",
+      "seg": "mid",
+      "type": "求人広告",
+      "kind": "医療・介護特化",
+      "company": "medley",
+      "info": "医療・介護・福祉・保育の求人、事業所の写真・特徴",
+      "co": "病院、クリニック、介護施設、保育園、薬局",
+      "user": "看護師、介護職、医療事務、保育士など",
+      "point": "人材紹介より1名あたりの単価が低い",
+      "src": [
+        [
+          "店舗オーナー支援 ジョブメドレー料金解説",
+          "https://www.shopowner-support.net/?p=60336"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "indeed",
+      "name": "Indeed",
+      "seg": "both",
+      "type": "検索エンジン",
+      "kind": "求人検索エンジン",
+      "company": "indeed-japan",
+      "info": "企業HPや他媒体の求人の集約、企業の直接投稿、企業の口コミ",
+      "co": "現場職・パート含め全業界。特に中小企業、飲食・介護・物流・小売",
+      "user": "正社員・アルバイト問わず最も幅広い。新卒向け求人も載る",
+      "point": "求人件数が圧倒的。同じ求人が複数経路で重複表示されることがある",
+      "src": [
+        [
+          "Indeed「求人配信プラットフォームIndeed PLUS 提供開始」",
+          "https://jp.indeed.com/news/releases/20240130"
+        ],
+        [
+          "Indeed「Indeed PLUSに新しく4つの求人サイトが参画」",
+          "https://jp.indeed.com/news/releases/20240312"
+        ],
+        [
+          "リクルート「2025年4月1日より提供会社が変更となる対象サービス」",
+          "https://www.recruit.co.jp/privacy/notice/250303_list/"
+        ]
+      ]
+    },
+    {
+      "id": "kyujinbox",
+      "name": "求人ボックス",
+      "seg": "both",
+      "type": "検索エンジン",
+      "kind": "求人検索エンジン",
+      "company": "kakaku",
+      "info": "求人の集約、職種別の給与相場",
+      "co": "現場職・パートを含む全業界の中小企業",
+      "user": "地域で仕事を探す人、アルバイトから正社員まで",
+      "point": "表示だけでは課金されない",
+      "src": [
+        [
+          "ネオキャリア 求人ボックス 料金",
+          "https://www.neo-career.co.jp/humanresource/kyuzinbox/price"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "openwork",
+      "name": "OpenWork",
+      "seg": "both",
+      "type": "口コミ・情報",
+      "kind": "社員口コミ・年収データ",
+      "company": "openwork-corp",
+      "info": "社員・元社員の口コミ、8項目の評価（待遇面の満足度・社員の士気・風通しの良さ・社員の相互尊重・20代成長環境・人材の長期育成・法令順守意識・人事評価の適正感）、年収データ",
+      "co": "口コミは全企業対象。求人掲載は大手・成長企業が中心",
+      "user": "転職を考える社会人、企業研究中の就活生",
+      "point": "口コミを投稿すると閲覧できる仕組み",
+      "src": [
+        [
+          "オープンワーク プレスリリース（評価8項目）",
+          "https://kyodonewsprwire.jp/prwfile/release/M102870/202501283428/_prw_PR1fl_6fRZiNFF.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "tenshoku-kaigi",
+      "name": "転職会議",
+      "seg": "mid",
+      "type": "口コミ・情報",
+      "kind": "社員口コミ",
+      "company": "livesense",
+      "info": "社員・元社員の口コミ、面接の体験談、求人",
+      "co": "口コミは全企業対象",
+      "user": "応募前に職場の実態を確かめたい人",
+      "point": "面接で聞かれたことの投稿も多い",
+      "src": [
+        [
+          "リブセンス 統合報告書2025",
+          "https://www.livesense.co.jp/wp-content/uploads/2025/06/16/1317/integrated-report2025-1.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "wantedly",
+      "name": "Wantedly",
+      "seg": "both",
+      "type": "SNS・共感",
+      "kind": "共感採用・キャリアSNS",
+      "company": "wantedly-corp",
+      "info": "募集ページ（ミッション・働き方中心で給与は原則載らない）、ストーリー記事、プロフィール",
+      "co": "スタートアップ、IT・Web企業、採用広報に力を入れる中小企業",
+      "user": "20〜30代、学生のインターン探しにも使われる",
+      "point": "「話を聞きに行きたい」から始まるカジュアル面談が基本",
+      "src": [
+        [
+          "Wantedly 企業向け解説（料金）",
+          "https://www.wantedly.com/hiringeek/?p=1108"
+        ]
+      ]
+    },
+    {
+      "id": "youtrust",
+      "name": "YOUTRUST",
+      "seg": "mid",
+      "type": "SNS・共感",
+      "kind": "キャリアSNS",
+      "company": "youtrust-corp",
+      "info": "友人・知人とのつながり、転職・副業意欲のステータス、スカウト",
+      "co": "スタートアップ、IT企業",
+      "user": "IT業界の若手〜ミドル、副業を探す人",
+      "point": "知人のつながりを経由したリファラル採用に近い出会い",
+      "src": [
+        [
+          "BRIDGE YOUTRUST シリーズC調達",
+          "https://thebridge.jp/2024/05/youtrust-series-c-round-funding"
+        ]
+      ]
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "seg": "mid",
+      "type": "SNS・共感",
+      "kind": "ビジネスSNS",
+      "company": "linkedin-corp",
+      "info": "職歴プロフィール、求人、リクルーターからのメッセージ",
+      "co": "外資系企業、グローバル企業、海外企業",
+      "user": "外資・グローバル志向の人。日本の登録者は300万人超（2022年発表）",
+      "point": "英語のプロフィールを整えると海外のリクルーターから連絡が来る",
+      "src": [
+        [
+          "Business Insider Japan LinkedIn 日本の登録者数",
+          "https://www.businessinsider.jp/post-264666"
+        ]
+      ]
+    }
+  ]
+}

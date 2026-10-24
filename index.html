@@ -1,0 +1,1787 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>求人サイトナビ</title>
+<meta name="description" content="リクナビ・マイナビ・doda・ビズリーチ・Indeed など新卒・中途の求人サイト40サービスを、運営会社、企業が払う料金の仕組み（成果報酬・掲載課金など）、掲載情報、毎週更新のニュースで比べられる案内サイト。">
+<meta name="theme-color" content="#0b7a68">
+<meta property="og:type" content="website">
+<meta property="og:title" content="求人サイトナビ">
+<meta property="og:description" content="新卒・中途の求人サイト40サービスを、運営会社・料金の仕組み・掲載情報・毎週更新のニュースで比べられる案内サイト。採用コストの試算つき。">
+<meta property="og:url" content="https://wakwakman.github.io/job-site-navi/">
+<meta property="og:site_name" content="求人サイトナビ">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b7a68'/%3E%3Cpath d='M18 22h28M18 32h18M18 42h10' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='44' cy='42' r='5.5' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+html, body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+/* Layout: プロダクト型のアプリシェル。固定トップバー（検索⌘K）＋左サイドナビ＋本文。一覧はツールバー付きのカード/表、詳細は右ドロワー、比較はフローティングバー */
+:root {
+  --bg: #f6f7f7;
+  --surface: #ffffff;
+  --surface-2: #f3f5f5;
+  --surface-3: #e7ebea;
+  --border: #e3e7e6;
+  --border-strong: #cbd3d1;
+  --text: #0e1615;
+  --text-2: #46524f;
+  --text-3: #64706d;
+  --brand: #0b7a68;
+  --brand-hover: #086353;
+  --brand-soft: #e1f2ed;
+  --on-brand: #ffffff;
+  --ring: color-mix(in srgb, var(--brand) 35%, transparent);
+  --grid: color-mix(in srgb, var(--text) 6%, transparent);
+  --s-new: #0b7a68; --s-mid: #4152c4; --s-both: #93560c;
+  /* 料金モデル色: dataviz 検証済みカテゴリ配色（固定順 1〜7） */
+  --m-post: #2a78d6; --m-succ: #eb6834; --m-flat: #1baf7a; --m-click: #eda100; --m-db: #e87ba4; --m-ad: #008300; --m-free: #6250d6;
+  --av1: #0b7a68; --av2: #4152c4; --av3: #c2561f; --av4: #8a4fb0; --av5: #1f7aa8; --av6: #8f700c; --av7: #b03a5b; --av8: #4a7a1f;
+  --sh-sm: 0 1px 2px rgba(15,25,23,.05);
+  --sh-md: 0 1px 2px rgba(15,25,23,.04), 0 8px 20px -6px rgba(15,25,23,.12);
+  --sh-lg: 0 2px 6px rgba(15,25,23,.06), 0 32px 64px -16px rgba(15,25,23,.30);
+  --topH: calc(56px + env(safe-area-inset-top, 0px));
+  --f-sans: "IBM Plex Sans JP", "Hiragino Sans", "Yu Gothic UI", "Meiryo", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a0e0e; --surface: #101615; --surface-2: #151c1b; --surface-3: #1e2726;
+    --border: #212b2a; --border-strong: #34413f;
+    --text: #e9efed; --text-2: #a8b5b2; --text-3: #86938f;
+    --brand: #34c7a7; --brand-hover: #5ad6ba; --brand-soft: #0f2f29; --on-brand: #03201a;
+    --s-new: #34c7a7; --s-mid: #97a5f7; --s-both: #e5a75a;
+    --m-post: #3987e5; --m-succ: #d95926; --m-flat: #199e70; --m-click: #c98500; --m-db: #d55181; --m-ad: #008300; --m-free: #9085e9;
+    --av1: #34c7a7; --av2: #97a5f7; --av3: #f1915f; --av4: #c99be6; --av5: #6cc0e8; --av6: #dcc25a; --av7: #ef8aa6; --av8: #9fd37a;
+    --sh-sm: 0 1px 2px rgba(0,0,0,.4);
+    --sh-md: 0 1px 2px rgba(0,0,0,.4), 0 10px 24px -6px rgba(0,0,0,.5);
+    --sh-lg: 0 2px 6px rgba(0,0,0,.4), 0 32px 64px -16px rgba(0,0,0,.7);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a0e0e; --surface: #101615; --surface-2: #151c1b; --surface-3: #1e2726;
+  --border: #212b2a; --border-strong: #34413f;
+  --text: #e9efed; --text-2: #a8b5b2; --text-3: #86938f;
+  --brand: #34c7a7; --brand-hover: #5ad6ba; --brand-soft: #0f2f29; --on-brand: #03201a;
+  --s-new: #34c7a7; --s-mid: #97a5f7; --s-both: #e5a75a;
+  --m-post: #3987e5; --m-succ: #d95926; --m-flat: #199e70; --m-click: #c98500; --m-db: #d55181; --m-ad: #008300; --m-free: #9085e9;
+  --av1: #34c7a7; --av2: #97a5f7; --av3: #f1915f; --av4: #c99be6; --av5: #6cc0e8; --av6: #dcc25a; --av7: #ef8aa6; --av8: #9fd37a;
+  --sh-sm: 0 1px 2px rgba(0,0,0,.4);
+  --sh-md: 0 1px 2px rgba(0,0,0,.4), 0 10px 24px -6px rgba(0,0,0,.5);
+  --sh-lg: 0 2px 6px rgba(0,0,0,.4), 0 32px 64px -16px rgba(0,0,0,.7);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+html.modal-open, html.modal-open body { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--f-sans); font-size: 14px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 112px;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "palt" 1;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--surface); }
+h1, h2, h3, h4 { margin: 0; text-wrap: balance; line-height: 1.35; }
+p { margin: 0; }
+a { color: var(--brand); text-underline-offset: 3px; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 6px; }
+.ic { fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; flex: none; display: block; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- primitives ---------- */
+.btn { display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 14px; border-radius: 8px; border: 1px solid transparent; font-size: 13.5px; font-weight: 600; cursor: pointer; text-decoration: none; white-space: nowrap; transition: background .15s, border-color .15s, color .15s, box-shadow .15s; }
+.btn.sm { height: 30px; padding: 0 11px; font-size: 13px; }
+.btn-primary { background: var(--brand); color: var(--on-brand); box-shadow: var(--sh-sm), inset 0 1px 0 color-mix(in srgb, var(--on-brand) 18%, transparent); }
+.btn-primary:hover { background: var(--brand-hover); }
+.btn-ghost { background: var(--surface); border-color: var(--border); color: var(--text); box-shadow: var(--sh-sm); }
+.btn-ghost:hover { border-color: var(--border-strong); background: var(--surface-2); }
+.btn[aria-expanded="true"] { border-color: var(--border-strong); background: var(--surface-2); }
+.icon-btn { width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); display: grid; place-items: center; cursor: pointer; color: var(--text-2); transition: background .15s, color .15s, border-color .15s; }
+.icon-btn:hover { background: var(--surface-2); color: var(--text); }
+.icon-btn:disabled { opacity: .35; cursor: default; }
+.kbd { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 5px; border: 1px solid var(--border); border-bottom-width: 2px; background: var(--surface); font-family: var(--f-mono); font-size: 11px; color: var(--text-3); line-height: 1; }
+.badge { display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 8px; border-radius: 6px; font-size: 12px; font-weight: 600; white-space: nowrap; color: var(--sc); background: color-mix(in srgb, var(--sc) 11%, transparent); }
+.badge i { width: 6px; height: 6px; border-radius: 50%; background: var(--sc); }
+.b-new { --sc: var(--s-new); } .b-mid { --sc: var(--s-mid); } .b-both { --sc: var(--s-both); }
+.mchip { display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 8px 0 7px; border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--text-2); background: var(--surface-2); border: 1px solid var(--border); white-space: nowrap; }
+.mchip::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--mc); flex: none; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.av { width: var(--s); height: var(--s); border-radius: calc(var(--s) * .28); display: grid; place-items: center; font-weight: 700; font-size: calc(var(--s) * .42); color: var(--av); background: color-mix(in srgb, var(--av) 13%, var(--surface)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--av) 24%, transparent); flex: none; line-height: 1; letter-spacing: 0; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+.note { font-size: 12.5px; color: var(--text-3); display: flex; gap: 6px; align-items: flex-start; line-height: 1.6; }
+.note .ic { margin-top: 2px; }
+
+/* ---------- top bar ---------- */
+.top { position: sticky; top: 0; z-index: 20; margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))) calc(-1 * max(16px, env(safe-area-inset-right, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); padding-top: env(safe-area-inset-top, 0px); background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--border); }
+.top-in { max-width: 1320px; margin: 0 auto; height: 56px; display: flex; align-items: center; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); flex: none; }
+.logo { width: 28px; height: 28px; display: block; }
+.logo .lb { fill: var(--brand); } .logo .lf { stroke: var(--on-brand); } .logo .ld { fill: var(--on-brand); }
+.brand-name { font-weight: 700; font-size: 15px; letter-spacing: -.01em; }
+.ver { font-size: 11px; color: var(--text-3); border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; }
+.search-trigger { flex: 1 1 auto; max-width: 440px; margin-inline: auto; height: 34px; display: flex; align-items: center; gap: 10px; padding: 0 8px 0 12px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text-3); cursor: pointer; font-size: 13.5px; transition: border-color .15s, background .15s; }
+.search-trigger:hover { border-color: var(--border-strong); background: var(--surface); }
+.search-trigger .st-txt { flex: 1; text-align: left; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.top-act { display: flex; gap: 8px; align-items: center; flex: none; }
+.top-act .n { font-family: var(--f-mono); font-size: 11.5px; min-width: 18px; height: 18px; border-radius: 999px; display: inline-grid; place-items: center; background: color-mix(in srgb, var(--on-brand) 22%, transparent); padding: 0 5px; }
+.search-trigger { min-width: 0; }
+@media (max-width: 640px) {
+  .top-in { gap: 10px; }
+  .ver, .hide-sm { display: none !important; }
+  .search-trigger { max-width: none; flex: 1 1 0; padding: 0 10px; }
+  .search-trigger .kbd { display: none; }
+  .top-act .btn { padding: 0 9px; }
+}
+@media (max-width: 380px) { .brand-name { display: none; } }
+@media (hover: none) { .hint { display: none; } }
+
+/* mobile section nav */
+.mnav { display: none; position: sticky; top: var(--topH); z-index: 15; margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))) calc(-1 * max(16px, env(safe-area-inset-right, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.mnav .in { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-block: 8px; }
+.mnav .in::-webkit-scrollbar { display: none; }
+.mnav a { flex: none; font-size: 13px; padding: 5px 11px; border-radius: 999px; text-decoration: none; color: var(--text-2); }
+.mnav a.on { background: var(--text); color: var(--surface); }
+
+/* ---------- shell ---------- */
+.shell { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 216px minmax(0, 1fr); gap: 40px; }
+.side { position: sticky; top: var(--topH); height: calc(100vh - var(--topH)); overflow-y: auto; padding-block: 28px 24px; display: flex; flex-direction: column; gap: 22px; scrollbar-width: thin; }
+.nav-g { display: grid; gap: 2px; }
+.nav-g .gl { font-size: 11.5px; font-weight: 600; color: var(--text-3); padding: 0 10px 6px; letter-spacing: .04em; }
+.nav-g a { display: flex; align-items: center; gap: 10px; height: 32px; padding: 0 10px; border-radius: 8px; color: var(--text-2); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: background .15s, color .15s; }
+.nav-g a:hover { background: var(--surface-3); color: var(--text); }
+.nav-g a.on { background: var(--surface); color: var(--text); box-shadow: var(--sh-sm), inset 0 0 0 1px var(--border); }
+.nav-g a.on .ic { color: var(--brand); }
+.nav-g a .cnt { margin-left: auto; font-family: var(--f-mono); font-size: 11px; color: var(--text-3); }
+.side-card { margin-top: auto; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); display: grid; gap: 6px; font-size: 12.5px; color: var(--text-2); }
+.side-card b { display: flex; align-items: center; gap: 6px; color: var(--text); font-size: 13px; }
+.side-card b .ic { color: var(--brand); }
+.main { min-width: 0; padding-block: 28px 0; display: grid; gap: 80px; }
+@media (max-width: 959px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  .side { display: none; }
+  .mnav { display: block; }
+  .main { padding-block: 20px 0; gap: 64px; }
+}
+
+/* ---------- sections ---------- */
+.sec { display: grid; gap: 20px; scroll-margin-top: calc(var(--topH) + 20px); min-width: 0; }
+@media (max-width: 959px) { .sec { scroll-margin-top: calc(var(--topH) + 60px); } }
+.sec-hd { display: flex; gap: 16px; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; }
+.sec-hd .t { display: grid; gap: 8px; max-width: 46rem; }
+.sec-hd h2 { font-size: 22px; font-weight: 700; letter-spacing: -.01em; display: flex; align-items: center; gap: 10px; }
+.sec-ic { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand); flex: none; }
+.sec-hd p { color: var(--text-2); font-size: 14.5px; line-height: 1.8; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; padding: 44px 40px 40px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 36px; align-items: start; }
+.hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 32px 32px; -webkit-mask-image: radial-gradient(ellipse 80% 90% at 15% 0%, #000 25%, transparent 72%); mask-image: radial-gradient(ellipse 80% 90% at 15% 0%, #000 25%, transparent 72%); pointer-events: none; }
+.hero::after { content: ""; position: absolute; width: 640px; height: 640px; left: -220px; top: -360px; background: radial-gradient(closest-side, color-mix(in srgb, var(--brand) 20%, transparent), transparent); pointer-events: none; }
+.hero > * { position: relative; z-index: 1; min-width: 0; }
+.pill { display: inline-flex; align-items: center; gap: 8px; height: 28px; padding: 0 12px 0 4px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); font-size: 12.5px; color: var(--text-2); box-shadow: var(--sh-sm); max-width: 100%; }
+.pill b { background: var(--brand); color: var(--on-brand); font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 600; flex: none; }
+.pill span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.hero h1 { font-size: clamp(30px, 4.4vw, 46px); font-weight: 700; letter-spacing: -.025em; line-height: 1.25; margin-top: 20px; }
+.hero h1 .g { background: linear-gradient(100deg, var(--brand) 10%, var(--m-post) 90%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .lead { margin-top: 16px; color: var(--text-2); font-size: 15.5px; line-height: 1.85; max-width: 34em; }
+.cta { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.hint { margin-top: 18px; font-size: 12.5px; color: var(--text-3); display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.changes { background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--sh-md); overflow: hidden; }
+.ch-hd { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
+.ch-hd .live { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-3); font-weight: 500; }
+.ch-hd .live i { width: 7px; height: 7px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+.ch-list { list-style: none; margin: 0; padding: 4px 0; }
+.ch-list li { padding: 11px 16px; display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 12px; }
+.ch-list li + li { border-top: 1px solid var(--border); }
+.ch-list .d { font-family: var(--f-mono); font-size: 11.5px; color: var(--text-3); padding-top: 2px; }
+.ch-list b { font-size: 13.5px; font-weight: 600; display: block; }
+.ch-list p { font-size: 12.5px; color: var(--text-2); line-height: 1.65; margin-top: 2px; }
+.lk { border: 0; background: none; padding: 0; color: var(--brand); cursor: pointer; font-size: 12.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 3px; margin-top: 4px; }
+.lk:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 1199px) { .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; } .hero .lead { max-width: 40em; } }
+@media (max-width: 640px) { .hero { padding: 28px 18px 20px; } }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 14px; }
+.kpi { padding: 18px 20px; display: grid; gap: 4px; align-content: start; }
+.kpi + .kpi { border-left: 1px solid var(--border); }
+.kpi .l { font-size: 12.5px; color: var(--text-3); font-weight: 500; }
+.kpi b { font-family: var(--f-mono); font-size: 28px; font-weight: 500; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.25; }
+.kpi small { font-size: 12px; color: var(--text-2); }
+@media (max-width: 720px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi:nth-child(3) { border-left: 0; }
+  .kpi:nth-child(n+3) { border-top: 1px solid var(--border); }
+}
+
+/* ---------- diff ---------- */
+.diff { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.diff .card { padding: 22px; display: grid; gap: 14px; align-content: start; }
+.diff h3 { font-size: 16.5px; font-weight: 600; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.7; color: var(--text-2); }
+.ul li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 8px; }
+.ul li .ic { color: var(--brand); margin-top: 4px; }
+
+/* ---------- map ---------- */
+.map { display: grid; grid-template-columns: 132px minmax(0, 1fr) minmax(0, 1fr); overflow: hidden; }
+.map > div { padding: 16px 18px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); min-width: 0; }
+.map > div:nth-child(3n) { border-right: 0; }
+.map > div:nth-last-child(-n+3) { border-bottom: 0; }
+.map .ax { font-size: 12.5px; font-weight: 600; color: var(--text-2); background: var(--surface-2); }
+.map .hd { background: var(--surface-2); }
+.map .cell { display: grid; gap: 12px; }
+.map b { display: block; font-size: 13.5px; font-weight: 600; }
+.map span.x { font-size: 13px; color: var(--text-2); }
+@media (max-width: 680px) {
+  .map { grid-template-columns: minmax(0, 1fr); }
+  .map > div { border-right: 0; border-bottom: 1px solid var(--border) !important; }
+  .map .corner { display: none; }
+  .map > div:last-child { border-bottom: 0 !important; }
+}
+
+/* ---------- fee models ---------- */
+.models { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+@media (max-width: 400px) { .models { grid-template-columns: minmax(0, 1fr); } }
+.fm { padding: 20px; display: grid; gap: 16px; align-content: start; transition: border-color .15s, box-shadow .15s; }
+.fm:hover { border-color: var(--border-strong); box-shadow: var(--sh-md); }
+.fm-hd { display: flex; gap: 12px; align-items: center; }
+.fm-ic { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; color: color-mix(in srgb, var(--mc) 70%, var(--text)); background: color-mix(in srgb, var(--mc) 12%, var(--surface)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--mc) 22%, transparent); flex: none; }
+.fm-hd h3 { font-size: 16px; font-weight: 600; }
+.fm-hd small { display: block; font-family: var(--f-mono); font-size: 11px; color: var(--text-3); letter-spacing: .04em; }
+.fm-hd .cnt { margin-left: auto; font-family: var(--f-mono); font-size: 12px; color: var(--text-2); background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px; padding: 1px 9px; white-space: nowrap; }
+.steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
+.step { display: grid; gap: 6px; }
+.step i { height: 6px; border-radius: 3px; background: var(--surface-3); }
+.step.hit i { background: var(--mc); box-shadow: 0 0 0 3px color-mix(in srgb, var(--mc) 16%, transparent); }
+.step span { font-size: 10.5px; color: var(--text-3); line-height: 1.35; }
+.step.hit span { color: var(--text); font-weight: 600; }
+.fm-grid { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px 16px; }
+.fm-grid div { display: grid; gap: 3px; align-content: start; }
+.fm-grid dt { font-size: 11.5px; color: var(--text-3); font-weight: 500; }
+.fm-grid dd { margin: 0; font-size: 13px; line-height: 1.65; color: var(--text-2); }
+@media (max-width: 400px) { .fm-grid { grid-template-columns: minmax(0, 1fr); } }
+.fm-ft { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 14px; border-top: 1px solid var(--border); }
+.stack { display: flex; align-items: center; }
+.stack .av { box-shadow: 0 0 0 2px var(--surface), inset 0 0 0 1px color-mix(in srgb, var(--av) 24%, transparent); }
+.stack .av + .av { margin-left: -6px; }
+.stack small { margin-left: 8px; font-size: 12px; color: var(--text-3); }
+
+/* ---------- catalog ---------- */
+.toolbar { padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; box-shadow: var(--sh-sm); }
+@media (min-width: 960px) { .toolbar { position: sticky; top: calc(var(--topH) + 10px); z-index: 10; box-shadow: var(--sh-md); } }
+.tb-l, .tb-r { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; min-width: 0; }
+.tb-r { flex: 1 1 320px; justify-content: flex-end; }
+.segc { display: inline-flex; padding: 2px; border-radius: 9px; background: var(--surface-2); border: 1px solid var(--border); }
+.segc button { border: 0; background: none; height: 28px; padding: 0 12px; border-radius: 7px; font-size: 13px; font-weight: 500; color: var(--text-2); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: background .15s, color .15s; }
+.segc button:hover { color: var(--text); }
+.segc button[aria-pressed="true"] { background: var(--surface); color: var(--text); font-weight: 600; box-shadow: var(--sh-sm), inset 0 0 0 1px var(--border); }
+.segc.icons button { padding: 0 8px; }
+.cnt-b { font-family: var(--f-mono); font-size: 11px; min-width: 18px; height: 18px; border-radius: 999px; display: inline-grid; place-items: center; background: var(--brand); color: var(--on-brand); padding: 0 5px; }
+.pop-wrap { position: relative; }
+.pop { position: absolute; top: calc(100% + 6px); left: 0; z-index: 12; width: 270px; padding: 6px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); box-shadow: var(--sh-lg); }
+.pop-it { width: 100%; display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 8px; border: 0; background: none; border-radius: 7px; cursor: pointer; font-size: 13.5px; text-align: left; }
+.pop-it:hover { background: var(--surface-2); }
+.pop-it .box { width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--border-strong); display: grid; place-items: center; color: transparent; flex: none; }
+.pop-it[aria-pressed="true"] .box { background: var(--brand); border-color: var(--brand); color: var(--on-brand); }
+.pop-it .dot { width: 8px; height: 8px; border-radius: 2px; background: var(--mc); flex: none; }
+.pop-it .c { margin-left: auto; font-family: var(--f-mono); font-size: 11.5px; color: var(--text-3); }
+.pop-ft { display: flex; justify-content: space-between; padding: 8px 8px 4px; margin-top: 4px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-3); }
+.pop-ft button { border: 0; background: none; color: var(--brand); cursor: pointer; font-size: 12.5px; font-weight: 600; padding: 0; }
+.sel { position: relative; display: inline-flex; align-items: center; }
+.sel select { appearance: none; -webkit-appearance: none; font: inherit; font-size: 13px; font-weight: 500; height: 34px; padding: 0 30px 0 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; box-shadow: var(--sh-sm); max-width: 190px; }
+.sel select:hover { border-color: var(--border-strong); }
+.sel .ic { position: absolute; right: 9px; pointer-events: none; color: var(--text-3); }
+.tb-search { position: relative; flex: 1 1 180px; max-width: 280px; }
+.tb-search input { width: 100%; font: inherit; font-size: 13.5px; height: 34px; padding: 0 12px 0 32px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); transition: border-color .15s, background .15s, box-shadow .15s; }
+.tb-search input:focus { outline: none; border-color: var(--brand); background: var(--surface); box-shadow: 0 0 0 3px var(--ring); }
+.tb-search .ic { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text-3); }
+.afilters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.afilters .lbl { font-size: 12px; color: var(--text-3); margin-right: 2px; }
+.fpill { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 6px 0 10px; border-radius: 999px; background: var(--brand-soft); color: var(--brand); font-size: 12.5px; font-weight: 600; border: 0; cursor: pointer; }
+.fpill .ic { opacity: .7; }
+.fpill:hover .ic { opacity: 1; }
+.clear-all { border: 0; background: none; color: var(--text-3); font-size: 12.5px; cursor: pointer; padding: 0 4px; text-decoration: underline; text-underline-offset: 3px; }
+.res-hd { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12.5px; color: var(--text-3); }
+.res-hd b { color: var(--text); font-family: var(--f-mono); font-weight: 500; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(296px, 1fr)); gap: 14px; }
+@media (max-width: 400px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.sc { position: relative; padding: 16px; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr auto; transition: border-color .15s, box-shadow .15s, transform .15s; min-width: 0; }
+.sc:hover { border-color: var(--border-strong); box-shadow: var(--sh-md); }
+@media (prefers-reduced-motion: no-preference) { .sc:hover { transform: translateY(-1px); } }
+.sc.sel { border-color: var(--brand); box-shadow: 0 0 0 3px var(--ring); }
+.sc-hd { display: flex; gap: 12px; align-items: center; }
+.sc-tt { min-width: 0; flex: 1; }
+.sc-tt h3 { font-size: 15.5px; font-weight: 600; letter-spacing: -.005em; }
+.sc-open { border: 0; background: none; padding: 0; cursor: pointer; text-align: left; font: inherit; color: inherit; }
+.sc-open::after { content: ""; position: absolute; inset: 0; border-radius: 14px; }
+.sc-open:focus-visible { outline: none; }
+.sc-open:focus-visible::after { outline: 2px solid var(--brand); outline-offset: 2px; }
+.sc-tt p { font-size: 12.5px; color: var(--text-3); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.cmp-btn { position: relative; z-index: 2; }
+.cmp-btn .ic + .ic { display: none; }
+.cmp-btn[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: var(--on-brand); }
+.cmp-btn[aria-pressed="true"] .ic:first-child { display: none; }
+.cmp-btn[aria-pressed="true"] .ic + .ic { display: block; }
+.sc-meta { display: flex; gap: 8px; align-items: center; min-width: 0; }
+.sc-ty { font-size: 12.5px; color: var(--text-2); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; min-width: 0; }
+.sc-fee { display: grid; gap: 8px; align-content: start; padding: 12px; border-radius: 10px; background: var(--surface-2); }
+.sc-fee p { font-size: 13px; line-height: 1.65; color: var(--text); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.sc-ft { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; color: var(--text-3); }
+.sc-ft > span { display: inline-flex; align-items: center; gap: 6px; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.sc-go { color: var(--brand); font-weight: 600; opacity: 0; transition: opacity .15s; flex: none; }
+.sc:hover .sc-go, .sc:focus-within .sc-go { opacity: 1; }
+@media (hover: none) { .sc-go { opacity: 1; } }
+.empty { padding: 56px 24px; text-align: center; color: var(--text-3); display: grid; justify-items: center; gap: 10px; }
+.empty b { color: var(--text); font-size: 15px; }
+
+/* data table */
+.dt { overflow: auto; max-height: 75vh; }
+.dt table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 980px; font-size: 13.5px; }
+.dt th, .dt td { text-align: left; vertical-align: middle; padding: 12px 14px; border-bottom: 1px solid var(--border); }
+.dt thead th { position: sticky; top: 0; z-index: 1; background: var(--surface-2); font-size: 12px; font-weight: 500; color: var(--text-3); white-space: nowrap; }
+.dt tbody tr { cursor: pointer; transition: background .12s; }
+.dt tbody tr:hover td { background: var(--surface-2); }
+.dt tbody tr.sel td { background: color-mix(in srgb, var(--brand) 7%, var(--surface)); }
+.dt tbody tr:last-child td { border-bottom: 0; }
+.tcell { display: flex; gap: 10px; align-items: center; min-width: 200px; }
+.tcell b { display: block; font-weight: 600; }
+.tcell small, .t-op small { display: block; font-size: 12px; color: var(--text-3); }
+.t-fx { color: var(--text-2); max-width: 340px; line-height: 1.6; }
+
+/* generic tables */
+.tbl { overflow-x: auto; }
+.tbl table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 13.5px; }
+.tbl th, .tbl td { text-align: left; vertical-align: top; padding: 13px 16px; border-bottom: 1px solid var(--border); line-height: 1.7; }
+.tbl thead th { font-size: 12px; font-weight: 500; color: var(--text-3); background: var(--surface-2); }
+.tbl tbody th { font-weight: 600; white-space: nowrap; }
+.tbl td { color: var(--text-2); }
+.tbl tr:last-child td, .tbl tr:last-child th { border-bottom: 0; }
+
+/* ---------- operators ---------- */
+.groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px; }
+@media (max-width: 400px) { .groups { grid-template-columns: minmax(0, 1fr); } }
+.grp { padding: 18px; display: grid; gap: 14px; align-content: start; }
+.grp-hd { display: flex; justify-content: space-between; gap: 10px; align-items: center; flex-wrap: wrap; }
+.grp-hd h3 { font-size: 15.5px; font-weight: 600; }
+.ls-b { font-family: var(--f-mono); font-size: 11px; color: var(--text-2); background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px; }
+.grp .gn { font-size: 12.5px; color: var(--text-2); line-height: 1.65; margin-top: -6px; }
+.orgs { display: grid; gap: 4px; }
+.org { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; padding: 10px; border-radius: 10px; background: var(--surface-2); }
+.org b { font-size: 13.5px; font-weight: 600; display: block; }
+.org small { display: block; font-size: 12px; color: var(--text-3); line-height: 1.55; }
+.svc { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.svc button { border: 1px solid var(--border); background: var(--surface); border-radius: 6px; height: 24px; padding: 0 9px; font-size: 12px; font-weight: 500; cursor: pointer; transition: border-color .15s, color .15s; }
+.svc button:hover { border-color: var(--brand); color: var(--brand); }
+
+/* ---------- samples / timeline / guide / sources ---------- */
+.samples { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.sample { overflow: hidden; font-size: 13.5px; }
+.sample .sh { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.sample .sh b { font-size: 14px; font-weight: 600; }
+.kv2 { margin: 0; display: grid; grid-template-columns: 7.5em minmax(0, 1fr); }
+.kv2 dt, .kv2 dd { margin: 0; padding: 9px 16px; border-bottom: 1px solid var(--border); line-height: 1.65; }
+.kv2 dt { color: var(--text-3); font-size: 12.5px; }
+.kv2 dd { color: var(--text); min-width: 0; }
+.kv2 > :nth-last-child(-n+2) { border-bottom: 0; }
+.kv2 small { display: block; color: var(--text-3); font-size: 12px; }
+.tl { padding: 24px 20px 20px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; }
+.tl-it { position: relative; padding: 28px 14px 0 0; display: grid; gap: 4px; align-content: start; }
+.tl-it::before { content: ""; position: absolute; top: 7px; left: 0; right: 0; height: 2px; background: var(--border); }
+.tl-it::after { content: ""; position: absolute; top: 1px; left: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--surface); border: 2px solid var(--border-strong); }
+.tl-it.done::after { border-color: var(--brand); background: var(--brand); }
+.tl-it.done::before { background: var(--brand); }
+.tl-it.now::after { border-color: var(--brand); box-shadow: 0 0 0 4px var(--ring); }
+.tl-it .w { font-family: var(--f-mono); font-size: 11.5px; color: var(--text-3); display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.tl-it .now-b { font-family: var(--f-sans); font-size: 11px; font-weight: 600; color: var(--on-brand); background: var(--brand); padding: 0 7px; border-radius: 999px; }
+.tl-it b { font-size: 14px; font-weight: 600; }
+.tl-it span.d { font-size: 12.5px; color: var(--text-2); line-height: 1.65; }
+@media (max-width: 860px) {
+  .tl { grid-template-columns: minmax(0, 1fr); padding: 20px; }
+  .tl-it { padding: 0 0 20px 30px; }
+  .tl-it::before { top: 14px; bottom: 0; left: 6px; right: auto; width: 2px; height: auto; }
+  .tl-it:last-child::before { display: none; }
+}
+.guide { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; }
+.guide .card { padding: 18px; display: grid; gap: 8px; align-content: start; }
+.guide b { font-size: 14.5px; font-weight: 600; }
+.guide p { font-size: 13.5px; color: var(--text-2); line-height: 1.75; }
+.guide em { font-style: normal; font-weight: 600; color: var(--text); }
+.callout { padding: 16px 18px; display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 12px; background: var(--surface-2); }
+.callout > .ic { color: var(--brand); margin-top: 2px; }
+.callout ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; font-size: 13.5px; color: var(--text-2); line-height: 1.7; }
+.sources { padding: 6px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.src-col { padding: 14px; display: grid; gap: 8px; align-content: start; }
+.src-col h3 { font-size: 13px; font-weight: 600; color: var(--text-3); }
+.src-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.src-col a { display: flex; gap: 8px; align-items: flex-start; padding: 7px 8px; border-radius: 7px; text-decoration: none; color: var(--text); font-size: 13px; line-height: 1.55; }
+.src-col a:hover { background: var(--surface-2); color: var(--brand); }
+.src-col a .ic { color: var(--text-3); margin-top: 3px; }
+footer { padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--text-3); }
+
+/* ---------- cost calculator ---------- */
+.calc { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 1100px) { .calc { grid-template-columns: minmax(0, 1fr); } }
+.calc-in { padding: 18px; display: grid; gap: 18px; margin: 0; }
+@media (min-width: 1101px) { .calc-in { position: sticky; top: calc(var(--topH) + 16px); } }
+.fld { display: grid; gap: 8px; }
+.fl { font-size: 12.5px; font-weight: 600; color: var(--text-2); }
+.rng { display: flex; align-items: center; gap: 12px; }
+.rng input[type="range"] { flex: 1; min-width: 0; accent-color: var(--brand); height: 20px; cursor: pointer; }
+.rng output { min-width: 76px; text-align: right; font-family: var(--f-mono); font-size: 13.5px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.calc-in .segc { width: 100%; }
+.calc-in .segc button { flex: 1; justify-content: center; }
+.calc-out { padding: 18px; display: grid; gap: 18px; min-width: 0; position: relative; }
+.c-sum { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--border); border-radius: 12px; }
+.cs { padding: 14px 16px; display: grid; gap: 3px; align-content: start; min-width: 0; }
+.cs + .cs { border-left: 1px solid var(--border); }
+.cs .l { font-size: 12px; color: var(--text-3); font-weight: 500; }
+.cs b { font-family: var(--f-mono); font-size: 21px; font-weight: 500; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.3; }
+.cs small { font-size: 12px; color: var(--text-2); overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 640px) { .c-sum { grid-template-columns: minmax(0, 1fr); } .cs + .cs { border-left: 0; border-top: 1px solid var(--border); } }
+.ch-title { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.ch-title h3 { font-size: 14px; font-weight: 600; }
+.ch-title span { font-size: 12px; color: var(--text-3); }
+.bars { list-style: none; margin: 0; padding: 0; display: grid; }
+.brow { display: grid; grid-template-columns: minmax(0, 1fr) 160px; grid-template-areas: "lab val" "trk val"; column-gap: 24px; row-gap: 6px; align-items: center; padding: 14px 0; border-top: 1px solid var(--border); }
+.brow.axis { grid-template-areas: "trk val"; border-top: 0; padding: 0 0 2px; }
+.brow.axis .b-lab { display: none; }
+.b-lab { grid-area: lab; min-width: 0; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.b-lab small { flex-basis: 100%; }
+.trk, .ticks { grid-area: trk; }
+.b-val { grid-area: val; }
+.b-lab b { font-size: 13.5px; font-weight: 600; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.b-lab small { font-size: 12px; color: var(--text-3); line-height: 1.55; }
+.b-sites { display: flex; flex-wrap: wrap; gap: 4px; }
+.b-sites button { border: 0; background: none; padding: 0; font-size: 12px; color: var(--brand); cursor: pointer; font-weight: 500; }
+.b-sites button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.b-sites button + button::before { content: "・"; color: var(--text-3); }
+.trk { position: relative; height: 28px; background-image: linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: var(--gs) 100%; border-right: 1px solid var(--border); }
+.bar { position: absolute; top: 10px; height: 8px; border-radius: 4px; background: var(--mc); min-width: 8px; cursor: default; }
+.bar.pt { width: 10px; height: 10px; top: 9px; border-radius: 50%; min-width: 0; transform: translateX(-5px); box-shadow: 0 0 0 2px var(--surface); }
+.bar.open { background: linear-gradient(90deg, var(--mc) 0 55%, color-mix(in srgb, var(--mc) 0%, transparent)); border-radius: 4px 0 0 4px; }
+.bar:hover, .bar:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--mc) 30%, transparent); outline: none; }
+.ticks { position: relative; height: 16px; }
+.ticks span { position: absolute; top: 0; transform: translateX(-50%); font-family: var(--f-mono); font-size: 11px; color: var(--text-3); white-space: nowrap; }
+.ticks span:first-child { transform: none; }
+.ticks span:last-child { transform: translateX(-100%); }
+.b-val { text-align: right; display: grid; gap: 2px; }
+.b-val b { font-family: var(--f-mono); font-size: 13.5px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.b-val small { font-size: 11.5px; color: var(--text-3); font-family: var(--f-mono); }
+.b-val .k { font-family: var(--f-sans); }
+@media (max-width: 720px) {
+  .brow { grid-template-columns: minmax(0, 1fr); grid-template-areas: "lab" "trk" "val"; }
+  .brow.axis { grid-template-areas: "trk"; }
+  .brow.axis .b-val { display: none; }
+  .b-val { text-align: left; grid-auto-flow: column; justify-content: start; gap: 12px; align-items: baseline; }
+}
+.excl { display: grid; gap: 8px; padding: 14px; border-radius: 12px; background: var(--surface-2); }
+.excl .fl { font-weight: 500; color: var(--text-3); font-size: 12px; }
+.tip { position: fixed; z-index: 45; pointer-events: none; max-width: 300px; padding: 10px 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--sh-lg); font-size: 12.5px; line-height: 1.6; display: grid; gap: 4px; }
+.tip b { font-size: 13px; }
+.tip .r { display: flex; justify-content: space-between; gap: 16px; color: var(--text-2); }
+.tip .r span:last-child { font-family: var(--f-mono); color: var(--text); }
+
+/* ---------- sources ---------- */
+.kb { display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 5px; font-size: 11px; font-weight: 600; white-space: nowrap; background: var(--surface-2); color: var(--text-2); border: 1px solid var(--border); flex: none; }
+.kb.off { background: var(--brand-soft); color: var(--brand); border-color: transparent; }
+.kb.pub { background: color-mix(in srgb, var(--s-mid) 12%, var(--surface)); color: var(--s-mid); border-color: transparent; }
+.srcs { display: grid; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.srcs a { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 11px 14px; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); transition: background .12s; }
+.srcs a:last-child { border-bottom: 0; }
+.srcs a:hover { background: var(--surface-2); }
+.srcs a b { display: block; font-size: 13.5px; font-weight: 500; line-height: 1.55; }
+.srcs a small { display: block; font-size: 12px; color: var(--text-3); font-family: var(--f-mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.srcs a .ic { color: var(--text-3); margin-top: 3px; }
+.src-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.src-grp { padding: 16px; display: grid; gap: 10px; align-content: start; }
+.src-grp h3 { font-size: 13.5px; font-weight: 600; display: flex; gap: 8px; align-items: center; justify-content: space-between; }
+.src-grp h3 span { font-family: var(--f-mono); font-size: 11.5px; color: var(--text-3); font-weight: 400; }
+.src-grp ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.src-grp a { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 8px; padding: 8px; border-radius: 8px; text-decoration: none; color: var(--text); font-size: 13px; line-height: 1.55; }
+.src-grp a:hover { background: var(--surface-2); }
+.src-grp a .ic { color: var(--text-3); margin-top: 3px; }
+.src-grp a small { display: block; font-size: 11.5px; color: var(--text-3); margin-top: 2px; }
+
+/* ---------- dialogs ---------- */
+dialog { color: var(--text); }
+dialog::backdrop { background: rgba(8, 14, 13, .45); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+.drawer { border: 0; border-left: 1px solid var(--border); padding: 0; margin: 0 0 0 auto; width: min(600px, 100vw); max-width: 100vw; height: 100%; max-height: 100%; background: var(--surface); box-shadow: var(--sh-lg); }
+@media (prefers-reduced-motion: no-preference) { .drawer[open] { animation: dr-in .24s cubic-bezier(.2,.8,.2,1); } @keyframes dr-in { from { transform: translateX(28px); opacity: .3; } to { transform: none; opacity: 1; } } }
+.dr { display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; height: 100%; }
+.dr-hd { padding: calc(14px + env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) 18px 22px; display: grid; gap: 16px; }
+.dr-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.dr-top .l { display: flex; gap: 8px; align-items: center; min-width: 0; font-size: 12.5px; color: var(--text-3); }
+.dr-top .l span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.dr-top .r { display: flex; gap: 6px; flex: none; }
+.dr-id { display: flex; gap: 14px; align-items: center; }
+.dr-id h2 { font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
+.dr-id p { font-size: 13px; color: var(--text-2); margin-top: 2px; }
+.tabs { display: flex; gap: 4px; padding: 0 22px; border-bottom: 1px solid var(--border); }
+.tabs button { position: relative; border: 0; background: none; height: 40px; padding: 0 10px; font-size: 13.5px; font-weight: 500; color: var(--text-3); cursor: pointer; display: inline-flex; align-items: center; gap: 7px; }
+.tabs button:hover { color: var(--text); }
+.tabs button[aria-selected="true"] { color: var(--text); font-weight: 600; }
+.tabs button[aria-selected="true"]::after { content: ""; position: absolute; left: 8px; right: 8px; bottom: -1px; height: 2px; border-radius: 2px; background: var(--brand); }
+.dr-body { overflow-y: auto; overscroll-behavior: contain; padding: 20px 22px 28px; display: grid; grid-auto-rows: max-content; gap: 22px; align-content: start; min-height: 0; }
+.dr-ft { padding: 12px 22px calc(12px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 10px; background: var(--surface-2); }
+.vnote { font-size: 12px; color: var(--text-3); display: inline-flex; gap: 6px; align-items: center; }
+.vnote .ic { color: var(--brand); }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.facts > div { padding: 12px 14px; display: grid; gap: 6px; align-content: start; }
+.facts > div:nth-child(odd) { border-right: 1px solid var(--border); }
+.facts > div:nth-child(n+3) { border-top: 1px solid var(--border); }
+.facts span.l { font-size: 11.5px; color: var(--text-3); font-weight: 500; }
+.facts .v { font-size: 13.5px; font-weight: 500; }
+.sub-hd { font-size: 12px; font-weight: 600; color: var(--text-3); letter-spacing: .04em; margin-bottom: -10px; }
+.kv { margin: 0; display: grid; grid-template-columns: 8em minmax(0, 1fr); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; font-size: 13.5px; }
+.kv dt, .kv dd { margin: 0; padding: 11px 14px; border-bottom: 1px solid var(--border); line-height: 1.7; }
+.kv dt { color: var(--text-3); font-size: 12.5px; background: var(--surface-2); }
+.kv dd { min-width: 0; }
+.kv > :nth-last-child(-n+2) { border-bottom: 0; }
+.fee-hero { padding: 16px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--mc) 30%, var(--border)); background: color-mix(in srgb, var(--mc) 6%, var(--surface)); display: grid; gap: 10px; }
+.fee-hero p { font-size: 15px; font-weight: 600; line-height: 1.6; }
+.org-card { display: flex; gap: 14px; align-items: center; padding: 16px; border: 1px solid var(--border); border-radius: 12px; }
+.org-card b { font-size: 16px; font-weight: 600; display: block; }
+.org-card small { display: block; font-size: 12.5px; color: var(--text-2); line-height: 1.6; margin-top: 2px; }
+.rows { display: grid; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.rows button { display: flex; gap: 12px; align-items: center; padding: 10px 14px; border: 0; border-bottom: 1px solid var(--border); background: var(--surface); cursor: pointer; text-align: left; transition: background .12s; }
+.rows button:last-child { border-bottom: 0; }
+.rows button:hover { background: var(--surface-2); }
+.rows .m { flex: 1; min-width: 0; }
+.rows .m b { display: block; font-size: 13.5px; font-weight: 600; }
+.rows .m small { display: block; font-size: 12px; color: var(--text-3); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.rows .ic { color: var(--text-3); }
+.muted-box { padding: 14px; border: 1px dashed var(--border-strong); border-radius: 12px; font-size: 13px; color: var(--text-3); }
+
+/* command palette */
+.cmdk { border: 1px solid var(--border); padding: 0; width: min(640px, calc(100vw - 32px)); max-width: none; margin: 12vh auto auto; border-radius: 14px; background: var(--surface); box-shadow: var(--sh-lg); overflow: hidden; }
+@media (prefers-reduced-motion: no-preference) { .cmdk[open] { animation: ck-in .16s ease-out; } @keyframes ck-in { from { transform: scale(.98) translateY(-6px); opacity: 0; } to { transform: none; opacity: 1; } } }
+.ck-in { display: flex; align-items: center; gap: 10px; padding: 0 16px; height: 54px; border-bottom: 1px solid var(--border); }
+.ck-in .ic { color: var(--text-3); }
+.ck-in input { flex: 1; min-width: 0; border: 0; background: none; font: inherit; font-size: 15.5px; color: var(--text); outline: none; height: 100%; }
+.ck-list { max-height: min(56vh, 460px); overflow-y: auto; overscroll-behavior: contain; padding: 6px; }
+.cg { font-size: 11.5px; font-weight: 600; color: var(--text-3); padding: 10px 10px 4px; letter-spacing: .04em; }
+.ci { display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px; cursor: pointer; min-height: 44px; }
+.ci.on { background: var(--surface-2); box-shadow: inset 2px 0 0 var(--brand); }
+.ci .m { flex: 1; min-width: 0; }
+.ci .m b { display: block; font-size: 13.5px; font-weight: 600; }
+.ci .m small { display: block; font-size: 12px; color: var(--text-3); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.ci .s { display: flex; gap: 4px; flex: none; }
+.ci-ic { width: 26px; height: 26px; border-radius: 7px; display: grid; place-items: center; background: var(--surface-2); border: 1px solid var(--border); color: color-mix(in srgb, var(--mc, var(--text-2)) 70%, var(--text)); flex: none; }
+.ck-empty { padding: 36px 16px; text-align: center; color: var(--text-3); font-size: 13.5px; }
+.ck-ft { display: flex; gap: 16px; padding: 10px 16px; border-top: 1px solid var(--border); background: var(--surface-2); font-size: 12px; color: var(--text-3); flex-wrap: wrap; }
+.ck-ft span { display: inline-flex; gap: 6px; align-items: center; }
+@media (max-width: 640px) { .ci .s { display: none; } .cmdk { margin-top: calc(env(safe-area-inset-top, 0px) + 16px); } }
+
+/* compare */
+.cbar { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 25; display: flex; align-items: center; gap: 12px; padding: 8px 8px 8px 14px; border-radius: 14px; background: var(--text); color: var(--surface); box-shadow: var(--sh-lg); max-width: calc(100vw - 32px); }
+@media (prefers-reduced-motion: no-preference) { .cbar:not([hidden]) { animation: cb-in .2s ease-out; } @keyframes cb-in { from { transform: translate(-50%, 12px); opacity: 0; } to { transform: translateX(-50%); opacity: 1; } } }
+.cbar .stack .av { box-shadow: 0 0 0 2px var(--text); }
+.cbar .t { font-size: 13px; font-weight: 600; white-space: nowrap; }
+.cbar .t small { font-family: var(--f-mono); font-weight: 400; opacity: .6; margin-left: 4px; }
+.cbar .x2 { border: 0; background: none; color: inherit; opacity: .65; cursor: pointer; font-size: 12.5px; padding: 0 6px; }
+.cbar .x2:hover { opacity: 1; }
+.cmpd { border: 1px solid var(--border); padding: 0; width: min(1120px, calc(100vw - 32px)); max-width: none; max-height: min(86vh, 900px); border-radius: 16px; background: var(--surface); box-shadow: var(--sh-lg); overflow: hidden; }
+.cmpd[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+.cmpd-hd { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--border); }
+.cmpd-hd h2 { font-size: 16px; font-weight: 600; }
+.cmpd-body { overflow: auto; overscroll-behavior: contain; min-height: 0; }
+.cmpt { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 720px; font-size: 13px; }
+.cmpt th, .cmpt td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--border); line-height: 1.65; }
+.cmpt tbody th { position: sticky; left: 0; background: var(--surface-2); color: var(--text-3); font-weight: 500; font-size: 12px; width: 120px; min-width: 120px; z-index: 1; }
+.cmpt thead th { position: sticky; top: 0; background: var(--surface); z-index: 2; border-bottom: 1px solid var(--border-strong); }
+.cmpt thead th:first-child { left: 0; z-index: 3; background: var(--surface-2); }
+.cmpt td { color: var(--text-2); min-width: 220px; }
+.cmpt .hcell { display: flex; gap: 10px; align-items: center; justify-content: space-between; }
+.cmpt .hcell > div { display: flex; gap: 10px; align-items: center; min-width: 0; }
+.cmpt .hcell b { font-size: 14px; color: var(--text); }
+.cmpt ul { margin: 0; padding-left: 1.1em; }
+.toast { position: fixed; left: 50%; bottom: calc(84px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 40; padding: 9px 14px; border-radius: 10px; background: var(--text); color: var(--surface); font-size: 13px; box-shadow: var(--sh-lg); }
+/* ---------- standalone additions ---------- */
+.sc > *, .fm > *, .grp > *, .calc-out > *, .acc-body > * { min-width: 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; font-size: 12.5px; color: var(--text-2); margin-top: 14px; }
+.legend > span { display: inline-flex; gap: 6px; align-items: center; }
+.sec-chip { display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 5px; font-size: 11px; font-weight: 600; white-space: nowrap; color: var(--s-both); background: color-mix(in srgb, var(--s-both) 12%, var(--surface)); flex: none; }
+.src { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; font-size: 12px; color: var(--text-3); line-height: 1.6; }
+.src a { color: var(--text-2); text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 3px; }
+.src a:hover { color: var(--brand); text-decoration-color: currentColor; }
+.loading { padding: 28px; text-align: center; color: var(--text-3); font-size: 13.5px; }
+.sec-tools { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.acc-list { display: grid; gap: 8px; }
+.acc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color .15s, box-shadow .15s; }
+.acc[open] { border-color: var(--border-strong); box-shadow: var(--sh-sm); }
+.acc > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 14px; align-items: center; padding: 14px 16px; }
+.acc > summary::-webkit-details-marker { display: none; }
+.acc > summary:hover { background: var(--surface-2); }
+.acc .s-name b { display: block; font-size: 14.5px; font-weight: 600; }
+.acc .s-name small { display: block; font-size: 12.5px; color: var(--text-3); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.acc .s-side { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; max-width: 360px; }
+.acc .chev { width: 18px; height: 18px; color: var(--text-3); transition: transform .2s; }
+.acc[open] .chev { transform: rotate(180deg); }
+.acc-body { padding: 4px 16px 18px; display: grid; gap: 14px; border-top: 1px solid var(--border); padding-top: 16px; }
+.acc-body .sum-line { font-size: 14px; font-weight: 600; }
+@media (max-width: 640px) {
+  .acc > summary { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .acc .s-side { grid-column: 2 / 4; grid-row: 2; justify-content: flex-start; max-width: none; }
+}
+.grp-h { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 10px 2px 2px; }
+.grp-h h3 { font-size: 14px; font-weight: 600; }
+.grp-h p { font-size: 12.5px; color: var(--text-3); }
+.news-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 1000px) { .news-wrap { grid-template-columns: minmax(0, 1fr); } }
+.news-col { padding: 18px; display: grid; gap: 12px; align-content: start; }
+.news-col h3 { font-size: 15px; font-weight: 600; display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.news-col h3 span { font-size: 12px; color: var(--text-3); font-weight: 400; }
+.nlist { list-style: none; margin: 0; padding: 0; display: grid; }
+.nlist li { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid var(--border); }
+.nlist li:first-child { border-top: 0; padding-top: 4px; }
+.nlist time { font-family: var(--f-mono); font-size: 12px; color: var(--text-3); padding-top: 2px; }
+.nlist .nb { display: grid; gap: 4px; min-width: 0; }
+.nlist .nb b { font-size: 14px; font-weight: 600; line-height: 1.55; }
+.nlist .nb p { font-size: 13px; color: var(--text-2); line-height: 1.7; }
+.nlist .svc-btn { justify-self: start; border: 0; background: var(--surface-2); border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 600; color: var(--brand); cursor: pointer; }
+.nlist .svc-btn:hover { background: var(--brand-soft); }
+@media (max-width: 480px) { .nlist li { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+.req { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 14px; }
+@media (max-width: 860px) { .req { grid-template-columns: minmax(0, 1fr); } }
+.req-main { padding: 24px; display: grid; gap: 14px; align-content: start; position: relative; overflow: hidden; }
+.req-main::after { content: ""; position: absolute; width: 360px; height: 360px; right: -140px; top: -180px; background: radial-gradient(closest-side, color-mix(in srgb, var(--brand) 16%, transparent), transparent); pointer-events: none; }
+.req-main h3 { font-size: 20px; font-weight: 700; }
+.req-main p { color: var(--text-2); line-height: 1.8; }
+.req-kinds { display: flex; flex-wrap: wrap; gap: 6px; }
+.req-kinds span { font-size: 12.5px; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); color: var(--text-2); }
+.req-main .btn { justify-self: start; height: 40px; padding: 0 18px; font-size: 14px; position: relative; z-index: 1; }
+.req-main .btn[aria-disabled="true"] { background: var(--surface-3); color: var(--text-3); box-shadow: none; cursor: default; }
+.req-side { padding: 22px; display: grid; gap: 10px; align-content: start; }
+.req-side h3 { font-size: 14px; font-weight: 600; }
+.req-side ul { margin: 0 0 6px; padding-left: 1.1em; display: grid; gap: 5px; font-size: 13.5px; color: var(--text-2); line-height: 1.7; }
+.site-foot { display: grid; gap: 8px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12.5px; color: var(--text-3); line-height: 1.8; }
+.site-foot b { color: var(--text-2); }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#all" data-view="all" aria-label="求人サイトナビ トップへ">
+      <svg class="logo" viewBox="0 0 28 28" aria-hidden="true"><rect class="lb" width="28" height="28" rx="8"></rect><path class="lf" d="M8 9.5h12M8 14h8M8 18.5h4.5" fill="none" stroke-width="2.2" stroke-linecap="round"></path><circle class="ld" cx="19" cy="18.5" r="2.4"></circle></svg>
+      <span class="brand-name">求人サイトナビ</span><span class="ver mono" id="ver">—</span>
+    </a>
+    <button type="button" class="search-trigger" data-cmdk aria-label="サイト・運営会社を検索"><i data-ic="search" data-s="15"></i><span class="st-txt">サイト・運営会社・料金モデルを検索</span><span class="kbd" data-kbd>Ctrl K</span></button>
+    <div class="top-act">
+      <a class="btn btn-ghost sm hide-sm" href="#request" data-view="request">リクエスト</a>
+      <button type="button" class="btn btn-primary sm" id="top-cmp"><i data-ic="columns" data-s="15"></i><span class="hide-sm">比較</span><span class="n" id="top-cmp-n">0</span></button>
+    </div>
+  </div>
+</header>
+<nav class="mnav" aria-label="表示する内容の切り替え"><div class="in" id="mnav"></div></nav>
+
+<div class="shell">
+  <aside class="side" id="side" aria-label="表示する内容の切り替え"></aside>
+  <main class="main" id="main">
+
+    <section class="sec" id="overview" aria-label="概要">
+      <div class="hero card">
+        <div>
+          <span class="pill"><b>毎週月曜更新</b><span id="hero-pill">新卒・中途の求人サイトを公開情報で確認しています</span></span>
+          <h1>求人サイトを、<span class="g">運営元と料金の仕組み</span>で比べる</h1>
+          <p class="lead">新卒・中途あわせて<span id="hero-count">40</span>の求人サービスについて、運営している会社と資本関係、企業が払う料金のモデルと内訳、載っている情報、掲載企業の傾向、最新のニュースをまとめた案内サイトです。</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#catalog" data-view="catalog">サイト一覧を開く<i data-ic="arrowR" data-s="15"></i></a>
+            <a class="btn btn-ghost" href="#calc" data-view="calc"><i data-ic="calc" data-s="15"></i>採用コストを試算</a>
+          </div>
+          <p class="hint"><span class="kbd" data-kbd>Ctrl K</span>または<span class="kbd">/</span>で、どこからでもサイトや会社を検索できます</p>
+        </div>
+        <div class="changes">
+          <div class="ch-hd"><span>最近の主な変化</span><span class="live"><i></i><span id="changes-date">—</span></span></div>
+          <ul class="ch-list" id="changes"><li><div class="loading">読み込んでいます…</div></li></ul>
+        </div>
+      </div>
+      <div class="kpis card" id="kpis"></div>
+      <div class="legend"><span><span class="sec-chip">二次情報</span>公式発表や大手報道で確認できていない情報</span><span><i data-ic="info" data-s="14"></i>料金は代理店・比較サイトの公表値を含む目安</span></div>
+    </section>
+
+    <section class="sec" id="diff">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="split"></i></span>新卒と中途の違い</h2>
+        <p>新卒は年に一度の一斉採用、中途は通年の欠員補充です。この前提の違いが、サイトの作りにも料金の取り方にも表れています。</p>
+      </div></div>
+      <div class="diff">
+        <div class="card">
+          <h3><span class="badge b-new"><i></i>新卒</span>ポテンシャル採用・一括採用</h3>
+          <ul class="ul">
+            <li><i data-ic="check" data-s="15"></i><span>卒業年度（例: 28卒）単位で、同じ時期に一斉に動く</span></li>
+            <li><i data-ic="check" data-s="15"></i><span>職種を決めずに「総合職」で募集する企業が多い</span></li>
+            <li><i data-ic="check" data-s="15"></i><span>載る情報は企業理解が中心。事業内容、社風、社員インタビュー、説明会・インターンの日程</span></li>
+            <li><i data-ic="check" data-s="15"></i><span>給与は「初任給」で横並びに比較される</span></li>
+            <li><i data-ic="check" data-s="15"></i><span>学生は無料。企業は年間の掲載料か、内定承諾ごとの成果報酬を払う</span></li>
+            <li><i data-ic="check" data-s="15"></i><span>リクナビは27卒向けから学年統合・職種単位の求人・クリック課金に変わり、中途の求人サイトに近づいた</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="badge b-mid"><i></i>中途</span>即戦力採用・通年採用</h3>
+          <ul class="ul">
+            <li><i data-ic="check" data-s="15"></i><span>ポジションが空いたときに随時募集する</span></li>
+            <li><i data-ic="check" data-s="15"></i><span>職種・役割を限定した求人が基本（ジョブ型に近い）</span></li>
+            <li><i data-ic="check" data-s="15"></i><span>載る情報は業務内容、必須・歓迎スキル、想定年収レンジ、勤務地、リモート可否</span></li>
+            <li><i data-ic="check" data-s="15"></i><span>エージェント経由でしか見られない非公開求人が多い</span></li>
+            <li><i data-ic="check" data-s="15"></i><span>求職者は基本無料。企業は掲載料・成果報酬・データベース利用料・クリック課金のいずれかを払う</span></li>
+            <li><i data-ic="check" data-s="15"></i><span>総合型、ハイクラス、IT特化、業界特化、検索エンジンと細かく分かれている</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="map">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="map"></i></span>類型マップ</h2>
+        <p>「誰が最初に動くか」で4つに分けると、求人サービスの全体像がつかめます。</p>
+      </div></div>
+      <div class="map card" role="table" aria-label="サービス類型マップ">
+        <div class="ax corner" role="columnheader"></div>
+        <div class="hd" role="columnheader"><span class="badge b-new"><i></i>新卒</span></div>
+        <div class="hd" role="columnheader"><span class="badge b-mid"><i></i>中途</span></div>
+        <div class="ax" role="rowheader">求職者が探して応募する</div>
+        <div class="cell"><div><b>就職ナビ</b><span class="x">リクナビ、マイナビ、キャリタス就活</span></div></div>
+        <div class="cell"><div><b>求人広告・転職サイト</b><span class="x">リクナビNEXT、doda、マイナビ転職、エン転職、type、Green</span></div><div><b>求人検索エンジン</b><span class="x">Indeed、求人ボックス</span></div></div>
+        <div class="ax" role="rowheader">企業が声をかける</div>
+        <div class="cell"><div><b>逆求人（オファー型）</b><span class="x">OfferBox、dodaキャンパス、キミスカ、Re就活キャンパス、LabBase就職</span></div></div>
+        <div class="cell"><div><b>スカウト・ダイレクトリクルーティング</b><span class="x">ビズリーチ、リクルートダイレクトスカウト、AMBI、ミイダス、Findy</span></div></div>
+        <div class="ax" role="rowheader">人が間に入る</div>
+        <div class="cell"><div><b>新卒エージェント</b><span class="x">キャリアチケット、レバテックルーキー</span></div><div><b>OB・OG訪問</b><span class="x">Matcher</span></div></div>
+        <div class="cell"><div><b>人材紹介（エージェント）</b><span class="x">リクルートエージェント、doda、JAC、パソナキャリア、レバテックキャリア</span></div></div>
+        <div class="ax" role="rowheader">情報・つながりを集める</div>
+        <div class="cell"><div><b>口コミ・選考体験記</b><span class="x">ONE CAREER、外資就活ドットコム</span></div></div>
+        <div class="cell"><div><b>口コミ・キャリアSNS</b><span class="x">OpenWork、転職会議、Wantedly、YOUTRUST、LinkedIn</span></div></div>
+      </div>
+    </section>
+
+    <section class="sec" id="fees">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="yen"></i></span>料金モデル</h2>
+        <p>求人サイトの料金は、お金が発生するタイミングで7つに分けられます。バーは「契約 → 掲載 → 閲覧 → 応募 → 内定承諾・入社」の流れで、色が付いた段階で費用が発生します。</p>
+      </div></div>
+      <div class="models" id="models"></div>
+    </section>
+
+    <section class="sec" id="calc">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="calc"></i></span>採用コスト試算</h2>
+        <p>採用人数と期間を入れると、料金が公表されているサービスについて、合計と1名あたりの費用の目安を並べます。各社・代理店の公表値をもとにした概算で、実際の見積もりとは異なります。</p>
+      </div></div>
+      <div class="calc">
+        <form class="calc-in card" id="calc-form" aria-label="試算の条件">
+          <div class="fld"><span class="fl" id="c-seg-l">採用区分</span><div class="segc" id="c-seg" role="group" aria-labelledby="c-seg-l"></div></div>
+          <div class="fld"><label class="fl" for="c-n">採用人数</label><div class="rng"><input type="range" id="c-n" min="1" max="20" step="1" value="3"><output id="c-n-o" for="c-n">3名</output></div></div>
+          <div class="fld"><span class="fl" id="c-p-l">採用活動の期間</span><div class="segc" id="c-p" role="group" aria-labelledby="c-p-l"></div></div>
+          <div class="fld" data-only="mid"><label class="fl" for="c-sal">想定年収（理論年収）</label><div class="rng"><input type="range" id="c-sal" min="300" max="1500" step="50" value="550"><output id="c-sal-o" for="c-sal">550万円</output></div></div>
+          <div class="fld" data-only="mid"><span class="fl" id="c-rate-l">人材紹介の手数料率</span><div class="segc" id="c-rate" role="group" aria-labelledby="c-rate-l"></div></div>
+          <div class="fld"><label class="fl" for="c-click">クリック課金の日額予算</label><div class="rng"><input type="range" id="c-click" min="1000" max="20000" step="1000" value="3000"><output id="c-click-o" for="c-click">3,000円</output></div></div>
+          <p class="note"><i data-ic="info" data-s="14"></i><span>4週間は1か月として換算しています。掲載課金・定額・クリック課金は、採用できなくても費用が発生します。</span></p>
+        </form>
+        <div class="calc-out card" id="calc-out" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="catalog">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="grid"></i></span>サイト一覧</h2>
+        <p>カードか表の行を選ぶと、運営元と費用体系の詳細が開きます。<i data-ic="plus" data-s="13" style="display:inline-block;vertical-align:-1px"></i>で比較に追加すると、最大4件を並べて比べられます。</p>
+      </div></div>
+      <div class="toolbar card" role="search" aria-label="一覧の絞り込み">
+        <div class="tb-l">
+          <div class="segc" id="f-seg" role="group" aria-label="区分"></div>
+          <div class="pop-wrap" id="mwrap">
+            <button type="button" class="btn btn-ghost" id="mbtn" aria-expanded="false" aria-haspopup="true"><i data-ic="filter" data-s="15"></i>料金モデル<span class="cnt-b" id="mcnt" hidden>0</span><i data-ic="chevD" data-s="14"></i></button>
+            <div class="pop" id="mpop" hidden></div>
+          </div>
+          <label class="sel"><span class="sr-only">類型</span><select id="f-type"></select><i data-ic="chevD" data-s="14"></i></label>
+        </div>
+        <div class="tb-r">
+          <div class="tb-search"><i data-ic="search" data-s="15"></i><input id="q" type="search" placeholder="一覧を絞り込む" aria-label="一覧をキーワードで絞り込む" autocomplete="off"></div>
+          <label class="sel"><span class="sr-only">並び順</span><select id="f-sort"><option value="default">標準の並び</option><option value="name">名前順</option><option value="seg">区分順</option><option value="model">料金モデル順</option></select><i data-ic="chevD" data-s="14"></i></label>
+          <div class="segc icons" id="f-view" role="group" aria-label="表示形式"></div>
+        </div>
+      </div>
+      <div class="afilters" id="afilters" hidden></div>
+      <div class="res-hd"><span id="count"></span><span class="hide-sm">行を選ぶと詳細 · ←→ で前後へ</span></div>
+      <div id="out"></div>
+    </section>
+
+    <section class="sec" id="plans">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="yen"></i></span>料金の詳細</h2>
+        <p>サービスを押すと、費用が発生するタイミングと料金の内訳、出典が開きます。閉じたままでも料金モデルと要点を確認できます。確認日 <span class="mono" id="plans-updated">—</span></p>
+      </div><div class="sec-tools"><div class="segc" id="pl-seg" role="group" aria-label="区分"></div><button type="button" class="btn btn-ghost sm" data-toggle-all="plans-list">すべて開く</button></div></div>
+      <div class="acc-list" id="plans-list"><div class="loading">料金を読み込んでいます…</div></div>
+    </section>
+
+    <section class="sec" id="operators">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="building"></i></span>運営元の詳細</h2>
+        <p>求人サイトは少数の大手グループに集まっています。会社を押すと、資本関係・上場の状況・運営しているサービス・出典が開きます。確認日 <span class="mono" id="companies-updated">—</span></p>
+      </div><div class="sec-tools"><button type="button" class="btn btn-ghost sm" data-toggle-all="companies-list">すべて開く</button></div></div>
+      <div class="acc-list" id="companies-list"><div class="loading">運営元を読み込んでいます…</div></div>
+    </section>
+
+    <section class="sec" id="news">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="news"></i></span>ニュース</h2>
+        <p>求人サービスと採用・就活をめぐる動きを毎週まとめています。<span id="news-period"></span>　更新日 <span class="mono" id="news-updated">—</span></p>
+      </div></div>
+      <div class="news-wrap">
+        <div class="news-col card"><h3>業界・制度の動き<span id="market-count"></span></h3><ol class="nlist" id="market-news"><li><div class="loading">読み込んでいます…</div></li></ol></div>
+        <div class="news-col card"><h3>サービスのニュース<span id="svc-news-count"></span></h3><ol class="nlist" id="svc-news"><li><div class="loading">読み込んでいます…</div></li></ol></div>
+      </div>
+    </section>
+
+    <section class="sec" id="items">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="file"></i></span>求人票に載る項目</h2>
+        <p>新卒の求人は会社を知ってもらうため、中途の求人はこの仕事ができる人を探すための作りです。下は典型的な記載例です（架空の企業）。</p>
+      </div></div>
+      <div class="samples">
+        <div class="sample card">
+          <div class="sh"><b>新卒ナビの採用ページ</b><span class="badge b-new"><i></i>新卒</span></div>
+          <dl class="kv2">
+            <dt>募集職種</dt><dd>総合職（営業・企画・管理部門）※配属は研修後に決定</dd>
+            <dt>初任給</dt><dd>学士 月給 26万円 ／ 修士 月給 28万円<small>固定残業代の有無と時間数の明示が必要</small></dd>
+            <dt>募集対象</dt><dd>2028年3月卒業見込みの大学・大学院生、既卒3年以内可</dd>
+            <dt>選考フロー</dt><dd>エントリー → 説明会 → ES・適性検査（SPI） → 面接2〜3回 → 内々定</dd>
+            <dt>イベント</dt><dd>夏季インターン（5日間）、オンライン説明会、社員座談会</dd>
+            <dt>採用実績</dt><dd>採用人数の推移、男女比、採用実績校</dd>
+            <dt>定着・制度</dt><dd>平均勤続年数、3年後離職率、有給取得日数、育休取得率、研修制度</dd>
+            <dt>コンテンツ</dt><dd>社員インタビュー、1日の流れ、社長メッセージ、写真・動画</dd>
+          </dl>
+        </div>
+        <div class="sample card">
+          <div class="sh"><b>転職サイトの求人票</b><span class="badge b-mid"><i></i>中途</span></div>
+          <dl class="kv2">
+            <dt>ポジション</dt><dd>法人営業リーダー（SaaS／中堅企業向け）</dd>
+            <dt>業務内容</dt><dd>新規・既存顧客への提案、メンバー3名のマネジメント<small>変更の範囲：会社の定める業務</small></dd>
+            <dt>応募資格</dt><dd>【必須】法人営業経験3年以上<br>【歓迎】SaaS営業経験、マネジメント経験</dd>
+            <dt>想定年収</dt><dd>600万〜850万円（経験・能力を考慮）</dd>
+            <dt>勤務地</dt><dd>東京本社（リモート週2日可）<small>変更の範囲：会社の定める事業所</small></dd>
+            <dt>選考</dt><dd>書類選考 → 面接2回 → 内定（応募から約1か月）</dd>
+            <dt>働き方</dt><dd>フレックス、残業月平均20時間、副業可</dd>
+            <dt>求人の出し方</dt><dd>公開求人／非公開求人（エージェント経由のみ）</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="tbl card">
+        <table>
+          <thead><tr><th>項目</th><th>新卒サイト</th><th>中途サイト</th><th>補足</th></tr></thead>
+          <tbody>
+            <tr><th>給与</th><td>初任給（月給）。横並びで比較されやすい</td><td>想定年収のレンジ。経験で幅が出る</td><td>固定残業代は時間数と金額の明示が必要</td></tr>
+            <tr><th>仕事内容</th><td>総合職・職種別コース。配属は後で決まることが多い</td><td>ポジションの具体的な業務と役割</td><td>2024年4月から「業務・就業場所の変更の範囲」の明示が必須に</td></tr>
+            <tr><th>応募条件</th><td>卒業年度、学部（理系限定など）</td><td>必須・歓迎スキル、経験年数、資格</td><td>年齢制限は原則禁止（例外事由あり）</td></tr>
+            <tr><th>選考情報</th><td>ES設問、適性検査の種類、面接回数、インターン経由の早期選考</td><td>書類・面接回数、課題選考、リファレンスチェック</td><td>口コミサイトに選考体験が蓄積されている</td></tr>
+            <tr><th>定着・働き方</th><td>3年後離職率、平均勤続年数、研修制度</td><td>リモート可否、フレックス、残業時間、副業可否</td><td>若者雇用促進法で、新卒には職場情報の提供の仕組みがある</td></tr>
+            <tr><th>企業の見せ方</th><td>社員インタビュー、写真・動画、説明会</td><td>事業の成長性、組織構成、カジュアル面談</td><td>Wantedly等は条件を書かず共感で集める</td></tr>
+            <tr><th>外部の評価</th><td>就活口コミ、選考体験記</td><td>社員口コミ、年収データ（OpenWork等）</td><td>投稿者の偏りがあるので複数サイトで確認</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec" id="who">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="users"></i></span>掲載企業の傾向</h2>
+        <p>企業は採用したい人材、採用人数、予算、知名度でサイトと料金モデルを選びます。</p>
+      </div></div>
+      <div class="tbl card">
+        <table>
+          <thead><tr><th>企業のタイプ</th><th>新卒でよく使うもの</th><th>中途でよく使うもの</th><th>選ばれやすい料金モデル</th></tr></thead>
+          <tbody>
+            <tr><th>大手・有名企業</th><td>リクナビ・マイナビ併用、ONE CAREER、外資就活（コンサル・商社・金融）、自社マイページ</td><td>人材紹介を複数社、ビズリーチ、リファラル</td><td>掲載課金（露出を広く確保）＋成果報酬（専門人材）</td></tr>
+            <tr><th>中堅・中小企業</th><td>マイナビ、Re就活キャンパス、合同説明会（就職博など）、大学のキャリアセンター求人、新卒エージェント</td><td>マイナビ転職、doda、エン転職、Indeed、ハローワーク</td><td>短期の掲載課金、クリック課金、成果報酬（採れなければ費用なし）</td></tr>
+            <tr><th>スタートアップ・ベンチャー</th><td>OfferBox、キミスカ、Wantedly、長期インターン</td><td>Green、Wantedly、YOUTRUST、Findy、ビズリーチ</td><td>定額（何人採っても同額）、低額の成果報酬</td></tr>
+            <tr><th>外資・グローバル企業</th><td>外資就活ドットコム、ONE CAREER</td><td>JACリクルートメント、LinkedIn、ヘッドハンター</td><td>成果報酬（高年収ほど料率が効く）、DB利用料</td></tr>
+            <tr><th>IT・Web企業（エンジニア）</th><td>サポーターズ、レバテックルーキー、ハッカソン</td><td>Findy、Forkwell、レバテックキャリア、Green</td><td>DB利用料＋成果報酬、イベント課金</td></tr>
+            <tr><th>メーカー・研究開発</th><td>LabBase就職、アカリク、キャリタス就活、学校推薦</td><td>技術職特化の人材紹介、リクルートダイレクトスカウト</td><td>定額・成果報酬の逆求人、人材紹介</td></tr>
+            <tr><th>地方企業</th><td>マイナビ（地域版）、地元の合同説明会、地方大学のキャリアセンター</td><td>Indeed、ハローワーク、地域特化の転職サイト</td><td>クリック課金、無料掲載、短期の掲載課金</td></tr>
+            <tr><th>医療・介護・物流・飲食など現場職</th><td>業界特化の就職サイト、専門学校との連携</td><td>Indeed、求人ボックス、ジョブメドレー</td><td>クリック課金、低額の成果報酬（ジョブメドレーは1名4万円〜）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec" id="schedule">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="calendar"></i></span>新卒スケジュール（28卒）</h2>
+        <p>政府が要請する日程は「3月広報解禁・6月選考解禁・10月正式内定」で、28卒も従来どおりとされています（法的拘束力はありません）。29卒以降は選考日程の前倒しが検討されています。</p>
+      </div></div>
+      <div class="tl card">
+        <div class="tl-it"><span class="w">2026.04–06</span><b>インターン情報公開</b><span class="d">ナビ・逆求人サイトがインターン用に先行オープン</span></div>
+        <div class="tl-it"><span class="w">2026.07–09</span><b>夏インターン</b><span class="d">5日間以上の汎用的能力活用型、2週間以上の専門活用型は、参加者情報を3月以降の選考に使える</span></div>
+        <div class="tl-it"><span class="w">2026.10–02</span><b>秋冬インターン・早期選考</b><span class="d">外資・コンサル・ベンチャーは内定を出し始める</span></div>
+        <div class="tl-it"><span class="w">2027.03</span><b>広報解禁</b><span class="d">本選考エントリー開始。ナビの利用がピークに</span></div>
+        <div class="tl-it"><span class="w">2027.06</span><b>選考解禁</b><span class="d">面接・内々定が集中。逆求人・エージェントで追加募集</span></div>
+        <div class="tl-it"><span class="w">2027.10</span><b>内定式</b><span class="d">秋採用・通年採用は続く</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="guide">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="compass"></i></span>使い分けの目安</h2>
+        <p>1つのサイトで完結させず、型の違うものを2〜3個組み合わせるのが一般的です。</p>
+      </div></div>
+      <div class="guide">
+        <div class="card"><span class="badge b-new"><i></i>新卒</span><b>幅広く企業を見たい</b><p><em>ナビ2つ</em>（リクナビ・マイナビ）＋<em>逆求人1つ</em>（OfferBox等）。知らない企業との接点を逆求人で補う</p></div>
+        <div class="card"><span class="badge b-new"><i></i>新卒</span><b>人気企業・外資を狙う</b><p><em>ONE CAREER・外資就活</em>で選考情報を集め、早期インターンに応募。OB訪問は<em>Matcher</em>や大学の名簿で</p></div>
+        <div class="card"><span class="badge b-new"><i></i>新卒</span><b>理系・院生・エンジニア志望</b><p>研究内容が評価される<em>LabBase・アカリク</em>、技術系は<em>サポーターズ</em>や長期インターン</p></div>
+        <div class="card"><span class="badge b-mid"><i></i>中途</span><b>初めての転職・20代</b><p><em>doda</em>や<em>リクナビNEXT</em>で相場を知り、<em>総合型エージェント</em>に1〜2社登録。第二新卒なら<em>Re就活</em>も</p></div>
+        <div class="card"><span class="badge b-mid"><i></i>中途</span><b>年収アップ・管理職</b><p><em>ビズリーチ・リクルートダイレクトスカウト</em>に経歴を登録し、<em>JAC</em>などハイクラス向けエージェントを併用</p></div>
+        <div class="card"><span class="badge b-mid"><i></i>中途</span><b>IT・Web、スタートアップ</b><p><em>Green・Wantedly</em>でカジュアル面談、エンジニアは<em>Findy・Forkwell</em>、専門エージェントは<em>レバテックキャリア</em></p></div>
+      </div>
+      <div class="callout card">
+        <i data-ic="info" data-s="18"></i>
+        <ul>
+          <li>全40サービスを2026年10月に公開情報（公式発表・IR資料・各社の採用ページ・掲載代理店の料金ページなど）で確認しました。料金の金額の多くは代理店・比較サイトの公表値で、公式の最新料金とは異なる場合があります。</li>
+          <li>会員数・利用企業数は各社の発表値です。時点が古いものは本文に時点を書いています。</li>
+          <li>上場状況は証券コードで示しています。親会社が上場している場合は「親会社が上場」と書いています。</li>
+          <li>口コミサイトの評価は投稿者に偏りがあります。人材紹介は企業が手数料を払う仕組みのため、紹介先に偏りが出ることがあります。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="request">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="send"></i></span>リクエスト・お問い合わせ</h2>
+        <p>載せてほしいサービスや情報、誤りの指摘を受け付けています。</p>
+      </div></div>
+      <div class="req">
+        <div class="req-main card">
+          <h3>リクエストはこちらから</h3>
+          <p>Google フォームが新しいタブで開きます。サインインは不要で、匿名でも送れます。所要時間は1〜2分です。</p>
+          <div class="req-kinds"><span>掲載してほしい求人サイト</span><span>載せてほしい情報</span><span>情報の誤り</span><span>サイトへの要望</span></div>
+          <a class="btn btn-primary" id="req-link" href="#" target="_blank" rel="noopener">リクエストフォームを開く<i data-ic="ext" data-s="14"></i></a>
+          <p class="note" id="req-note"><i data-ic="info" data-s="14"></i><span>個人情報や社外秘は書かないでください。</span></p>
+        </div>
+        <div class="req-side card">
+          <h3>こんな声をお待ちしています</h3>
+          <ul>
+            <li>まだ載っていない求人サイト（業界特化、地域特化、外資系エージェントなど）</li>
+            <li>比べてみたい項目（掲載期間、スカウト通数、返金規定など）</li>
+            <li>古くなった料金や運営会社の情報、誤りの指摘</li>
+            <li>使いにくいところ、見づらいところ</li>
+          </ul>
+          <h3>届いたリクエストの扱い</h3>
+          <ul>
+            <li>内容を確認し、載せられるものから順に反映します。</li>
+            <li>個別のお返事はしていません。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="sources">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="book"></i></span>出典</h2>
+        <p>このサイトで使っている資料の一覧です。どのサービスの記載に使ったかを添えています。各サービスの詳細パネルの「出典」タブからも確認できます。</p>
+      </div></div>
+      <div class="src-grid" id="src-list"><div class="loading">読み込んでいます…</div></div>
+      <footer class="site-foot">
+        <p><b>求人サイトナビ</b>　ニュース・料金・運営元の情報は毎週月曜に確認・更新しています（ニュースの最終更新 <span class="mono" id="foot-news">—</span>、料金・運営元の確認 <span class="mono" id="foot-plans">—</span>）。</p>
+        <p>内容は公開されている公式発表・報道・代理店資料をもとにまとめたもので、正確さを保証するものではありません。料金や条件は変わることがあるため、利用前に各社の公式情報や窓口で確認してください。「二次情報」と付いた項目は、公式発表や大手報道で確認できていないものです。誤りに気づいたら <a href="#request" data-view="request">リクエスト</a> からお知らせください。サービス名は各社の商標です。</p>
+      </footer>
+    </section>
+  </main>
+</div>
+
+<div class="cbar" id="cbar" hidden></div>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<dialog class="drawer" id="drawer" aria-labelledby="dr-title">
+  <div class="dr">
+    <div class="dr-hd" id="dr-hd"></div>
+    <div class="tabs" role="tablist" id="dr-tabs"></div>
+    <div class="dr-body" id="dr-body" role="tabpanel"></div>
+    <div class="dr-ft" id="dr-ft"></div>
+  </div>
+</dialog>
+
+<dialog class="cmdk" id="cmdk" aria-label="検索">
+  <div class="ck-in"><i data-ic="search" data-s="18"></i><input id="ck-q" type="text" placeholder="サイト名、運営会社、料金モデル、セクションを検索" aria-label="検索" autocomplete="off"><span class="kbd">Esc</span></div>
+  <div class="ck-list" id="ck-list" role="listbox"></div>
+  <div class="ck-ft"><span><span class="kbd">↑</span><span class="kbd">↓</span>移動</span><span><span class="kbd">Enter</span>開く</span><span><span class="kbd">Esc</span>閉じる</span></div>
+</dialog>
+
+<dialog class="cmpd" id="cmpd" aria-labelledby="cmpd-title">
+  <div class="cmpd-hd"><h2 id="cmpd-title">比較</h2><button type="button" class="icon-btn" data-close="cmpd" aria-label="閉じる"><i data-ic="x" data-s="15"></i></button></div>
+  <div class="cmpd-body" id="cmpd-body"></div>
+</dialog>
+
+<script>
+/* ---------- icons ---------- */
+const IC = {
+  search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+  grid:'<rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/>',
+  list:'<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
+  x:'<path d="M18 6 6 18M6 6l12 12"/>',
+  chevL:'<path d="m15 18-6-6 6-6"/>', chevR:'<path d="m9 18 6-6-6-6"/>', chevD:'<path d="m6 9 6 6 6-6"/>',
+  arrowR:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+  yen:'<path d="M6 4l6 8 6-8M12 12v8M7.5 13h9M7.5 16.5h9"/>',
+  building:'<path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M16 9h2a2 2 0 0 1 2 2v10M8 7h4M8 11h4M8 15h4M3 21h18"/>',
+  layers:'<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/>',
+  home:'<path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/>',
+  split:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/>',
+  map:'<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/>',
+  file:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
+  users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M21.5 20a6.5 6.5 0 0 0-4-6"/>',
+  calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  compass:'<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/>',
+  book:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/>',
+  check:'<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  columns:'<rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
+  ext:'<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
+  filter:'<path d="M4 5h16l-6 8v5l-4 2v-7L4 5Z"/>',
+  userCheck:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 11.5l2 2 4-4"/>',
+  repeat:'<path d="M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5M20 12a8 8 0 0 1-14 5.3L4 15M4 20v-5h5"/>',
+  cursor:'<path d="m5 3 14 7-6 2-2 6L5 3Z"/>',
+  db:'<ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-13M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/>',
+  megaphone:'<path d="M3 10.5v3a1 1 0 0 0 1 1h3l7 4.5V5L7 9.5H4a1 1 0 0 0-1 1Z"/><path d="M18 9a4 4 0 0 1 0 6"/>',
+  tag:'<path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9-9-9Z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+  sparkle:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/>',
+  news:'<path d="M4 5h13v14H6a2 2 0 0 1-2-2V5Z"/><path d="M17 8h3v9a2 2 0 0 1-2 2M7.5 9h6M7.5 12.5h6M7.5 16h4"/>',
+  send:'<path d="M21 3 3 10.5l7 2.5 2.5 7L21 3Z"/><path d="m10 13 4-4"/>',
+  calc:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7h7M8.5 11h.01M12 11h.01M15.5 11h.01M8.5 14.5h.01M12 14.5h.01M15.5 14.5h.01M8.5 18h.01M12 18h.01M15.5 18h.01"/>'
+};
+const ic = (n, s = 16, cls = "") => `<svg class="ic${cls ? " " + cls : ""}" width="${s}" height="${s}" viewBox="0 0 24 24" aria-hidden="true">${IC[n] || ""}</svg>`;
+function hydrateIcons(root){
+  root.querySelectorAll("[data-ic]").forEach(el => {
+    const t = document.createElement("template");
+    t.innerHTML = ic(el.dataset.ic, +el.dataset.s || 16);
+    const svg = t.content.firstChild;
+    if (el.getAttribute("style")) svg.setAttribute("style", el.getAttribute("style"));
+    el.replaceWith(svg);
+  });
+}
+hydrateIcons(document);
+const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+document.querySelectorAll("[data-kbd]").forEach(el => el.textContent = isMac ? "⌘K" : "Ctrl K");
+
+/* ---------- 料金モデル（説明文はページ側で持つ） ---------- */
+const STAGES = ["契約", "掲載", "閲覧", "応募", "内定承諾・入社"];
+const MODELS = {
+  post:  {l:"掲載課金", en:"Posting fee", c:"--m-post", icon:"file", at:[1],
+    how:"求人を一定期間載せる枠を買う。応募や採用の有無に関係なく掲載料が発生する",
+    cost:"中途は4週間で数十万〜百万円超。新卒ナビは年間で数十万〜数百万円",
+    fit:"採用人数が多い企業、知名度を上げたい企業",
+    risk:"応募が来なくても費用は戻らない。原稿の質で結果が大きく変わる"},
+  succ:  {l:"成果報酬", en:"Success fee", c:"--m-succ", icon:"userCheck", at:[4],
+    how:"内定承諾や入社が決まったときだけ払う。人材紹介では理論年収の一定割合が基本",
+    cost:"人材紹介は理論年収の30〜35%程度が一般的。求人サイト型は1名数万〜100万円程度",
+    fit:"採用人数が少ない企業、費用対効果を確実にしたい企業",
+    risk:"1名あたりの単価は高め。早期退職時は返金規定で一部が戻る"},
+  flat:  {l:"定額", en:"Subscription", c:"--m-flat", icon:"repeat", at:[0],
+    how:"期間契約で使い放題。何人採用しても追加料金がかからない",
+    cost:"月額数万〜十数万円、または半年・年間単位の固定額",
+    fit:"継続的に採用するスタートアップ、採用広報を自社で回せる企業",
+    risk:"自社で運用（スカウト・記事作成）しないと成果が出ない"},
+  click: {l:"クリック課金", en:"Pay per click", c:"--m-click", icon:"cursor", at:[2],
+    how:"求人が表示されても無料で、クリックされた分だけ払う。予算と単価を企業が決める",
+    cost:"1クリック数十〜数百円が目安。日額予算を設定できる",
+    fit:"現場職・通年採用の中小企業、少額から試したい企業",
+    risk:"クリックが応募につながる保証はない。運用の巧拙で差が出る"},
+  db:    {l:"DB利用料", en:"Database access", c:"--m-db", icon:"db", at:[0],
+    how:"求職者データベースの検索とスカウト送信の権利を期間で買う。多くは成果報酬と組み合わせる",
+    cost:"月額・年額のシステム利用料。金額は非公開で問い合わせ制が多い",
+    fit:"ハイクラス・専門職を自分たちで口説きたい企業",
+    risk:"スカウト文面と送信数の運用が必要。利用料は採用ゼロでも発生"},
+  ad:    {l:"広告・イベント", en:"Ads & events", c:"--m-ad", icon:"megaphone", at:[1],
+    how:"記事広告、企業ページの強化、合同説明会やイベントへの出展料を払う",
+    cost:"出展・出稿ごとの料金。規模やブースで変わる",
+    fit:"学生への認知を広げたい企業、選考前の接点を増やしたい企業",
+    risk:"採用に直結しにくく、効果が測りにくい"},
+  free:  {l:"無料掲載", en:"Free listing", c:"--m-free", icon:"tag", at:[],
+    how:"掲載自体は無料。露出を増やすときだけ有料にする",
+    cost:"0円から。上位表示は別料金",
+    fit:"予算の少ない企業、まず試してみたい企業",
+    risk:"無料枠は表示順位が下がりやすい"}
+};
+const MKEYS = Object.keys(MODELS);
+
+/* ---------- helpers ---------- */
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const SEG = {new:{l:"新卒", v:"--s-new"}, mid:{l:"中途", v:"--s-mid"}, both:{l:"新卒・中途", v:"--s-both"}};
+const SEGORD = {new:0, both:1, mid:2};
+const segBadge = k => `<span class="badge b-${k}"><i></i>${SEG[k].l}</span>`;
+const chip = k => MODELS[k] ? `<span class="mchip" style="--mc:var(${MODELS[k].c})">${MODELS[k].l}</span>` : "";
+const hash = s => { let h = 0; for (const c of s) h = (h * 31 + c.codePointAt(0)) >>> 0; return h; };
+const initial = n => { const c = [...n][0]; return /[a-z]/i.test(c) ? c.toUpperCase() : c; };
+const av = (name, size = 32) => `<span class="av" style="--av:var(--av${hash(name) % 8 + 1});--s:${size}px" aria-hidden="true">${esc(initial(name))}</span>`;
+const secChip = '<span class="sec-chip" title="公式発表や大手報道で確認できていない情報">二次情報</span>';
+const srcLine = (src, secondary) => `<div class="src">${secondary ? secChip : ""}<span>出典：</span>${(src || []).map(([l, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a>`).join("")}</div>`;
+const domain = u => { try { return new URL(u).hostname.replace(/^www\d?\./, ""); } catch(_) { return ""; } };
+const srcList = src => `<div class="srcs">${(src || []).map(([l, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener"><span class="kb">${esc(domain(u).split(".")[0] || "link")}</span><span><b>${esc(l)}</b><small>${esc(domain(u))}</small></span>${ic("ext", 14)}</a>`).join("")}</div>`;
+const listed = s => /上場/.test(s.ls) && !/^(非上場|—)/.test(s.ls);
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const dateKey = d => String(d).replace("月", "-99");
+const newsLi = (n, s) => `<li><time>${esc(n.date)}</time><div class="nb">${s ? `<button type="button" class="svc-btn" data-open="${s.id}">${esc(s.n)}</button>` : ""}<b>${esc(n.title)}</b><p>${esc(n.text)}</p>${srcLine(n.src, n.secondary)}</div></li>`;
+function steps(keys){
+  const hit = new Map();
+  keys.forEach(k => (MODELS[k] ? MODELS[k].at : []).forEach(i => { if (!hit.has(i)) hit.set(i, MODELS[k].c); }));
+  return `<div class="steps" role="img" aria-label="費用が発生する段階: ${[...hit.keys()].sort().map(i => STAGES[i]).join("、") || "なし"}">${STAGES.map((st, i) => {
+    const c = hit.get(i);
+    return `<div class="step${c ? " hit" : ""}"${c ? ` style="--mc:var(${c})"` : ""}><i></i><span>${c ? "¥ " : ""}${st}</span></div>`;
+  }).join("")}</div>`;
+}
+let toastT;
+function toast(msg){ const t = $("toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => t.hidden = true, 2200); }
+const store = {
+  get(){ try { return JSON.parse(localStorage.getItem("jsn1") || "{}"); } catch(_) { return {}; } },
+  set(v){ try { localStorage.setItem("jsn1", JSON.stringify(v)); } catch(_) {} }
+};
+const saved = store.get();
+
+/* ---------- data ---------- */
+let SITES = [], COMPANIES = [], GROUPS = [], NEWS = null, CHANGES = [], META = {};
+const byKey = {};
+const getJSON = name => fetch(name, {cache: "no-cache"}).then(r => { if (!r.ok) throw new Error(name + " " + r.status); return r.json(); });
+
+/* ---------- navigation / views ---------- */
+const NAV = [
+  {g:"", items:[["all","すべて表示","layers"]]},
+  {g:"ガイド", items:[["overview","概要","home"],["diff","新卒と中途","split"],["map","類型マップ","map"],["fees","料金モデル","yen"]]},
+  {g:"ツール・データ", items:[["calc","採用コスト試算","calc"],["catalog","サイト一覧","grid"],["plans","料金の詳細","yen"],["operators","運営元の詳細","building"],["news","ニュース","news"]]},
+  {g:"実務", items:[["items","求人票の項目","file"],["who","掲載企業の傾向","users"],["schedule","新卒スケジュール","calendar"],["guide","使い分け","compass"]]},
+  {g:"その他", items:[["request","リクエスト","send"],["sources","出典","book"]]}
+];
+const SECS = NAV.flatMap(g => g.items).filter(x => x[0] !== "all");
+const SECIDS = new Set(SECS.map(x => x[0]));
+let view = "all";
+function renderNav(counts){
+  $("side").innerHTML = NAV.map(g => `<nav class="nav-g"${g.g ? ` aria-label="${g.g}"` : ""}>${g.g ? `<div class="gl">${g.g}</div>` : ""}${g.items.map(([id, l, i]) => `<a href="#${id === "all" ? "" : id}" data-view="${id}" data-sec="${id}">${ic(i, 16)}<span>${l}</span>${counts[id] ? `<span class="cnt">${counts[id]}</span>` : ""}</a>`).join("")}</nav>`).join("")
+    + `<div class="side-card"><b>${ic("check", 15)}毎週月曜に更新</b><span>ニュース・料金・運営元を公開情報で確認しています。最終更新 <span class="mono">${esc(META.news || META.sites || "—")}</span></span></div>`;
+  $("mnav").innerHTML = NAV.flatMap(g => g.items).map(([id, l]) => `<a href="#${id === "all" ? "" : id}" data-view="${id}" data-sec="${id}">${l}</a>`).join("");
+}
+function applyView(){
+  document.querySelectorAll("main > section.sec").forEach(el => { el.hidden = !(view === "all" || el.id === view); });
+  if (view !== "all") markNav(view);
+  else markNav(currentSpy || "overview");
+}
+function markNav(id){
+  document.querySelectorAll("[data-sec]").forEach(a => {
+    const on = view === "all" ? a.dataset.sec === id : a.dataset.sec === view;
+    a.classList.toggle("on", on);
+    if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+  });
+  const m = document.querySelector(`#mnav a.on`);
+  if (m) m.parentElement.scrollTo({left: m.offsetLeft - 16, behavior: reduce ? "auto" : "smooth"});
+}
+function go(id, opts = {}){
+  if (id !== "all" && !SECIDS.has(id)) return;
+  view = id;
+  try { history.replaceState(null, "", id === "all" ? location.pathname + location.search : "#" + id); } catch(_) {}
+  applyView();
+  if (!opts.keepScroll) window.scrollTo({top: 0, behavior: "auto"});
+}
+function route(h){
+  const id = decodeURIComponent((h || "").replace(/^#/, ""));
+  if (byKey[id] != null) { view = "catalog"; applyView(); openDrawer(byKey[id]); return; }
+  view = SECIDS.has(id) ? id : "all";
+  applyView();
+}
+let currentSpy = null;
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting || view !== "all") return;
+    currentSpy = en.target.id; markNav(currentSpy);
+  }), {rootMargin: "-30% 0px -60% 0px"});
+  document.querySelectorAll("main > section.sec").forEach(s => io.observe(s));
+}
+window.addEventListener("hashchange", () => route(location.hash));
+
+/* ---------- catalog state ---------- */
+const state = {seg: saved.seg || "all", models: Array.isArray(saved.models) ? saved.models.filter(k => MODELS[k]) : [], type: "all", q: "", view: saved.view || "grid", sort: saved.sort || "default"};
+let dTab = saved.tab || "overview";
+let plSeg = "all";
+const cmp = [];
+let current = [];
+const persist = () => store.set({...store.get(), seg: state.seg, models: state.models, view: state.view, sort: state.sort, tab: dTab});
+const hay = s => [s.n, s.op, s.grp, s.ty, s.t, s.info, s.co, s.fx, s.user, s.pt, s.ls, s.m.map(k => MODELS[k] ? MODELS[k].l : "").join(" "), s.fd.flat().join(" ")].join(" ").toLowerCase();
+
+function segc(el, items, key, obj = state, after){
+  el.innerHTML = items.map(([v, l, lab]) => `<button type="button" data-v="${v}" aria-pressed="${String(obj[key]) === String(v)}"${lab ? ` aria-label="${lab}" title="${lab}"` : ""}>${l}</button>`).join("");
+  el.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    obj[key] = typeof obj[key] === "number" ? +b.dataset.v : b.dataset.v;
+    el.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x.dataset.v === b.dataset.v));
+    (after || (() => { persist(); sync(); render(); }))();
+  });
+}
+function setupCatalog(){
+  segc($("f-seg"), [["all", "すべて"], ["new", "新卒"], ["mid", "中途"]], "seg");
+  segc($("f-view"), [["grid", ic("grid", 15), "カード表示"], ["table", ic("list", 15), "表表示"]], "view");
+  const types = [...new Set(SITES.map(s => s.t))];
+  $("f-type").innerHTML = `<option value="all">すべての類型</option>` + types.map(t => `<option value="${esc(t)}">${esc(t)}</option>`).join("");
+  $("f-type").addEventListener("change", e => { state.type = e.target.value; render(); });
+  $("f-sort").addEventListener("change", e => { state.sort = e.target.value; persist(); render(); });
+  $("q").addEventListener("input", e => { state.q = e.target.value; render(); });
+  const countBy = Object.fromEntries(MKEYS.map(k => [k, SITES.filter(s => s.m.includes(k)).length]));
+  $("mpop").innerHTML = MKEYS.map(k => `<button type="button" class="pop-it" data-m="${k}" aria-pressed="false" style="--mc:var(${MODELS[k].c})"><span class="box">${ic("check", 12)}</span><span class="dot"></span>${MODELS[k].l}<span class="c">${countBy[k]}</span></button>`).join("")
+    + `<div class="pop-ft"><span>いずれかに該当</span><button type="button" id="mclear">クリア</button></div>`;
+  $("mbtn").addEventListener("click", e => { e.stopPropagation(); const open = $("mpop").hidden; $("mpop").hidden = !open; $("mbtn").setAttribute("aria-expanded", open); });
+  $("mpop").addEventListener("click", e => {
+    e.stopPropagation();
+    const b = e.target.closest("[data-m]");
+    if (b) { const k = b.dataset.m; state.models = state.models.includes(k) ? state.models.filter(x => x !== k) : [...state.models, k]; }
+    else if (e.target.closest("#mclear")) state.models = [];
+    else return;
+    persist(); sync(); render();
+  });
+  document.addEventListener("click", e => { if (!$("mpop").hidden && !$("mwrap").contains(e.target)) { $("mpop").hidden = true; $("mbtn").setAttribute("aria-expanded", "false"); } });
+}
+function sync(){
+  $("f-seg").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === state.seg));
+  $("f-view").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === state.view));
+  $("mpop").querySelectorAll("[data-m]").forEach(b => b.setAttribute("aria-pressed", state.models.includes(b.dataset.m)));
+  $("mcnt").hidden = !state.models.length; $("mcnt").textContent = state.models.length;
+  $("f-type").value = state.type; $("f-sort").value = state.sort;
+  if ($("q").value !== state.q) $("q").value = state.q;
+}
+function clearFilter(key){
+  if (key === "all") Object.assign(state, {seg: "all", models: [], type: "all", q: ""});
+  else if (key === "seg") state.seg = "all";
+  else if (key === "type") state.type = "all";
+  else if (key === "q") state.q = "";
+  else if (key.startsWith("m:")) state.models = state.models.filter(k => k !== key.slice(2));
+  persist(); sync(); render();
+}
+function filterModel(k){ state.models = [k]; state.seg = "all"; state.type = "all"; state.q = ""; persist(); sync(); render(); go("catalog"); }
+
+const cmpBtn = s => `<button type="button" class="icon-btn cmp-btn" data-cmp="${s.id}" aria-pressed="${cmp.includes(s.id)}" aria-label="${esc(s.n)}を比較に追加" title="比較に追加">${ic("plus", 15)}${ic("check", 15)}</button>`;
+const cardHTML = s => `<article class="sc card${cmp.includes(s.id) ? " sel" : ""}" data-sid="${s.id}">
+  <div class="sc-hd">${av(s.n, 40)}<div class="sc-tt"><h3><button type="button" class="sc-open" data-open="${s.id}">${esc(s.n)}</button></h3><p>${esc(s.op)}</p></div>${cmpBtn(s)}</div>
+  <div class="sc-meta">${segBadge(s.s)}<span class="sc-ty">${esc(s.ty)}</span></div>
+  <div class="sc-fee"><div class="chips">${s.m.map(chip).join("")}${s.psec ? secChip : ""}</div><p>${esc(s.fx)}</p></div>
+  <div class="sc-ft"><span>${ic("building", 13)}${esc(s.ls)}</span><span class="sc-go">詳細${ic("arrowR", 13)}</span></div>
+</article>`;
+const rowHTML = s => `<tr class="${cmp.includes(s.id) ? "sel" : ""}" data-open="${s.id}" data-sid="${s.id}" tabindex="0">
+  <td><div class="tcell">${av(s.n, 30)}<div><b>${esc(s.n)}</b><small>${esc(s.ty)}</small></div></div></td>
+  <td>${segBadge(s.s)}</td>
+  <td><div class="t-op">${esc(s.op)}<small>${esc(s.ls)}</small></div></td>
+  <td><div class="chips">${s.m.map(chip).join("")}</div></td>
+  <td class="t-fx">${esc(s.fx)}</td>
+  <td>${cmpBtn(s)}</td></tr>`;
+function render(){
+  const q = state.q.trim().toLowerCase();
+  current = SITES.filter(s =>
+    (state.seg === "all" || s.s === state.seg || s.s === "both") &&
+    (state.type === "all" || s.t === state.type) &&
+    (!state.models.length || s.m.some(k => state.models.includes(k))) &&
+    (!q || hay(s).includes(q)));
+  if (state.sort === "name") current.sort((a, b) => a.n.localeCompare(b.n, "ja"));
+  else if (state.sort === "seg") current.sort((a, b) => SEGORD[a.s] - SEGORD[b.s] || a.id - b.id);
+  else if (state.sort === "model") current.sort((a, b) => MKEYS.indexOf(a.m[0]) - MKEYS.indexOf(b.m[0]) || a.id - b.id);
+  const pills = [];
+  if (state.seg !== "all") pills.push(["seg", "区分: " + SEG[state.seg].l]);
+  state.models.forEach(k => pills.push(["m:" + k, MODELS[k].l]));
+  if (state.type !== "all") pills.push(["type", "類型: " + state.type]);
+  if (q) pills.push(["q", "「" + state.q.trim() + "」"]);
+  $("afilters").hidden = !pills.length;
+  $("afilters").innerHTML = `<span class="lbl">絞り込み中</span>` + pills.map(([k, l]) => `<button type="button" class="fpill" data-clear="${k}" aria-label="${esc(l)}を解除">${esc(l)}${ic("x", 13)}</button>`).join("") + `<button type="button" class="clear-all" data-clear="all">すべて解除</button>`;
+  $("count").innerHTML = `<b>${current.length}</b> / ${SITES.length} サービス`;
+  if (!current.length) {
+    $("out").innerHTML = `<div class="empty card">${ic("search", 22)}<b>条件に合うサービスがありません</b><span>絞り込みを減らすか、別のキーワードで探してください。</span><button type="button" class="btn btn-ghost sm" data-clear="all">すべて解除</button></div>`;
+  } else if (state.view === "table") {
+    $("out").innerHTML = `<div class="dt card"><table><thead><tr><th>サービス</th><th>区分</th><th>運営会社 · 上場</th><th>料金モデル</th><th>費用の要点</th><th><span class="sr-only">比較</span></th></tr></thead><tbody>${current.map(rowHTML).join("")}</tbody></table></div>`;
+  } else {
+    $("out").innerHTML = `<div class="grid">${current.map(cardHTML).join("")}</div>`;
+  }
+}
+
+/* ---------- overview ---------- */
+function renderOverview(){
+  $("ver").textContent = META.news || META.sites;
+  $("hero-count").textContent = SITES.length;
+  $("changes-date").textContent = (META.sites || "") + " 時点";
+  $("changes").innerHTML = CHANGES.map(c => {
+    const s = c.service && byKey[c.service] != null ? SITES[byKey[c.service]] : null;
+    const act = s ? `<button type="button" class="lk" data-open="${s.id}">${esc(s.n)}を開く${ic("arrowR", 12)}</button>` : c.go ? `<button type="button" class="lk" data-go="${esc(c.go)}">詳しく見る${ic("arrowR", 12)}</button>` : "";
+    return `<li><span class="d">${esc(c.date)}</span><div><b>${esc(c.title)}</b><p>${esc(c.text)}</p>${srcLine(c.src, c.secondary)}${act}</div></li>`;
+  }).join("");
+  const n = k => SITES.filter(s => s.s === k).length;
+  const newsCount = NEWS ? (NEWS.market || []).length + Object.values(NEWS.services || {}).reduce((a, b) => a + b.length, 0) : 0;
+  $("kpis").innerHTML = [
+    ["掲載サービス", SITES.length, `新卒 ${n("new")} · 中途 ${n("mid")} · 両方 ${n("both")}`],
+    ["運営会社", COMPANIES.length, `上場企業（親会社含む）が運営 ${SITES.filter(listed).length}件`],
+    ["掲載ニュース", NEWS ? newsCount : "—", NEWS ? esc(NEWS.period || "") : "読み込めませんでした"],
+    ["料金・運営元の確認", META.plans || "—", "毎週月曜に確認"]
+  ].map(([l, v, s]) => `<div class="kpi"><span class="l">${l}</span><b>${v}</b><small>${s}</small></div>`).join("");
+}
+
+/* ---------- fee models ---------- */
+function renderModels(){
+  $("models").innerHTML = MKEYS.map(k => {
+    const m = MODELS[k];
+    const ex = SITES.filter(s => s.m.includes(k));
+    return `<article class="fm card" style="--mc:var(${m.c})">
+      <div class="fm-hd"><span class="fm-ic">${ic(m.icon, 18)}</span><div><h3>${m.l}</h3><small>${m.en}</small></div><span class="cnt">${ex.length}サイト</span></div>
+      ${steps([k])}
+      <dl class="fm-grid"><div><dt>仕組み</dt><dd>${m.how}</dd></div><div><dt>費用の目安</dt><dd>${m.cost}</dd></div><div><dt>向いている企業</dt><dd>${m.fit}</dd></div><div><dt>注意点</dt><dd>${m.risk}</dd></div></dl>
+      <div class="fm-ft"><span class="stack" title="${esc(ex.map(s => s.n).join("、"))}">${ex.slice(0, 5).map(s => av(s.n, 24)).join("")}<small>${ex.slice(0, 2).map(s => esc(s.n)).join("、")}${ex.length > 2 ? ` ほか${ex.length - 2}件` : ""}</small></span>
+      <button type="button" class="btn btn-ghost sm" data-fmodel="${k}">絞り込む${ic("arrowR", 13)}</button></div>
+    </article>`;
+  }).join("");
+}
+
+/* ---------- plans (accordion) ---------- */
+function renderPlans(){
+  $("plans-updated").textContent = META.plans || "—";
+  const list = SITES.filter(s => plSeg === "all" || s.s === plSeg || s.s === "both");
+  $("plans-list").innerHTML = list.map(s => `<details class="acc" id="plan-${s.key}">
+    <summary>${av(s.n, 36)}<span class="s-name"><b>${esc(s.n)}</b><small>${esc(s.op)} · ${esc(s.fx)}</small></span><span class="s-side">${s.m.map(chip).join("")}${s.psec ? secChip : ""}</span>${ic("chevD", 18, "chev")}</summary>
+    <div class="acc-body">
+      <p class="sum-line">${esc(s.fx)}</p>
+      <div class="sub-hd" style="margin-bottom:0">費用が発生するタイミング</div>${steps(s.m)}
+      <dl class="kv">${s.fd.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
+      ${s.official ? `<a class="lk" href="${esc(s.official)}" target="_blank" rel="noopener">公式の料金案内${ic("ext", 12)}</a>` : ""}
+      ${srcLine(s.psrc, s.psec)}
+      <div><button type="button" class="lk" data-open="${s.id}">${esc(s.n)}の詳細を開く${ic("arrowR", 12)}</button></div>
+    </div></details>`).join("");
+}
+
+/* ---------- companies (accordion) ---------- */
+function renderCompanies(){
+  $("companies-updated").textContent = META.companies || "—";
+  $("companies-list").innerHTML = GROUPS.map(g => {
+    const cs = COMPANIES.filter(c => c.group === g.id);
+    if (!cs.length) return "";
+    return `<div class="grp-h"><h3>${esc(g.name)}</h3>${g.note ? `<p>${esc(g.note)}</p>` : ""}</div>` + cs.map(c => {
+      const svc = c.services.map(k => SITES[byKey[k]]).filter(Boolean);
+      return `<details class="acc" id="co-${c.id}">
+        <summary>${av(c.name, 36)}<span class="s-name"><b>${esc(c.name)}</b><small>${esc(c.listed)}</small></span><span class="s-side">${svc.map(s => `<span class="mchip" style="--mc:var(${SEG[s.s].v})">${esc(s.n)}</span>`).join("")}${c.secondary ? secChip : ""}</span>${ic("chevD", 18, "chev")}</summary>
+        <div class="acc-body">
+          <dl class="kv"><dt>資本・グループ</dt><dd>${esc(c.capital)}</dd><dt>上場</dt><dd>${esc(c.listed)}</dd><dt>運営サービス</dt><dd><div class="svc" style="margin-top:0">${svc.map(s => `<button type="button" data-open="${s.id}">${esc(s.n)}</button>`).join("")}</div></dd></dl>
+          ${srcLine(c.src, c.secondary)}
+        </div></details>`;
+    }).join("");
+  }).join("");
+}
+document.addEventListener("click", e => {
+  const btn = e.target.closest("[data-toggle-all]"); if (!btn) return;
+  const items = [...$(btn.dataset.toggleAll).querySelectorAll("details")];
+  const open = !items.every(d => d.open);
+  items.forEach(d => { d.open = open; });
+  btn.textContent = open ? "すべて閉じる" : "すべて開く";
+});
+
+/* ---------- news ---------- */
+function renderNews(){
+  if (!NEWS) {
+    ["market-news", "svc-news"].forEach(id => $(id).innerHTML = `<li><div class="loading">ニュースを読み込めませんでした。ページを再読み込みしてください。</div></li>`);
+    return;
+  }
+  $("news-updated").textContent = NEWS.updated || "—";
+  $("news-period").textContent = NEWS.period ? `対象期間：${NEWS.period}。` : "";
+  const market = (NEWS.market || []).slice().sort((a, b) => dateKey(b.date).localeCompare(dateKey(a.date)));
+  const svc = SITES.flatMap(s => (s.news || []).map(n => ({n, s}))).sort((a, b) => dateKey(b.n.date).localeCompare(dateKey(a.n.date)));
+  $("market-count").textContent = `${market.length}件`;
+  $("svc-news-count").textContent = `${svc.length}件`;
+  $("market-news").innerHTML = market.map(n => newsLi(n)).join("") || `<li><div class="loading">この期間の主なニュースはありません。</div></li>`;
+  $("svc-news").innerHTML = svc.map(({n, s}) => newsLi(n, s)).join("") || `<li><div class="loading">この期間の主なニュースはありません。</div></li>`;
+}
+
+/* ---------- sources ---------- */
+function renderSources(){
+  const groups = [["サービスの基本情報・料金", []], ["運営元", []], ["ニュース・最近の変化", []]];
+  const add = (gi, src, secondary, who) => (src || []).forEach(([l, u]) => {
+    const list = groups[gi][1];
+    let x = list.find(y => y.u === u);
+    if (!x) list.push(x = {l, u, who: new Set(), sec: true});
+    x.who.add(who); if (!secondary) x.sec = false;
+  });
+  SITES.forEach(s => { add(0, s.src, s.sec, s.n); add(0, s.psrc, s.psec, s.n); (s.news || []).forEach(n => add(2, n.src, n.secondary, s.n)); });
+  COMPANIES.forEach(c => add(1, c.src, c.secondary, c.name));
+  (NEWS ? NEWS.market || [] : []).forEach(n => add(2, n.src, n.secondary, "業界・制度の動き"));
+  CHANGES.forEach(c => add(2, c.src, c.secondary, "最近の主な変化"));
+  $("src-list").innerHTML = groups.map(([label, list]) => list.length ? `<div class="src-grp card"><h3>${label}<span>${list.length}件</span></h3><ul>${list.map(x => `<li><a href="${esc(x.u)}" target="_blank" rel="noopener">${ic("ext", 13)}<span>${esc(x.l)}${x.sec ? ` ${secChip}` : ""}<small>使用: ${esc([...x.who].join("、"))}</small></span></a></li>`).join("")}</ul></div>` : "").join("");
+}
+
+/* ---------- schedule（今日の日付で「いまここ」を付ける） ---------- */
+function renderSchedule(){
+  const ym = (() => { const d = new Date(); return d.getFullYear() * 100 + d.getMonth() + 1; })();
+  const R = [[202604, 202606], [202607, 202609], [202610, 202702], [202703, 202703], [202706, 202706], [202710, 202710]];
+  document.querySelectorAll("#schedule .tl-it").forEach((el, i) => {
+    const r = R[i]; if (!r) return;
+    el.classList.toggle("done", ym > r[1]);
+    el.classList.toggle("now", ym >= r[0] && ym <= r[1]);
+    const w = el.querySelector(".w");
+    if (w && ym >= r[0] && ym <= r[1] && !w.querySelector(".now-b")) w.insertAdjacentHTML("beforeend", '<span class="now-b">いまここ</span>');
+  });
+}
+
+/* ---------- compare ---------- */
+function toggleCmp(id){
+  const i = cmp.indexOf(id);
+  if (i >= 0) cmp.splice(i, 1);
+  else { if (cmp.length >= 4) { toast("比較できるのは4件までです"); return; } cmp.push(id); }
+  syncCmp();
+}
+function syncCmp(){
+  document.querySelectorAll("[data-cmp]").forEach(b => b.setAttribute("aria-pressed", cmp.includes(+b.dataset.cmp)));
+  document.querySelectorAll("[data-sid]").forEach(el => el.classList.toggle("sel", cmp.includes(+el.dataset.sid)));
+  $("top-cmp-n").textContent = cmp.length;
+  const bar = $("cbar");
+  bar.hidden = !cmp.length;
+  bar.innerHTML = cmp.length ? `<span class="stack">${cmp.map(id => av(SITES[id].n, 26)).join("")}</span><span class="t">${cmp.map(id => esc(SITES[id].n)).slice(0, 2).join("、")}${cmp.length > 2 ? ` ほか${cmp.length - 2}件` : ""}<small>${cmp.length}/4</small></span><button type="button" class="btn btn-primary sm" data-cmpopen ${cmp.length < 2 ? "disabled title=\"2件以上選ぶと比較できます\"" : ""}>${ic("columns", 14)}比較する</button><button type="button" class="x2" data-cmpclear>クリア</button>` : "";
+  if ($("drawer").open) renderDrawerFoot();
+  if ($("cmpd").open) { if (cmp.length) renderCmp(); else closeDlg("cmpd"); }
+}
+const uniqSrc = s => { const seen = new Set(); return [...s.src, ...s.psrc, ...s.csrc].filter(([, u]) => !seen.has(u) && seen.add(u)); };
+const CMPROWS = [
+  ["区分", s => segBadge(s.s)], ["類型", s => esc(s.ty)], ["運営会社", s => `<b style="color:var(--text)">${esc(s.op)}</b>`], ["資本・グループ", s => esc(s.grp)], ["上場", s => esc(s.ls)],
+  ["料金モデル", s => `<div class="chips">${s.m.map(chip).join("")}</div>`], ["費用の発生", s => steps(s.m)], ["費用の要点", s => esc(s.fx)],
+  ["費用の内訳", s => `<ul>${s.fd.map(([k, v]) => `<li><b style="color:var(--text);font-weight:600">${esc(k)}</b>：${esc(v)}</li>`).join("")}</ul>`],
+  ["載る情報", s => esc(s.info)], ["掲載企業", s => esc(s.co)], ["利用者層", s => esc(s.user)], ["特徴", s => esc(s.pt)],
+  ["出典", s => `<ul>${uniqSrc(s).map(([l, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a></li>`).join("")}</ul>`]
+];
+function renderCmp(){
+  const list = cmp.map(id => SITES[id]);
+  $("cmpd-title").textContent = `${list.length}件を比較`;
+  $("cmpd-body").innerHTML = `<table class="cmpt"><thead><tr><th></th>${list.map(s => `<th><div class="hcell"><div>${av(s.n, 32)}<div><b>${esc(s.n)}</b><div class="note">${esc(s.op)}</div></div></div><button type="button" class="icon-btn" data-cmp="${s.id}" aria-pressed="true" aria-label="${esc(s.n)}を比較から外す" title="外す">${ic("x", 14)}</button></div></th>`).join("")}</tr></thead>
+  <tbody>${CMPROWS.map(([l, f]) => `<tr><th scope="row">${l}</th>${list.map(s => `<td>${f(s)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+const DLGS = ["drawer", "cmdk", "cmpd"];
+const syncLock = () => document.documentElement.classList.toggle("modal-open", DLGS.some(id => $(id).open));
+function showDlg(id){ const d = $(id); if (!d.open) { try { d.showModal(); } catch(_) { d.setAttribute("open", ""); } } syncLock(); }
+function closeDlg(id){ const d = $(id); try { d.close(); } catch(_) { d.removeAttribute("open"); } syncLock(); }
+DLGS.forEach(id => $(id).addEventListener("close", syncLock));
+
+/* ---------- drawer ---------- */
+let dId = null;
+const TABS = [["overview", "概要", "layers"], ["fees", "費用体系", "yen"], ["org", "運営元", "building"], ["news", "ニュース", "news"], ["src", "出典", "book"]];
+function openDrawer(id){ dId = id; renderDrawer(); showDlg("drawer"); $("dr-body").scrollTop = 0; }
+function renderDrawer(){
+  const s = SITES[dId];
+  const idx = current.findIndex(x => x.id === dId);
+  const prev = idx > 0 ? current[idx - 1] : null, next = idx >= 0 && idx < current.length - 1 ? current[idx + 1] : null;
+  $("dr-hd").innerHTML = `<div class="dr-top"><div class="l">${segBadge(s.s)}<span>${esc(s.ty)}</span></div><div class="r">
+      <button type="button" class="icon-btn" ${prev ? `data-open="${prev.id}" title="前へ: ${esc(prev.n)}（←）"` : "disabled"} aria-label="前のサービス">${ic("chevL", 15)}</button>
+      <button type="button" class="icon-btn" ${next ? `data-open="${next.id}" title="次へ: ${esc(next.n)}（→）"` : "disabled"} aria-label="次のサービス">${ic("chevR", 15)}</button>
+      <button type="button" class="icon-btn" data-close="drawer" aria-label="閉じる" title="閉じる（Esc）">${ic("x", 15)}</button></div></div>
+    <div class="dr-id">${av(s.n, 52)}<div><h2 id="dr-title">${esc(s.n)}</h2><p>${esc(s.op)} · ${esc(s.ls)}</p></div></div>`;
+  const cnt = {news: (s.news || []).length, src: uniqSrc(s).length};
+  $("dr-tabs").innerHTML = TABS.map(([k, l, i]) => `<button type="button" role="tab" data-tab="${k}" aria-selected="${dTab === k}">${ic(i, 14)}${l}${cnt[k] != null ? `<span class="mono" style="font-size:11px;color:var(--text-3)">${cnt[k]}</span>` : ""}</button>`).join("");
+  $("dr-body").innerHTML = tabHTML(s);
+  renderDrawerFoot();
+}
+function renderDrawerFoot(){
+  const on = cmp.includes(dId);
+  $("dr-ft").innerHTML = `<span class="vnote">${ic("check", 14)}確認日 ${esc(META.plans || "")} · <button type="button" class="lk" style="margin:0" data-tab="src">出典${uniqSrc(SITES[dId]).length}件</button></span><button type="button" class="btn ${on ? "btn-ghost" : "btn-primary"} sm" data-cmp="${dId}" aria-pressed="${on}">${ic(on ? "check" : "plus", 14)}${on ? "比較に追加済み" : "比較に追加"}</button>`;
+}
+function tabHTML(s){
+  if (dTab === "src") return `
+    <p style="font-size:13.5px;color:var(--text-2);line-height:1.75">${esc(s.n)}の記載は、次の資料で確認しています。<span class="sec-chip">二次情報</span>は、公式発表や大手報道で確認できていない情報です。</p>
+    <div class="sub-hd">サービスの基本情報 ${s.sec ? secChip : ""}</div>${srcList(s.src)}
+    <div class="sub-hd">料金 ${s.psec ? secChip : ""}</div>${srcList(s.psrc)}
+    <div class="sub-hd">運営元（${esc(s.op)}） ${s.csec ? secChip : ""}</div>${srcList(s.csrc)}
+    <button type="button" class="lk" data-go="sources">すべての出典を見る${ic("arrowR", 12)}</button>`;
+  if (dTab === "news") return (s.news || []).length
+    ? `<ol class="nlist">${s.news.map(n => newsLi(n)).join("")}</ol><button type="button" class="lk" data-go="news">ほかのニュースを見る${ic("arrowR", 12)}</button>`
+    : `<div class="muted-box">${esc(NEWS ? NEWS.period || "この期間" : "この期間")}の主なニュースはありません。ニュースは毎週月曜に更新しています。</div><button type="button" class="lk" data-go="news">ほかのニュースを見る${ic("arrowR", 12)}</button>`;
+  if (dTab === "fees") return `
+    <div class="fee-hero" style="--mc:var(${MODELS[s.m[0]] ? MODELS[s.m[0]].c : "--brand"})"><div class="chips">${s.m.map(chip).join("")}${s.psec ? secChip : ""}</div><p>${esc(s.fx)}</p></div>
+    <div class="sub-hd">費用が発生するタイミング</div>${steps(s.m)}
+    <div class="sub-hd">費用の内訳</div><dl class="kv">${s.fd.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
+    ${s.official ? `<a class="lk" href="${esc(s.official)}" target="_blank" rel="noopener">公式の料金案内${ic("ext", 12)}</a>` : ""}
+    <div class="sub-hd">料金モデルの解説</div>
+    <div class="rows">${s.m.map(k => `<button type="button" data-fmodel="${k}"><span class="ci-ic" style="--mc:var(${MODELS[k].c})">${ic(MODELS[k].icon, 14)}</span><span class="m"><b>${MODELS[k].l}</b><small>${MODELS[k].how}</small></span>${ic("arrowR", 14)}</button>`).join("")}</div>
+    ${srcLine(s.psrc, s.psec)}
+    <p class="note">${ic("info", 14)}金額は掲載代理店・比較サイトなどの公表値を含む目安です。契約前に各社の窓口で確認してください。</p>`;
+  if (dTab === "org") {
+    const sib = SITES.filter(x => x.op === s.op && x.id !== s.id);
+    const c = COMPANIES.find(x => x.id === s.cid);
+    const g = c ? GROUPS.find(x => x.id === c.group) : null;
+    const gcos = g ? COMPANIES.filter(x => x.group === g.id && x.id !== s.cid) : [];
+    const gsib = gcos.length <= 2 ? SITES.filter(x => gcos.some(y => y.id === x.cid)) : [];
+    const rows = list => `<div class="rows">${list.map(x => `<button type="button" data-open="${x.id}">${av(x.n, 28)}<span class="m"><b>${esc(x.n)}</b><small>${esc(x.op)} · ${esc(x.ty)}</small></span>${ic("chevR", 14)}</button>`).join("")}</div>`;
+    return `
+      <div class="org-card">${av(s.op, 48)}<div><b>${esc(s.op)}</b><small>${esc(s.grp)}</small></div></div>
+      <dl class="kv"><dt>上場</dt><dd>${esc(s.ls)}</dd><dt>グループ区分</dt><dd>${g ? esc(g.name) : "—"}</dd>${g && g.note ? `<dt>補足</dt><dd>${esc(g.note)}</dd>` : ""}</dl>
+      ${srcLine(s.csrc, s.csec)}
+      <div class="sub-hd">同じ会社が運営するサービス</div>${sib.length ? rows(sib) : `<div class="muted-box">このサイトでは、${esc(s.op)}が運営するサービスはこの1件だけです。</div>`}
+      ${gsib.length ? `<div class="sub-hd">同じグループの他社サービス</div>${rows(gsib)}` : ""}`;
+  }
+  return `
+    <div class="facts">
+      <div><span class="l">区分</span><span class="v">${segBadge(s.s)}</span></div>
+      <div><span class="l">類型</span><span class="v">${esc(s.t)}</span></div>
+      <div><span class="l">料金モデル</span><span class="v"><span class="chips">${s.m.map(chip).join("")}</span></span></div>
+      <div><span class="l">上場</span><span class="v">${esc(s.ls)}</span></div>
+    </div>
+    <dl class="kv"><dt>載る情報</dt><dd>${esc(s.info)}</dd><dt>掲載企業</dt><dd>${esc(s.co)}</dd><dt>利用者層</dt><dd>${esc(s.user)}</dd><dt>特徴</dt><dd>${esc(s.pt)}</dd></dl>
+    ${srcLine(s.src, s.sec)}
+    <div class="sub-hd">費用の要点</div>
+    <div class="fee-hero" style="--mc:var(${MODELS[s.m[0]] ? MODELS[s.m[0]].c : "--brand"})"><p>${esc(s.fx)}</p><button type="button" class="lk" data-tab="fees">費用体系の詳細${ic("arrowR", 12)}</button></div>
+    ${(s.news || []).length ? `<div class="sub-hd">最新ニュース</div><ol class="nlist">${s.news.slice(0, 2).map(n => newsLi(n)).join("")}</ol>` : ""}`;
+}
+$("dr-tabs").addEventListener("keydown", e => {
+  if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+  e.stopPropagation();
+  const i = TABS.findIndex(t => t[0] === dTab);
+  dTab = TABS[(i + (e.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length][0];
+  persist(); renderDrawer(); $("dr-tabs").querySelector(`[data-tab="${dTab}"]`).focus();
+});
+
+/* ---------- command palette ---------- */
+let ckItems = [], ckIdx = 0;
+function openCmd(){ $("ck-q").value = ""; renderCmd(); showDlg("cmdk"); setTimeout(() => $("ck-q").focus(), 0); }
+function renderCmd(){
+  const q = $("ck-q").value.trim().toLowerCase();
+  const groups = [];
+  const sites = SITES.filter(s => !q || hay(s).includes(q)).slice(0, q ? 12 : 6);
+  if (sites.length) groups.push([q ? "サービス" : "おすすめ", sites.map(s => ({run: () => { closeDlg("cmdk"); openDrawer(s.id); }, html: `${av(s.n, 28)}<span class="m"><b>${esc(s.n)}</b><small>${esc(s.op)} · ${esc(s.ty)}</small></span><span class="s">${s.m.slice(0, 2).map(chip).join("")}</span>`}))]);
+  const ms = MKEYS.filter(k => q ? (MODELS[k].l.toLowerCase().includes(q) || MODELS[k].en.toLowerCase().includes(q)) : false);
+  if (ms.length) groups.push(["料金モデルで絞り込む", ms.map(k => ({run: () => { closeDlg("cmdk"); filterModel(k); }, html: `<span class="ci-ic" style="--mc:var(${MODELS[k].c})">${ic(MODELS[k].icon, 14)}</span><span class="m"><b>${MODELS[k].l}</b><small>${SITES.filter(s => s.m.includes(k)).length}サイトを表示</small></span>`}))]);
+  const cos = q ? COMPANIES.filter(c => c.name.toLowerCase().includes(q)).slice(0, 5) : [];
+  if (cos.length) groups.push(["運営会社", cos.map(c => ({run: () => { closeDlg("cmdk"); go("operators"); const d = $("co-" + c.id); if (d) { d.open = true; d.scrollIntoView({block: "start"}); } }, html: `${av(c.name, 28)}<span class="m"><b>${esc(c.name)}</b><small>${esc(c.listed)}</small></span>`}))]);
+  const secs = SECS.filter(([id, l]) => !q || l.toLowerCase().includes(q));
+  if (secs.length) groups.push(["セクションへ移動", secs.map(([id, l, i]) => ({run: () => { closeDlg("cmdk"); go(id); }, html: `<span class="ci-ic">${ic(i, 14)}</span><span class="m"><b>${l}</b></span>`}))]);
+  ckItems = groups.flatMap(g => g[1]); ckIdx = 0;
+  let n = 0;
+  $("ck-list").innerHTML = ckItems.length
+    ? groups.map(([label, items]) => `<div class="cg">${label}</div>` + items.map(it => `<div class="ci" role="option" data-i="${n++}">${it.html}</div>`).join("")).join("")
+    : `<div class="ck-empty">「${esc($("ck-q").value.trim())}」に一致する結果はありません</div>`;
+  hlCmd(false);
+}
+function hlCmd(scroll = true){
+  $("ck-list").querySelectorAll(".ci").forEach(el => {
+    const on = +el.dataset.i === ckIdx;
+    el.classList.toggle("on", on); el.setAttribute("aria-selected", on);
+    if (on && scroll) el.scrollIntoView({block: "nearest"});
+  });
+}
+$("ck-q").addEventListener("input", renderCmd);
+$("ck-q").addEventListener("keydown", e => {
+  if (e.key === "ArrowDown") { e.preventDefault(); if (ckItems.length) { ckIdx = (ckIdx + 1) % ckItems.length; hlCmd(); } }
+  else if (e.key === "ArrowUp") { e.preventDefault(); if (ckItems.length) { ckIdx = (ckIdx - 1 + ckItems.length) % ckItems.length; hlCmd(); } }
+  else if (e.key === "Enter") { e.preventDefault(); if (ckItems[ckIdx]) ckItems[ckIdx].run(); }
+});
+$("ck-list").addEventListener("click", e => { const el = e.target.closest(".ci"); if (el) ckItems[+el.dataset.i].run(); });
+$("ck-list").addEventListener("mousemove", e => { const el = e.target.closest(".ci"); if (el && +el.dataset.i !== ckIdx) { ckIdx = +el.dataset.i; hlCmd(false); } });
+
+/* ---------- cost calculator ----------
+   金額の単位は万円。料金の数値は plans.json の calc を使う */
+const calc = Object.assign({seg: "mid", n: 3, p: 6, sal: 550, rate: 35, click: 3000}, (saved.calc && typeof saved.calc === "object") ? saved.calc : {});
+const AGENCY_KEYS = ["r-agent", "doda", "pasona-career", "jac", "levtech-career"];
+const CALC_EXCL = {
+  mid: ["bizreach", "r-direct-scout", "ambi", "miidas", "findy", "forkwell", "en-tenshoku", "rikunabi-next", "re-shukatsu"],
+  new: ["kimisuka", "dodacampus", "labbase", "careerticket", "caritasu", "onecareer", "matcher"]
+};
+const site = key => byKey[key] != null ? SITES[byKey[key]] : null;
+const cv = (key, field) => { const s = site(key); return s && s.calc && Array.isArray(s.calc[field]) ? s.calc[field] : null; };
+function scenarios(c){
+  const {n, p, sal, rate, click} = c;
+  const out = [];
+  const push = (key, name, m, arr, mult, basis, extra = {}) => {
+    const s = site(key); if (!s || !arr) return;
+    out.push({name, sites: [s.id], m, lo: arr[0] * mult, hi: arr[1] == null ? null : arr[1] * mult, open: arr[1] == null, basis, ...extra});
+  };
+  const yen = v => v == null ? "" : v.toLocaleString();
+  const rng = (arr, unit) => arr[1] == null ? `${arr[0]}${unit}〜` : arr[0] === arr[1] ? `${arr[0]}${unit}` : `${arr[0]}〜${arr[1]}${unit}`;
+  const budget = click * 30 * p / 10000;
+  const wu = Math.ceil(p / 6);
+  const clickKey = c.seg === "mid" ? "indeed" : "rikunabi";
+  if (c.seg === "mid") {
+    const ag = AGENCY_KEYS.map(site).filter(Boolean);
+    if (ag.length) out.push({name: "人材紹介", sites: ag.map(s => s.id), m: "succ", lo: sal * rate / 100 * n, hi: sal * rate / 100 * n, basis: `理論年収${sal}万円 × ${rate}% × ${n}名`});
+    const g = cv("green", "perHire"); push("green", "Green", "succ", g, n, g && `採用1名${rng(g, "万円")} × ${n}名。初期費用は別途`);
+    const mt = cv("mynavi-tenshoku", "per4w"); push("mynavi-tenshoku", "マイナビ転職", "post", mt, p, mt && `1職種・4週間${rng(mt, "万円")} × ${p}回`);
+    const ty = cv("type", "per4w"); push("type", "女の転職type", "post", ty, p, ty && `4週間${rng(ty, "万円")} × ${p}回`);
+    const jm = cv("jobmedley", "perHire"); push("jobmedley", "ジョブメドレー", "succ", jm, n, jm && `採用1名${rng(jm, "万円")} × ${n}名。医療・介護・保育の求人のみ`, {niche: true});
+  } else {
+    const os = cv("offerbox", "perHire"); push("offerbox", "OfferBox 成功報酬型", "succ", os, n, os && `入社承諾1名${rng(os, "万円")} × ${n}名`);
+    const oe = cv("offerbox", "per3"); push("offerbox", "OfferBox 早期定額型", "flat", oe, Math.ceil(n / 3), oe && `3名枠${rng(oe, "万円")} × ${Math.ceil(n / 3)}枠`);
+    const my = cv("mynavi", "perYear"); push("mynavi", "マイナビ", "post", my, 1, my && `年度パッケージ ${rng(my, "万円")}。期間によらず1年度分`);
+    if (p >= 12) { const ry = cv("recampus", "perYear"); push("recampus", "Re就活キャンパス（通年プラン）", "post", ry, 1, ry && `通年プラン ${rng(ry, "万円")}`); }
+    else { const r12 = cv("recampus", "per12w"), ru = Math.ceil(p / 3); push("recampus", "Re就活キャンパス（12週間プラン）", "post", r12, ru, r12 && `12週間プラン${rng(r12, "万円")} × ${ru}回`); }
+  }
+  const w = cv("wantedly", "per6m"); push("wantedly", "Wantedly", "flat", w, wu, w && `6か月${rng(w, "万円")}（ライト〜プレミアム）× ${wu}期`);
+  const cs = site(clickKey);
+  if (cs) out.push({name: cs.n, sites: [cs.id], m: "click", lo: budget, hi: budget, budget: true, basis: `日額${yen(click)}円 × 30日 × ${p}か月。予算の上限で、採用数は運用次第`});
+  return out;
+}
+const man = v => {
+  if (v >= 10000) return `${Math.round(v / 100) / 100}億円`;
+  if (v >= 100) return `${Math.round(v).toLocaleString()}万円`;
+  return `${Math.round(v * 10) / 10}万円`;
+};
+const span = (lo, hi, open) => open ? `${man(lo)}〜` : (Math.abs(hi - lo) < 1e-9 ? man(lo) : `${man(lo).replace("万円", "")}〜${man(hi)}`);
+function niceMax(v){
+  const steps = [1, 2, 2.5, 5];
+  let mag = Math.pow(10, Math.floor(Math.log10(Math.max(v, 1))));
+  for (;;) { for (const s of steps) { const st = s * mag; if (st * 4 >= v) return {max: st * 4, step: st}; } mag *= 10; }
+}
+function setupCalc(){
+  segc($("c-seg"), [["mid", "中途"], ["new", "新卒"]], "seg", calc, renderCalc);
+  segc($("c-p"), [[3, "3か月"], [6, "6か月"], [12, "12か月"]], "p", calc, renderCalc);
+  segc($("c-rate"), [[30, "30%"], [35, "35%"], [40, "40%"]], "rate", calc, renderCalc);
+  [["c-n", "n"], ["c-sal", "sal"], ["c-click", "click"]].forEach(([id, key]) => {
+    const el = $(id); el.value = calc[key];
+    el.addEventListener("input", () => { calc[key] = +el.value; renderCalc(); });
+  });
+  $("calc-form").addEventListener("submit", e => e.preventDefault());
+}
+let calcRows = [];
+function renderCalc(){
+  $("c-n-o").textContent = `${calc.n}名`;
+  $("c-sal-o").textContent = `${calc.sal.toLocaleString()}万円`;
+  $("c-click-o").textContent = `${calc.click.toLocaleString()}円`;
+  document.querySelectorAll("[data-only]").forEach(el => el.hidden = el.dataset.only !== calc.seg);
+  const v = store.get(); v.calc = calc; store.set(v);
+  const n = calc.n;
+  const base = scenarios(calc);
+  if (!base.length) { $("calc-out").innerHTML = `<div class="loading">料金データを読み込めませんでした。</div>`; return; }
+  const rows = base.map(r => ({...r, plo: r.lo / n, phi: r.open ? null : r.hi / n}));
+  rows.sort((a, b) => (a.plo + (a.phi ?? a.plo * 1.5)) - (b.plo + (b.phi ?? b.plo * 1.5)));
+  const top = Math.max(...rows.map(r => r.open ? r.plo * 1.6 : r.phi));
+  const {max, step} = niceMax(top);
+  const pct = v => Math.min(100, v / max * 100);
+  const pool = rows.filter(r => !r.budget && !r.niche);
+  const cheapest = (pool.length ? pool : rows).reduce((a, b) => (b.plo < a.plo ? b : a));
+  const succ = base.find(r => r.m === "succ");
+  const fixed = rows.filter(r => r.m === "post" || r.m === "flat");
+  const ticks = [0, 1, 2, 3, 4].map(i => `<span style="left:${i * 25}%">${i ? man(step * i).replace("万円", "万") : "0"}</span>`).join("");
+  const excl = CALC_EXCL[calc.seg].map(site).filter(Boolean);
+  $("calc-out").innerHTML = `
+    <div class="c-sum">
+      <div class="cs"><span class="l">1名あたりが最も低い目安</span><b>${man(cheapest.plo)}${cheapest.open || cheapest.phi !== cheapest.plo ? "〜" : ""}</b><small>${esc(cheapest.name)}（業界特化・予算型を除く）</small></div>
+      <div class="cs"><span class="l">${succ ? esc(succ.name) + "の合計" : "成果報酬の合計"}</span><b>${succ ? span(succ.lo, succ.hi, succ.open) : "—"}</b><small>採用できたときだけ発生</small></div>
+      <div class="cs"><span class="l">掲載・定額の合計（${calc.p}か月）</span><b>${fixed.length ? man(Math.min(...fixed.map(r => r.lo))) + "〜" : "—"}</b><small>採用数に関係なく発生</small></div>
+    </div>
+    <div class="ch-title"><h3>1名あたりの費用（${n}名採用・${calc.p}か月の場合）</h3><span>安い順 · バーにカーソルで内訳</span></div>
+    <ol class="bars" style="--gs:25%">
+      <li class="brow axis" aria-hidden="true"><span class="b-lab"></span><div class="ticks">${ticks}</div><span class="b-val"></span></li>
+      ${rows.map((r, i) => {
+        const left = pct(r.plo), right = r.open ? 100 : pct(r.phi);
+        const isPt = !r.open && Math.abs(r.phi - r.plo) < 1e-9;
+        const w = isPt ? 0 : Math.max(right - left, 1.2);
+        const one = r.sites.length === 1 && SITES[r.sites[0]].n === r.name;
+        return `<li class="brow">
+          <div class="b-lab"><b>${chip(r.m)}${esc(r.name)}</b><div class="b-sites">${one ? `<button type="button" data-open="${r.sites[0]}">詳細</button>` : r.sites.map(id => `<button type="button" data-open="${id}">${esc(SITES[id].n)}</button>`).join("")}</div><small>${esc(r.basis)}</small></div>
+          <div class="trk"><span class="bar${isPt ? " pt" : ""}${r.open ? " open" : ""}" tabindex="0" data-tip="${i}" style="--mc:var(${MODELS[r.m].c});left:${left}%;${isPt ? "" : `width:${w}%`}" aria-label="${esc(r.name)} 1名あたり ${esc(span(r.plo, r.phi ?? r.plo, r.open))}"></span></div>
+          <div class="b-val"><b>${span(r.plo, r.phi ?? r.plo, r.open)}</b><small><span class="k">合計 </span>${span(r.lo, r.hi ?? r.lo, r.open)}${r.budget ? '<span class="k">（上限）</span>' : ""}</small></div>
+        </li>`;
+      }).join("")}
+    </ol>
+    ${excl.length ? `<div class="excl"><span class="fl">金額が公表されていないため試算に入れていないサービス</span><div class="b-sites">${excl.map(s => `<button type="button" data-open="${s.id}">${esc(s.n)}</button>`).join("")}</div></div>` : ""}
+    <p class="note">${ic("info", 14)}<span>料金は代理店・比較サイトの公表値を含む目安です（毎週月曜に確認）。初期費用、オプション、返金規定、消費税は含みません。各サービスの根拠は詳細パネルの「出典」タブで確認できます。</span></p>`;
+  calcRows = rows;
+}
+const tip = document.createElement("div"); tip.className = "tip"; tip.hidden = true; tip.setAttribute("role", "tooltip"); document.body.appendChild(tip);
+function showTip(el, x, y){
+  const r = calcRows[+el.dataset.tip]; if (!r) return;
+  tip.innerHTML = `<b>${esc(r.name)}</b><div class="r"><span>1名あたり</span><span>${span(r.plo, r.phi ?? r.plo, r.open)}</span></div><div class="r"><span>合計${r.budget ? "（予算上限）" : ""}</span><span>${span(r.lo, r.hi ?? r.lo, r.open)}</span></div><span style="color:var(--text-3)">${esc(r.basis)}</span>`;
+  tip.hidden = false;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = Math.min(Math.max(8, x - w / 2), innerWidth - w - 8) + "px";
+  tip.style.top = (y - h - 14 < 8 ? y + 18 : y - h - 14) + "px";
+}
+$("calc-out").addEventListener("pointermove", e => { const el = e.target.closest("[data-tip]"); if (el) showTip(el, e.clientX, e.clientY); else tip.hidden = true; });
+$("calc-out").addEventListener("pointerleave", () => tip.hidden = true);
+$("calc-out").addEventListener("focusin", e => { const el = e.target.closest("[data-tip]"); if (el) { const b = el.getBoundingClientRect(); showTip(el, b.left + b.width / 2, b.top); } });
+$("calc-out").addEventListener("focusout", () => tip.hidden = true);
+
+/* ---------- global events ---------- */
+document.addEventListener("click", e => {
+  const t = e.target;
+  let el;
+  if ((el = t.closest("[data-cmdk]"))) { openCmd(); return; }
+  if ((el = t.closest("[data-cmp]"))) { e.stopPropagation(); toggleCmp(+el.dataset.cmp); return; }
+  if ((el = t.closest("[data-cmpopen]"))) { if (cmp.length >= 2) { renderCmp(); showDlg("cmpd"); } return; }
+  if ((el = t.closest("[data-cmpclear]"))) { cmp.length = 0; syncCmp(); return; }
+  if ((el = t.closest("[data-close]"))) { closeDlg(el.dataset.close); return; }
+  if ((el = t.closest("[data-tab]"))) { dTab = el.dataset.tab; persist(); renderDrawer(); $("dr-body").scrollTop = 0; return; }
+  if ((el = t.closest("[data-fmodel]"))) { closeDlg("drawer"); filterModel(el.dataset.fmodel); return; }
+  if ((el = t.closest("[data-clear]"))) { clearFilter(el.dataset.clear); return; }
+  if ((el = t.closest("[data-go]"))) { closeDlg("drawer"); go(el.dataset.go); return; }
+  if ((el = t.closest("[data-view]"))) { e.preventDefault(); closeDlg("drawer"); go(el.dataset.view); return; }
+  if ((el = t.closest("[data-open]"))) { if ($("cmpd").open) closeDlg("cmpd"); openDrawer(+el.dataset.open); return; }
+});
+$("top-cmp").addEventListener("click", () => {
+  if (cmp.length >= 2) { renderCmp(); showDlg("cmpd"); }
+  else { toast(cmp.length ? "もう1件選ぶと比較できます" : "一覧の＋ボタンで比較に追加できます"); go("catalog"); }
+});
+DLGS.forEach(id => $(id).addEventListener("click", e => { if (e.target === $(id)) closeDlg(id); }));
+document.addEventListener("keydown", e => {
+  const tag = (e.target.tagName || "").toLowerCase();
+  const typing = tag === "input" || tag === "textarea" || tag === "select";
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); $("cmdk").open ? closeDlg("cmdk") : openCmd(); return; }
+  if (e.key === "/" && !typing && !$("cmdk").open) { e.preventDefault(); openCmd(); return; }
+  if (e.key === "Escape" && !$("mpop").hidden) { $("mpop").hidden = true; $("mbtn").setAttribute("aria-expanded", "false"); return; }
+  if ($("drawer").open && !$("cmdk").open && !typing && (e.key === "ArrowRight" || e.key === "ArrowLeft") && !e.target.closest("#dr-tabs")) {
+    const idx = current.findIndex(x => x.id === dId);
+    const nx = current[idx + (e.key === "ArrowRight" ? 1 : -1)];
+    if (idx >= 0 && nx) { e.preventDefault(); openDrawer(nx.id); }
+    return;
+  }
+  if (e.key === "Enter" && e.target.matches && e.target.matches("tr[data-open]")) openDrawer(+e.target.dataset.open);
+});
+
+/* ---------- request form（Google フォームへのリンク。URL が空のあいだは準備中と表示） ---------- */
+const REQUEST_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeuDh9IagAWopiM5XgQVtJhH5vO-sT8uFir-bgeCXO6Xdnr0A/viewform";
+(() => {
+  const btn = $("req-link");
+  if (/^https:\/\/(docs\.google\.com\/forms\/|forms\.gle\/)/.test(REQUEST_FORM_URL)) {
+    btn.href = REQUEST_FORM_URL;
+  } else {
+    btn.removeAttribute("href");
+    btn.setAttribute("aria-disabled", "true");
+    btn.textContent = "フォームを準備しています";
+    $("req-note").innerHTML = `${ic("info", 14)}<span>リクエストの受付は近日開始します。</span>`;
+  }
+})();
+
+/* ---------- 読み込み ---------- */
+function loadError(){
+  const msg = `<div class="loading">データを読み込めませんでした。ページを再読み込みしてください。</div>`;
+  ["out", "plans-list", "companies-list", "models", "calc-out", "src-list"].forEach(id => { const el = $(id); if (el) el.innerHTML = msg; });
+  $("changes").innerHTML = `<li>${msg}</li>`;
+  ["market-news", "svc-news"].forEach(id => $(id).innerHTML = `<li>${msg}</li>`);
+}
+route(location.hash);
+Promise.all([getJSON("sites.json"), getJSON("plans.json"), getJSON("companies.json"), getJSON("news.json").catch(() => null)]).then(([sv, pl, co, nw]) => {
+  META = {sites: sv.updated, plans: pl.updated, companies: co.updated, news: nw ? nw.updated : null};
+  GROUPS = co.groups || [];
+  COMPANIES = co.companies || [];
+  const compOf = Object.fromEntries(COMPANIES.map(c => [c.id, c]));
+  const planOf = Object.fromEntries((pl.plans || []).map(p => [p.service, p]));
+  NEWS = nw; CHANGES = sv.changes || [];
+  SITES = sv.sites.map((s, i) => {
+    const c = compOf[s.company] || {name: "—", capital: "—", listed: "—", src: []};
+    const p = planOf[s.id] || {models: [], summary: "—", items: [], src: []};
+    return {id: i, key: s.id, n: s.name, s: s.seg, t: s.type, ty: s.kind, cid: s.company, op: c.name, grp: c.capital, ls: c.listed,
+      m: (p.models || []).filter(k => MODELS[k]), fx: p.summary, fd: (p.items || []).map(x => [x.name, x.value]), calc: p.calc || null, official: p.official || "",
+      info: s.info, co: s.co, user: s.user, pt: s.point, src: s.src || [], sec: !!s.secondary, psrc: p.src || [], psec: !!p.secondary, csrc: c.src || [], csec: !!c.secondary,
+      news: nw && nw.services ? nw.services[s.id] || [] : []};
+  });
+  SITES.forEach(s => byKey[s.key] = s.id);
+  const newsCount = nw ? (nw.market || []).length + Object.values(nw.services || {}).reduce((a, b) => a + b.length, 0) : 0;
+  renderNav({catalog: SITES.length, operators: COMPANIES.length, news: newsCount || ""});
+  renderOverview(); renderModels(); setupCatalog(); sync(); render();
+  segc($("pl-seg"), [["all", "すべて"], ["new", "新卒"], ["mid", "中途"]], "plSeg", {get plSeg(){ return plSeg; }, set plSeg(v){ plSeg = v; }}, renderPlans);
+  renderPlans(); renderCompanies(); renderNews(); renderSources(); renderSchedule();
+  setupCalc(); renderCalc(); syncCmp();
+  route(location.hash);
+}).catch(loadError);
+renderNav({});
+
+</script>
+</body>
+</html>
