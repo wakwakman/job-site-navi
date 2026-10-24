@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>求人サイトナビ</title>
-<meta name="description" content="リクナビ・マイナビ・doda・ビズリーチ・Indeed など新卒・中途の求人サイト40サービスを、運営会社、企業が払う料金の仕組み（成果報酬・掲載課金など）、掲載情報、毎週更新のニュースで比べられる案内サイト。">
+<meta name="description" content="リクナビ・マイナビ・doda・ビズリーチ・Indeed など新卒・中途の求人サイト40サービスを、運営会社、料金の仕組み、掲載企業の特徴、営業仮説、業界構造で整理した営業向けの業界構造辞書。企業の特徴から媒体を逆引きできます。">
 <meta name="theme-color" content="#0b7a68">
 <meta property="og:type" content="website">
 <meta property="og:title" content="求人サイトナビ">
@@ -668,12 +668,148 @@ dialog::backdrop { background: rgba(8, 14, 13, .45); backdrop-filter: blur(3px);
 .req-side ul { margin: 0 0 6px; padding-left: 1.1em; display: grid; gap: 5px; font-size: 13.5px; color: var(--text-2); line-height: 1.7; }
 .site-foot { display: grid; gap: 8px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12.5px; color: var(--text-3); line-height: 1.8; }
 .site-foot b { color: var(--text-2); }
+.ch-list .loading, .nlist .loading { grid-column: 1 / -1; }
+/* ---------- v2: 情報の区分ラベル ---------- */
+.lb { display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 5px; font-size: 11px; font-weight: 700; white-space: nowrap; flex: none; vertical-align: middle; }
+.lb1 { color: var(--s-new); background: color-mix(in srgb, var(--s-new) 12%, var(--surface)); }
+.lb2 { color: var(--s-both); background: color-mix(in srgb, var(--s-both) 12%, var(--surface)); }
+.lb3 { color: var(--s-mid); background: color-mix(in srgb, var(--s-mid) 12%, var(--surface)); }
+.lv-legend { padding: 16px 18px; display: grid; gap: 8px; font-size: 13px; color: var(--text-2); }
+.lv-legend b { font-size: 13.5px; color: var(--text); }
+.lv-row { display: flex; gap: 10px; align-items: baseline; }
+/* home */
+.start-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.start-card { padding: 18px; display: grid; gap: 8px; align-content: start; text-decoration: none; color: var(--text); transition: border-color .15s, box-shadow .15s; }
+.start-card:hover { border-color: var(--border-strong); box-shadow: var(--sh-md); }
+.start-card .sc-ic { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand); }
+.start-card b { font-size: 15px; font-weight: 700; }
+.start-card > span:not(.sc-ic):not(.go-l) { font-size: 13px; color: var(--text-2); line-height: 1.7; }
+.go-l { display: inline-flex; gap: 4px; align-items: center; font-size: 12.5px; font-weight: 600; color: var(--brand); }
+/* 分析ブロック */
+.ins { display: grid; gap: 16px; }
+.ins-sec { display: grid; gap: 10px; }
+.ins-sec > h4 { font-size: 13px; font-weight: 700; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ins-sec > h4 .k { font-family: var(--f-mono); font-size: 11px; color: var(--text-3); font-weight: 500; }
+.fact { padding: 12px 14px; border-radius: 10px; background: var(--surface-2); display: grid; gap: 6px; font-size: 13.5px; line-height: 1.7; }
+.fact .row { display: flex; gap: 8px; align-items: baseline; }
+.fact .row > span:last-child { min-width: 0; }
+.fact .meta { font-size: 11.5px; color: var(--text-3); }
+.prof { display: grid; grid-template-columns: 7em minmax(0, 1fr); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; font-size: 13px; }
+.prof > dt, .prof > dd { margin: 0; padding: 9px 12px; border-bottom: 1px solid var(--border); }
+.prof > dt { background: var(--surface-2); color: var(--text-3); font-size: 12px; }
+.prof > dd { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; min-width: 0; line-height: 1.6; }
+.prof > :nth-last-child(-n+2) { border-bottom: 0; }
+.wchip { display: inline-flex; gap: 5px; align-items: center; height: 22px; padding: 0 8px; border-radius: 6px; font-size: 12px; background: var(--surface-2); border: 1px solid var(--border); color: var(--text-2); white-space: nowrap; }
+.wchip i { display: inline-flex; gap: 2px; }
+.wchip i b { width: 5px; height: 5px; border-radius: 50%; background: var(--border-strong); }
+.wchip i b.on { background: var(--s-mid); }
+.unk { font-size: 12px; color: var(--text-3); border: 1px dashed var(--border-strong); border-radius: 6px; padding: 1px 8px; }
+.hl { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; font-size: 13.5px; color: var(--text-2); line-height: 1.7; }
+.hl.cat { color: var(--text-3); }
+.cols2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.box { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; }
+.box > b { font-size: 12.5px; color: var(--text); }
+.relnote { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 8px; padding: 10px 12px; border-radius: 10px; font-size: 12.5px; line-height: 1.7; color: var(--text-2); background: color-mix(in srgb, var(--s-both) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--s-both) 25%, var(--border)); }
+.relnote .ic { color: var(--s-both); margin-top: 3px; }
+.relchip { display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--text-2); border: 1px solid var(--border-strong); white-space: nowrap; }
+/* 逆引き */
+.rv-wrap { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 1100px) { .rv-wrap { grid-template-columns: minmax(0, 1fr); } }
+.rv-filters { padding: 16px; display: grid; gap: 16px; }
+@media (min-width: 1101px) { .rv-filters { position: sticky; top: calc(var(--topH) + 16px); } }
+.rv-g { display: grid; gap: 8px; }
+.rv-g .fl { display: flex; justify-content: space-between; }
+.rv-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.rv-chips button { border: 1px solid var(--border); background: var(--surface); border-radius: 999px; height: 30px; padding: 0 12px; font-size: 12.5px; cursor: pointer; color: var(--text); }
+.rv-chips button:hover { border-color: var(--border-strong); }
+.rv-chips button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: var(--on-brand); font-weight: 600; }
+.rv-out { display: grid; gap: 12px; min-width: 0; }
+.rv-note { font-size: 12.5px; color: var(--text-3); display: flex; gap: 6px; align-items: flex-start; line-height: 1.7; }
+.rv-card { padding: 16px; display: grid; gap: 12px; min-width: 0; }
+.rv-hd { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.rv-rank { font-family: var(--f-mono); font-size: 12px; color: var(--text-3); width: 22px; }
+.rv-hd .nm { flex: 1; min-width: 160px; }
+.rv-hd .nm b { font-size: 15.5px; font-weight: 700; display: block; }
+.rv-hd .nm small { font-size: 12px; color: var(--text-3); }
+.rv-score { display: grid; gap: 4px; min-width: 150px; }
+.rv-score .bar2 { height: 6px; border-radius: 3px; background: var(--surface-3); overflow: hidden; }
+.rv-score .bar2 span { display: block; height: 100%; background: var(--s-mid); border-radius: 3px; }
+.rv-score small { font-size: 11.5px; color: var(--text-3); }
+.rv-score small b { font-family: var(--f-mono); color: var(--text); font-weight: 500; }
+.rv-reasons { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 13px; }
+.rv-reasons li { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.rv-reasons .dim { font-size: 11.5px; color: var(--text-3); width: 5.5em; flex: none; }
+.rv-empty { padding: 28px; text-align: center; color: var(--text-3); display: grid; gap: 8px; justify-items: center; }
+.rv-empty b { color: var(--text); }
+/* 業界構造 */
+.bm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+@media (max-width: 400px) { .bm-grid { grid-template-columns: minmax(0, 1fr); } }
+.bm { padding: 18px; display: grid; gap: 14px; align-content: start; }
+.bm-hd { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.bm-hd h3 { font-size: 16px; font-weight: 700; }
+.bm-hd small { font-family: var(--f-mono); font-size: 11px; color: var(--text-3); }
+.bm-hd .cnt { margin-left: auto; font-family: var(--f-mono); font-size: 12px; color: var(--text-2); }
+.flow { display: grid; gap: 8px; padding: 12px; border-radius: 10px; background: var(--surface-2); }
+.flow-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr); gap: 6px; align-items: center; }
+.node { padding: 6px 8px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border-strong); font-size: 12px; font-weight: 600; text-align: center; line-height: 1.4; }
+.node.pay { border-color: var(--brand); color: var(--brand); }
+.arrow { position: relative; font-size: 11px; color: var(--text-2); text-align: center; padding: 0 4px 10px; line-height: 1.4; }
+.arrow::after { content: ""; position: absolute; left: 4px; right: 10px; bottom: 3px; height: 2px; background: var(--border-strong); }
+.arrow::before { content: ""; position: absolute; right: 4px; bottom: -1px; border: 5px solid transparent; border-left: 7px solid var(--border-strong); }
+.arrow.money { color: var(--brand); font-weight: 600; }
+.arrow.money::after { background: var(--brand); }
+.arrow.money::before { border-left-color: var(--brand); }
+.flow .free { font-size: 11.5px; color: var(--text-3); text-align: center; }
+@media (max-width: 480px) {
+  .flow-row { grid-template-columns: minmax(0, 1fr); }
+  .arrow { padding: 2px 0 12px; }
+  .arrow::after { left: 50%; right: auto; width: 2px; height: 10px; bottom: 0; }
+  .arrow::before { right: auto; left: calc(50% - 4px); bottom: -8px; border: 5px solid transparent; border-top: 7px solid var(--border-strong); }
+  .arrow.money::before { border-left-color: transparent; border-top-color: var(--brand); }
+}
+.bm dl.kv { font-size: 13px; }
+.bm .svcs { display: flex; flex-wrap: wrap; gap: 5px; }
+.bm .svcs button { border: 1px solid var(--border); background: var(--surface); border-radius: 6px; height: 26px; padding: 0 9px; font-size: 12px; cursor: pointer; display: inline-flex; gap: 5px; align-items: center; }
+.bm .svcs button:hover { border-color: var(--brand); color: var(--brand); }
+.bm .svcs button em { font-style: normal; font-size: 10.5px; color: var(--s-both); font-weight: 700; }
+.sub-sec { display: grid; gap: 12px; margin-top: 8px; }
+.sub-title { font-size: 16px; font-weight: 700; }
+.sub-lead { font-size: 13.5px; color: var(--text-2); line-height: 1.75; max-width: 46rem; }
+.grpmap { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+@media (max-width: 400px) { .grpmap { grid-template-columns: minmax(0, 1fr); } }
+.gm { padding: 18px; display: grid; gap: 12px; align-content: start; }
+.gm h4 { font-size: 15px; font-weight: 700; }
+.gm-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 8px 10px; border-radius: 8px; background: var(--surface-2); font-size: 12.5px; }
+.gm-row button { border: 0; background: none; padding: 0; font-weight: 600; cursor: pointer; text-align: left; font-size: 13px; }
+.gm-row button:hover { color: var(--brand); }
+.gm-row small { display: block; color: var(--text-3); font-size: 11.5px; }
+/* ガイド */
+.g-steps { display: grid; gap: 0; }
+.g-step { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 12px; position: relative; padding-bottom: 14px; }
+.g-step::before { content: ""; position: absolute; left: 12px; top: 26px; bottom: 0; width: 2px; background: var(--border); }
+.g-step:last-child::before { display: none; }
+.g-step .n { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-family: var(--f-mono); font-size: 12px; font-weight: 600; background: var(--surface-2); border: 1px solid var(--border-strong); color: var(--text-2); }
+.g-step .c { display: grid; gap: 6px; padding-top: 2px; min-width: 0; }
+.g-step .c b { font-size: 13px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.g-alt { padding: 12px 14px; border-radius: 10px; border: 1px dashed var(--border-strong); display: grid; gap: 6px; }
+.g-alt b { font-size: 12.5px; }
+/* 関連 */
+.rel-g { display: grid; gap: 8px; }
+.rel-g h5 { margin: 0; font-size: 12px; font-weight: 600; color: var(--text-3); letter-spacing: .04em; }
+.rows .why2 { display: block; font-size: 11.5px; color: var(--text-2); margin-top: 2px; white-space: normal; line-height: 1.55; }
+/* ドロワーのタブを横スクロール可能に */
+.tabs { overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs button { flex: none; }
+/* 読み込み失敗 */
+.err-box { padding: 24px; text-align: center; display: grid; gap: 10px; justify-items: center; color: var(--text-2); font-size: 13.5px; }
+.err-box b { color: var(--text); font-size: 15px; }
 </style>
 </head>
 <body>
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="#all" data-view="all" aria-label="求人サイトナビ トップへ">
+    <a class="brand" href="#home" data-view="home" aria-label="求人サイトナビ トップへ">
       <svg class="logo" viewBox="0 0 28 28" aria-hidden="true"><rect class="lb" width="28" height="28" rx="8"></rect><path class="lf" d="M8 9.5h12M8 14h8M8 18.5h4.5" fill="none" stroke-width="2.2" stroke-linecap="round"></path><circle class="ld" cx="19" cy="18.5" r="2.4"></circle></svg>
       <span class="brand-name">求人サイトナビ</span><span class="ver mono" id="ver">—</span>
     </a>
@@ -709,6 +845,38 @@ dialog::backdrop { background: rgba(8, 14, 13, .45); backdrop-filter: blur(3px);
       </div>
       <div class="kpis card" id="kpis"></div>
       <div class="legend"><span><span class="sec-chip">二次情報</span>公式発表や大手報道で確認できていない情報</span><span><i data-ic="info" data-s="14"></i>料金は代理店・比較サイトの公表値を含む目安</span></div>
+    </section>
+
+    <section class="sec" id="start" aria-label="目的から探す">
+      <div class="start-grid">
+        <a class="start-card card" href="#reverse" data-view="reverse"><span class="sc-ic"><i data-ic="search" data-s="18"></i></span><b>企業の特徴から逆引き</b><span>業種・規模・職種・採用対象を選ぶと、関連しそうな求人媒体と、その理由が分かります。</span><span class="go-l">逆引きする<i data-ic="arrowR" data-s="13"></i></span></a>
+        <a class="start-card card" href="#insights" data-view="insights"><span class="sc-ic"><i data-ic="users" data-s="18"></i></span><b>掲載企業・営業仮説</b><span>媒体ごとに、掲載していそうな企業の特徴と、そこから考えられる採用課題・営業仮説をまとめました。</span><span class="go-l">媒体ごとに見る<i data-ic="arrowR" data-s="13"></i></span></a>
+        <a class="start-card card" href="#structure" data-view="structure"><span class="sc-ic"><i data-ic="map" data-s="18"></i></span><b>業界構造マップ</b><span>誰がお金を払い、いつ料金が発生するのか。8つのビジネスモデルを図で整理しました。</span><span class="go-l">仕組みを見る<i data-ic="arrowR" data-s="13"></i></span></a>
+        <a class="start-card card" href="#guides" data-view="guides"><span class="sc-ic"><i data-ic="compass" data-s="18"></i></span><b>営業仮説の考え方</b><span>求人の出し方から何が読み取れるか。事実→背景→仮説→確認の順で8つのテーマを解説します。</span><span class="go-l">考え方を学ぶ<i data-ic="arrowR" data-s="13"></i></span></a>
+      </div>
+      <div class="lv-legend card">
+        <b>このサイトの情報の区分</b>
+        <div class="lv-row"><span class="lb lb1">①確認済み</span><span>公式サイト・公式IR・公的資料・大手報道で確認できた内容</span></div>
+        <div class="lv-row"><span class="lb lb2">②第三者</span><span>代理店資料・業界メディア・調査記事など（料金や運営元の欄では「二次情報」と表示）</span></div>
+        <div class="lv-row"><span class="lb lb3">③独自の仮説</span><span>媒体の特徴や料金モデルから、このサイトが考えた推定。事実ではありません</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="structure">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="map"></i></span>求人媒体の業界構造マップ</h2>
+        <p>求人サービスは、誰がいつお金を払うかで8つのビジネスモデルに分けられます。ほとんどのサービスで求職者は無料で、企業が料金を払います。料金の発生条件には例外があるため、各サービスの実際の契約条件を優先してください。</p>
+      </div></div>
+      <div class="bm-grid" id="bm-grid"><div class="loading">読み込んでいます…</div></div>
+      <div class="sub-sec">
+        <h3 class="sub-title">複数のモデルを持つサービス（複合型）</h3>
+        <div class="tbl card" id="bm-mixed"></div>
+      </div>
+      <div class="sub-sec">
+        <h3 class="sub-title">グループで見る採用領域のカバー</h3>
+        <p class="sub-lead">同じ企業グループが、ビジネスモデルや採用対象の違うサービスを並べて持っていることがあります。運営元の詳細と同じデータを使っています。</p>
+        <div class="grpmap" id="grpmap"></div>
+      </div>
     </section>
 
     <section class="sec" id="diff">
@@ -818,6 +986,17 @@ dialog::backdrop { background: rgba(8, 14, 13, .45); backdrop-filter: blur(3px);
       <div id="out"></div>
     </section>
 
+    <section class="sec" id="reverse">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="search"></i></span>企業の特徴から逆引き</h2>
+        <p>営業先の企業の特徴を選ぶと、その企業が使っていそうな求人媒体を、関連度の高い順に表示します。関連度は媒体の特徴から作ったサイト独自の推定です。条件に合う企業が実際に掲載されていることを保証するものではありません。</p>
+      </div></div>
+      <div class="rv-wrap">
+        <div class="rv-filters card" id="rv-filters"><div class="loading">読み込んでいます…</div></div>
+        <div class="rv-out" id="rv-out" aria-live="polite"></div>
+      </div>
+    </section>
+
     <section class="sec" id="plans">
       <div class="sec-hd"><div class="t">
         <h2><span class="sec-ic"><i data-ic="yen"></i></span>料金の詳細</h2>
@@ -832,6 +1011,14 @@ dialog::backdrop { background: rgba(8, 14, 13, .45); backdrop-filter: blur(3px);
         <p>求人サイトは少数の大手グループに集まっています。会社を押すと、資本関係・上場の状況・運営しているサービス・出典が開きます。確認日 <span class="mono" id="companies-updated">—</span></p>
       </div><div class="sec-tools"><button type="button" class="btn btn-ghost sm" data-toggle-all="companies-list">すべて開く</button></div></div>
       <div class="acc-list" id="companies-list"><div class="loading">運営元を読み込んでいます…</div></div>
+    </section>
+
+    <section class="sec" id="guides">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="compass"></i></span>営業仮説の考え方</h2>
+        <p>求人の出し方から営業仮説を立てる手順を、8つのテーマで解説します。各テーマは「観察できる事実 → 考えられる背景 → 営業仮説 → 確認すべき情報」の順です。背景と仮説はサイト独自の考察で、別の解釈も載せています。</p>
+      </div><div class="sec-tools"><button type="button" class="btn btn-ghost sm" data-toggle-all="guides-list">すべて開く</button></div></div>
+      <div class="acc-list" id="guides-list"><div class="loading">読み込んでいます…</div></div>
     </section>
 
     <section class="sec" id="news">
@@ -892,6 +1079,14 @@ dialog::backdrop { background: rgba(8, 14, 13, .45); backdrop-filter: blur(3px);
           </tbody>
         </table>
       </div>
+    </section>
+
+    <section class="sec" id="insights">
+      <div class="sec-hd"><div class="t">
+        <h2><span class="sec-ic"><i data-ic="users"></i></span>掲載企業の特徴・営業視点</h2>
+        <p>媒体ごとに、確認できた事実と、そこから考えられる掲載企業の特徴・利用理由・営業仮説を分けて載せています。「この媒体に掲載している＝採用課題がある」という意味ではありません。</p>
+      </div><div class="sec-tools"><div class="segc" id="in-seg" role="group" aria-label="区分"></div><label class="sel"><span class="sr-only">ビジネスモデル</span><select id="in-bm"></select><i data-ic="chevD" data-s="14"></i></label><div class="tb-search"><i data-ic="search" data-s="15"></i><input id="in-q" type="search" placeholder="業種・職種・キーワード" aria-label="掲載企業の分析を絞り込む" autocomplete="off"></div></div></div>
+      <div class="acc-list" id="insights-list"><div class="loading">読み込んでいます…</div></div>
     </section>
 
     <section class="sec" id="who">
@@ -1153,56 +1348,68 @@ let SITES = [], COMPANIES = [], GROUPS = [], NEWS = null, CHANGES = [], META = {
 const byKey = {};
 const getJSON = name => fetch(name, {cache: "no-cache"}).then(r => { if (!r.ok) throw new Error(name + " " + r.status); return r.json(); });
 
-/* ---------- navigation / views ---------- */
-const NAV = [
-  {g:"", items:[["all","すべて表示","layers"]]},
-  {g:"ガイド", items:[["overview","概要","home"],["diff","新卒と中途","split"],["map","類型マップ","map"],["fees","料金モデル","yen"]]},
-  {g:"ツール・データ", items:[["calc","採用コスト試算","calc"],["catalog","サイト一覧","grid"],["plans","料金の詳細","yen"],["operators","運営元の詳細","building"],["news","ニュース","news"]]},
-  {g:"実務", items:[["items","求人票の項目","file"],["who","掲載企業の傾向","users"],["schedule","新卒スケジュール","calendar"],["guide","使い分け","compass"]]},
-  {g:"その他", items:[["request","リクエスト","send"],["sources","出典","book"]]}
+/* ---------- navigation / pages ---------- */
+const PAGES = [
+  {id:"home", l:"ホーム", i:"home", secs:["overview","start"]},
+  {id:"catalog", l:"求人媒体を探す", i:"grid", secs:["catalog"]},
+  {id:"reverse", l:"企業の特徴から逆引き", i:"search", secs:["reverse"]},
+  {id:"insights", l:"掲載企業・営業仮説", i:"users", secs:["insights","who"]},
+  {id:"structure", l:"業界構造マップ", i:"map", secs:["structure","diff","map"]},
+  {id:"cost", l:"料金・採用コスト", i:"yen", secs:["fees","calc","plans"]},
+  {id:"operators", l:"運営企業・資本関係", i:"building", secs:["operators"]},
+  {id:"guides", l:"営業仮説の考え方", i:"compass", secs:["guides"]},
+  {id:"news", l:"ニュース", i:"news", secs:["news"]},
+  {id:"practice", l:"採用実務の基礎", i:"file", secs:["items","schedule","guide"]},
+  {id:"request", l:"リクエスト", i:"send", secs:["request"]},
+  {id:"sources", l:"出典", i:"book", secs:["sources"]}
 ];
-const SECS = NAV.flatMap(g => g.items).filter(x => x[0] !== "all");
-const SECIDS = new Set(SECS.map(x => x[0]));
-let view = "all";
+const NAV = [
+  {g:"", items:["home"]},
+  {g:"調べる", items:["catalog","reverse","insights"]},
+  {g:"理解する", items:["structure","cost","operators","guides"]},
+  {g:"情報", items:["news","practice"]},
+  {g:"その他", items:["request","sources"]}
+];
+const PAGE = Object.fromEntries(PAGES.map(p => [p.id, p]));
+const SEC2PAGE = Object.fromEntries(PAGES.flatMap(p => p.secs.map(s => [s, p.id])));
+const SECS = PAGES.map(p => [p.id, p.l, p.i]);
+let view = "home";
 function renderNav(counts){
-  $("side").innerHTML = NAV.map(g => `<nav class="nav-g"${g.g ? ` aria-label="${g.g}"` : ""}>${g.g ? `<div class="gl">${g.g}</div>` : ""}${g.items.map(([id, l, i]) => `<a href="#${id === "all" ? "" : id}" data-view="${id}" data-sec="${id}">${ic(i, 16)}<span>${l}</span>${counts[id] ? `<span class="cnt">${counts[id]}</span>` : ""}</a>`).join("")}</nav>`).join("")
+  $("side").innerHTML = NAV.map(g => `<nav class="nav-g"${g.g ? ` aria-label="${g.g}"` : ""}>${g.g ? `<div class="gl">${g.g}</div>` : ""}${g.items.map(id => { const p = PAGE[id]; return `<a href="#${id}" data-view="${id}" data-sec="${id}">${ic(p.i, 16)}<span>${p.l}</span>${counts[id] ? `<span class="cnt">${counts[id]}</span>` : ""}</a>`; }).join("")}</nav>`).join("")
     + `<div class="side-card"><b>${ic("check", 15)}毎週月曜に更新</b><span>ニュース・料金・運営元を公開情報で確認しています。最終更新 <span class="mono">${esc(META.news || META.sites || "—")}</span></span></div>`;
-  $("mnav").innerHTML = NAV.flatMap(g => g.items).map(([id, l]) => `<a href="#${id === "all" ? "" : id}" data-view="${id}" data-sec="${id}">${l}</a>`).join("");
+  $("mnav").innerHTML = PAGES.map(p => `<a href="#${p.id}" data-view="${p.id}" data-sec="${p.id}">${p.l}</a>`).join("");
 }
 function applyView(){
-  document.querySelectorAll("main > section.sec").forEach(el => { el.hidden = !(view === "all" || el.id === view); });
-  if (view !== "all") markNav(view);
-  else markNav(currentSpy || "overview");
+  const secs = new Set((PAGE[view] || PAGE.home).secs);
+  document.querySelectorAll("main > section.sec").forEach(el => { el.hidden = !secs.has(el.id); });
+  markNav(view);
 }
 function markNav(id){
   document.querySelectorAll("[data-sec]").forEach(a => {
-    const on = view === "all" ? a.dataset.sec === id : a.dataset.sec === view;
+    const on = a.dataset.sec === id;
     a.classList.toggle("on", on);
-    if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+    if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
   const m = document.querySelector(`#mnav a.on`);
   if (m) m.parentElement.scrollTo({left: m.offsetLeft - 16, behavior: reduce ? "auto" : "smooth"});
 }
 function go(id, opts = {}){
-  if (id !== "all" && !SECIDS.has(id)) return;
-  view = id;
-  try { history.replaceState(null, "", id === "all" ? location.pathname + location.search : "#" + id); } catch(_) {}
+  if (id === "all") id = "home";
+  const page = PAGE[id] ? id : SEC2PAGE[id];
+  if (!page) return;
+  view = page;
+  try { history.replaceState(null, "", "#" + (PAGE[id] ? id : id)); } catch(_) {}
   applyView();
-  if (!opts.keepScroll) window.scrollTo({top: 0, behavior: "auto"});
+  if (opts.keepScroll) return;
+  const first = PAGE[page].secs[0];
+  if (!PAGE[id] && id !== first) { const el = $(id); if (el) { el.scrollIntoView({block: "start"}); return; } }
+  window.scrollTo({top: 0, behavior: "auto"});
 }
 function route(h){
   const id = decodeURIComponent((h || "").replace(/^#/, ""));
   if (byKey[id] != null) { view = "catalog"; applyView(); openDrawer(byKey[id]); return; }
-  view = SECIDS.has(id) ? id : "all";
-  applyView();
-}
-let currentSpy = null;
-if ("IntersectionObserver" in window) {
-  const io = new IntersectionObserver(es => es.forEach(en => {
-    if (!en.isIntersecting || view !== "all") return;
-    currentSpy = en.target.id; markNav(currentSpy);
-  }), {rootMargin: "-30% 0px -60% 0px"});
-  document.querySelectorAll("main > section.sec").forEach(s => io.observe(s));
+  if (PAGE[id] || SEC2PAGE[id]) { go(id); return; }
+  view = "home"; applyView();
 }
 window.addEventListener("hashchange", () => route(location.hash));
 
@@ -1213,7 +1420,7 @@ let plSeg = "all";
 const cmp = [];
 let current = [];
 const persist = () => store.set({...store.get(), seg: state.seg, models: state.models, view: state.view, sort: state.sort, tab: dTab});
-const hay = s => [s.n, s.op, s.grp, s.ty, s.t, s.info, s.co, s.fx, s.user, s.pt, s.ls, s.m.map(k => MODELS[k] ? MODELS[k].l : "").join(" "), s.fd.flat().join(" ")].join(" ").toLowerCase();
+const hay = s => [s.n, s.op, s.grp, s.ty, s.t, s.info, s.co, s.fx, s.user, s.pt, s.ls, s.m.map(k => MODELS[k] ? MODELS[k].l : "").join(" "), s.fd.flat().join(" "), typeof insHay === "function" ? insHay(s) : ""].join(" ").toLowerCase();
 
 function segc(el, items, key, obj = state, after){
   el.innerHTML = items.map(([v, l, lab]) => `<button type="button" data-v="${v}" aria-pressed="${String(obj[key]) === String(v)}"${lab ? ` aria-label="${lab}" title="${lab}"` : ""}>${l}</button>`).join("");
@@ -1399,7 +1606,7 @@ function renderNews(){
 
 /* ---------- sources ---------- */
 function renderSources(){
-  const groups = [["サービスの基本情報・料金", []], ["運営元", []], ["ニュース・最近の変化", []]];
+  const groups = [["サービスの基本情報・料金", []], ["運営元", []], ["ニュース・最近の変化", []], ["掲載企業の分析", []]];
   const add = (gi, src, secondary, who) => (src || []).forEach(([l, u]) => {
     const list = groups[gi][1];
     let x = list.find(y => y.u === u);
@@ -1410,6 +1617,7 @@ function renderSources(){
   COMPANIES.forEach(c => add(1, c.src, c.secondary, c.name));
   (NEWS ? NEWS.market || [] : []).forEach(n => add(2, n.src, n.secondary, "業界・制度の動き"));
   CHANGES.forEach(c => add(2, c.src, c.secondary, "最近の主な変化"));
+  if (INS) SITES.forEach(s => { const I = INS.services[s.key]; (I && I.extra || []).forEach(x => add(3, x.src, x.k === "third", s.n)); });
   $("src-list").innerHTML = groups.map(([label, list]) => list.length ? `<div class="src-grp card"><h3>${label}<span>${list.length}件</span></h3><ul>${list.map(x => `<li><a href="${esc(x.u)}" target="_blank" rel="noopener">${ic("ext", 13)}<span>${esc(x.l)}${x.sec ? ` ${secChip}` : ""}<small>使用: ${esc([...x.who].join("、"))}</small></span></a></li>`).join("")}</ul></div>` : "").join("");
 }
 
@@ -1465,7 +1673,7 @@ DLGS.forEach(id => $(id).addEventListener("close", syncLock));
 
 /* ---------- drawer ---------- */
 let dId = null;
-const TABS = [["overview", "概要", "layers"], ["fees", "費用体系", "yen"], ["org", "運営元", "building"], ["news", "ニュース", "news"], ["src", "出典", "book"]];
+const TABS = [["overview", "概要", "layers"], ["sales", "営業視点", "users"], ["fees", "費用体系", "yen"], ["org", "運営元", "building"], ["rel", "関連", "columns"], ["news", "ニュース", "news"], ["src", "出典", "book"]];
 function openDrawer(id){ dId = id; renderDrawer(); showDlg("drawer"); $("dr-body").scrollTop = 0; }
 function renderDrawer(){
   const s = SITES[dId];
@@ -1486,6 +1694,8 @@ function renderDrawerFoot(){
   $("dr-ft").innerHTML = `<span class="vnote">${ic("check", 14)}確認日 ${esc(META.plans || "")} · <button type="button" class="lk" style="margin:0" data-tab="src">出典${uniqSrc(SITES[dId]).length}件</button></span><button type="button" class="btn ${on ? "btn-ghost" : "btn-primary"} sm" data-cmp="${dId}" aria-pressed="${on}">${ic(on ? "check" : "plus", 14)}${on ? "比較に追加済み" : "比較に追加"}</button>`;
 }
 function tabHTML(s){
+  if (dTab === "sales") return insightHTML(s, {links: false}) + `<button type="button" class="lk" data-go="insights">ほかの媒体の分析を見る${ic("arrowR", 12)}</button>`;
+  if (dTab === "rel") return relatedHTML(s);
   if (dTab === "src") return `
     <p style="font-size:13.5px;color:var(--text-2);line-height:1.75">${esc(s.n)}の記載は、次の資料で確認しています。<span class="sec-chip">二次情報</span>は、公式発表や大手報道で確認できていない情報です。</p>
     <div class="sub-hd">サービスの基本情報 ${s.sec ? secChip : ""}</div>${srcList(s.src)}
@@ -1702,7 +1912,9 @@ $("calc-out").addEventListener("focusout", () => tip.hidden = true);
 document.addEventListener("click", e => {
   const t = e.target;
   let el;
+  if ((el = t.closest("[data-retry]"))) { location.reload(); return; }
   if ((el = t.closest("[data-cmdk]"))) { openCmd(); return; }
+  if ((el = t.closest("[data-rel]"))) { dTab = "rel"; persist(); openDrawer(+el.dataset.rel); return; }
   if ((el = t.closest("[data-cmp]"))) { e.stopPropagation(); toggleCmp(+el.dataset.cmp); return; }
   if ((el = t.closest("[data-cmpopen]"))) { if (cmp.length >= 2) { renderCmp(); showDlg("cmpd"); } return; }
   if ((el = t.closest("[data-cmpclear]"))) { cmp.length = 0; syncCmp(); return; }
@@ -1712,7 +1924,7 @@ document.addEventListener("click", e => {
   if ((el = t.closest("[data-clear]"))) { clearFilter(el.dataset.clear); return; }
   if ((el = t.closest("[data-go]"))) { closeDlg("drawer"); go(el.dataset.go); return; }
   if ((el = t.closest("[data-view]"))) { e.preventDefault(); closeDlg("drawer"); go(el.dataset.view); return; }
-  if ((el = t.closest("[data-open]"))) { if ($("cmpd").open) closeDlg("cmpd"); openDrawer(+el.dataset.open); return; }
+  if ((el = t.closest("[data-open]"))) { if ($("cmpd").open) closeDlg("cmpd"); if (el.dataset.opentab) { dTab = el.dataset.opentab; persist(); } openDrawer(+el.dataset.open); return; }
 });
 $("top-cmp").addEventListener("click", () => {
   if (cmp.length >= 2) { renderCmp(); showDlg("cmpd"); }
@@ -1748,18 +1960,282 @@ const REQUEST_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeuDh9IagAWop
   }
 })();
 
+/* ---------- v2: 分析データ ---------- */
+let INS = null, BM = null, GUIDES = null;
+const REAL_GROUPS = new Set(["recruit", "persol", "mynavi", "en", "leverages", "gakujo"]);
+const DIMS = [["ind", "業種"], ["size", "企業規模"], ["role", "採用職種"], ["tgt", "採用対象"]];
+const lb = k => k === "fact" || k === 1 ? '<span class="lb lb1">①確認済み</span>' : k === "third" || k === 2 ? '<span class="lb lb2">②第三者</span>' : '<span class="lb lb3">③独自の仮説</span>';
+const insOf = s => INS && INS.services ? INS.services[s.key] : null;
+const tax = (dim, k) => INS && INS.taxonomy[dim] ? INS.taxonomy[dim][k] || k : k;
+const bmLabel = id => { const c = BM ? BM.categories.find(x => x.id === id) : null; return c ? c.l : id; };
+const bmOf = id => BM ? BM.categories.find(x => x.id === id) : null;
+const dots = w => `<i aria-hidden="true">${[1, 2, 3].map(n => `<b class="${w >= n ? "on" : ""}"></b>`).join("")}</i>`;
+function profChips(prof, dim, min = 1){
+  if (prof == null) return '<span class="unk">情報不足</span>';
+  const list = Object.entries(prof).filter(([, w]) => w >= min).sort((a, b) => b[1] - a[1]);
+  if (!list.length) return '<span class="unk">該当なし</span>';
+  return list.map(([k, w]) => `<span class="wchip" title="${INS.taxonomy.w[w]}">${dots(w)}${esc(tax(dim, k))}<small style="color:var(--text-3)">${INS.taxonomy.w[w]}</small></span>`).join("");
+}
+const BROAD = {ind: "幅広い業種", role: "幅広い職種", size: "規模を問わない", tgt: "幅広い対象"};
+const topVals = (prof, dim, n = 3) => {
+  if (!prof) return [];
+  const list = Object.entries(prof).filter(([, w]) => w >= 2).sort((a, b) => b[1] - a[1]);
+  if (dim !== "tgt" && list.length >= 5 && !list.some(([, w]) => w === 3)) return [BROAD[dim]];
+  return list.slice(0, n).map(([k]) => tax(dim, k));
+};
+function relNote(I){
+  const r = INS.taxonomy.rel[I.rel];
+  return r ? `<div class="relnote">${ic("info", 14)}<span><b>企業との関係：${esc(r.l)}</b>　${esc(r.note)}</span></div>` : "";
+}
+function factBlock(s, I){
+  const k1 = s.sec ? 2 : 1;
+  const extra = (I.extra || []).map(x => `<div class="row">${lb(x.k)}<span>${esc(x.t)}<span class="meta">（${esc(x.d || "")}）</span></span></div>${srcLine(x.src, x.k === "third")}`).join("");
+  return `<div class="fact">
+    <div class="row">${lb(k1)}<span><b>掲載企業：</b>${esc(s.co)}</span></div>
+    <div class="row">${lb(k1)}<span><b>利用者層：</b>${esc(s.user)}</span></div>
+    ${srcLine(s.src, s.sec)}
+    ${extra}
+  </div>`;
+}
+function insightHTML(s, opts = {}){
+  const I = insOf(s);
+  if (!I) return `<div class="muted-box">このサービスの分析データを読み込めませんでした。十分な情報がありません。</div>`;
+  const cats = I.bm.map(bmOf).filter(Boolean);
+  const catSales = key => [...new Set(cats.flatMap(c => (c.sales && c.sales[key]) || []))];
+  const list = (arr, cls = "") => arr.length ? `<ul class="hl ${cls}">${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : '<span class="unk">情報不足</span>';
+  const prods = [...new Set([...(I.prod || []), ...catSales("prod")])];
+  return `<div class="ins">
+    ${relNote(I)}
+    <div class="ins-sec"><h4>A. 掲載企業の特徴</h4>
+      ${factBlock(s, I)}
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">${lb(3)}<span class="note" style="display:inline">下の傾向は、上の事実と媒体の仕組みから作ったサイト独自の推定です。</span></div>
+      <dl class="prof">
+        ${DIMS.map(([d, l]) => `<dt>${l}</dt><dd>${profChips(I[d], d)}</dd>`).join("")}
+        <dt>成長段階</dt><dd>${esc(I.stage || "情報不足")}</dd>
+        <dt>地理的特徴</dt><dd>${esc(I.geo || "情報不足")}</dd>
+        <dt>推定の根拠</dt><dd>${esc(I.basis || "情報不足")}</dd>
+      </dl>
+    </div>
+    <div class="ins-sec"><h4>B. 企業がこの媒体を使う理由 ${lb(3)}</h4>
+      ${list(I.why || [])}
+      <div class="fact"><div class="row">${lb(s.psec ? 2 : 1)}<span><b>料金の仕組み：</b>${esc(s.fx)}</span></div><div class="row"><span class="chips">${s.m.map(chip).join("")}</span></div></div>
+      <div class="cols2">${cats.map(c => `<div class="box"><b>${esc(c.l)}と相性がよい企業</b><span style="font-size:13px;color:var(--text-2);line-height:1.7">${esc(c.fit)}</span><span style="font-size:12px;color:var(--text-3);line-height:1.6">制約：${esc(c.constraint)}</span></div>`).join("")}</div>
+    </div>
+    <div class="ins-sec"><h4>C. 営業活動で読み取れる可能性 ${lb(3)}</h4>
+      <div class="cols2">
+        <div class="box"><b>採用活動のシグナル</b>${list(I.sig || [])}${list(catSales("sig"), "cat")}</div>
+        <div class="box"><b>想定される採用課題</b>${list(I.hire || [])}${list(catSales("hire"), "cat")}</div>
+        <div class="box"><b>想定される経営・組織課題</b>${list(I.org || [])}${list(catSales("org"), "cat")}</div>
+        <div class="box"><b>営業先として確認すべき情報</b>${list(I.check || [])}${list(catSales("check"), "cat")}</div>
+      </div>
+      <div class="box"><b>関連しやすい商材カテゴリー</b><div class="chips">${prods.map(k => `<span class="wchip">${esc(tax("prod", k))}</span>`).join("")}</div></div>
+      <p class="note">${ic("info", 14)}<span>「この媒体を使っている＝この課題がある」という意味ではありません。灰色の項目は、ビジネスモデル共通の観点です。</span></p>
+    </div>
+    ${(I.missing || []).length ? `<div class="ins-sec"><h4>情報不足・要確認</h4><div class="chips">${I.missing.map(x => `<span class="unk">${esc(x)}</span>`).join("")}</div></div>` : ""}
+    ${opts.links !== false ? `<div style="display:flex;gap:14px;flex-wrap:wrap"><button type="button" class="lk" data-open="${s.id}">${esc(s.n)}の詳細を開く${ic("arrowR", 12)}</button><button type="button" class="lk" data-rel="${s.id}">関連サービスを見る${ic("arrowR", 12)}</button></div>` : ""}
+  </div>`;
+}
+
+/* ---------- 掲載企業・営業仮説の一覧 ---------- */
+const inState = {seg: "all", bm: "all", q: ""};
+function setupInsights(){
+  segc($("in-seg"), [["all", "すべて"], ["new", "新卒"], ["mid", "中途"]], "seg", inState, renderInsights);
+  $("in-bm").innerHTML = `<option value="all">すべてのモデル</option>` + (BM ? BM.categories.map(c => `<option value="${c.id}">${esc(c.l)}</option>`).join("") : "");
+  $("in-bm").addEventListener("change", e => { inState.bm = e.target.value; renderInsights(); });
+  $("in-q").addEventListener("input", e => { inState.q = e.target.value; renderInsights(); });
+}
+function insHay(s){
+  const I = insOf(s); if (!I) return "";
+  return [s.n, s.op, s.co, s.user, I.stage, I.geo, I.basis, ...(I.why || []), ...(I.sig || []), ...(I.hire || []), ...(I.org || []),
+    ...DIMS.flatMap(([d]) => I[d] ? Object.entries(I[d]).filter(([, w]) => w >= 1).map(([k]) => tax(d, k)) : []), ...(I.prod || []).map(k => tax("prod", k)), ...I.bm.map(bmLabel)].join(" ").toLowerCase();
+}
+function renderInsights(){
+  if (!INS) { $("insights-list").innerHTML = errBox("分析データを読み込めませんでした。"); return; }
+  const q = inState.q.trim().toLowerCase();
+  const list = SITES.filter(s => (inState.seg === "all" || s.s === inState.seg || s.s === "both") && (inState.bm === "all" || (insOf(s) && insOf(s).bm.includes(inState.bm))) && (!q || insHay(s).includes(q)));
+  $("insights-list").innerHTML = list.length ? list.map(s => {
+    const I = insOf(s) || {bm: []};
+    const tops = [...topVals(I.ind, "ind", 2), ...topVals(I.tgt, "tgt", 2)];
+    return `<details class="acc" id="ins-${s.key}">
+      <summary>${av(s.n, 36)}<span class="s-name"><b>${esc(s.n)}</b><small>${esc(I.bm.map(bmLabel).join(" · "))}</small></span><span class="s-side"><span class="relchip">${esc(INS.taxonomy.rel[I.rel] ? INS.taxonomy.rel[I.rel].l : "")}</span>${tops.map(t => `<span class="wchip">${esc(t)}</span>`).join("")}</span>${ic("chevD", 18, "chev")}</summary>
+      <div class="acc-body">${insightHTML(s)}</div></details>`;
+  }).join("") : `<div class="empty card">${ic("search", 22)}<b>条件に合うサービスがありません</b><span>絞り込みを減らしてください。</span></div>`;
+}
+
+/* ---------- 逆引き ----------
+   選んだ条件ごとに、媒体の推定の重み（0〜3）を足して点数にする。重みが null の条件は「情報不足」として扱う */
+const rvState = {ind: "", size: "", role: "", tgt: ""};
+function setupReverse(){
+  if (!INS) { $("rv-filters").innerHTML = errBox("分析データを読み込めませんでした。"); return; }
+  $("rv-filters").innerHTML = DIMS.map(([d, l]) => `<div class="rv-g"><span class="fl">${l}<button type="button" class="lk" style="margin:0;font-weight:500" data-rvclear="${d}">指定なし</button></span><div class="rv-chips" data-rvdim="${d}">${Object.entries(INS.taxonomy[d]).map(([k, v]) => `<button type="button" data-v="${k}" aria-pressed="false">${esc(v)}</button>`).join("")}</div></div>`).join("")
+    + `<button type="button" class="btn btn-ghost sm" data-rvclear="all" style="justify-self:start">条件をすべて外す</button>`;
+  $("rv-filters").addEventListener("click", e => {
+    const c = e.target.closest("[data-rvclear]");
+    if (c) { if (c.dataset.rvclear === "all") Object.keys(rvState).forEach(k => rvState[k] = ""); else rvState[c.dataset.rvclear] = ""; syncReverse(); renderReverse(); return; }
+    const b = e.target.closest(".rv-chips button"); if (!b) return;
+    const d = b.parentElement.dataset.rvdim;
+    rvState[d] = rvState[d] === b.dataset.v ? "" : b.dataset.v;
+    syncReverse(); renderReverse();
+  });
+}
+function syncReverse(){
+  document.querySelectorAll("[data-rvdim]").forEach(g => g.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", rvState[g.dataset.rvdim] === b.dataset.v)));
+}
+function reverseScore(s){
+  const I = insOf(s); if (!I) return null;
+  const sel = DIMS.filter(([d]) => rvState[d]);
+  let sum = 0, known = 0; const reasons = [], unknown = [];
+  for (const [d, l] of sel) {
+    if (I[d] == null) { unknown.push(l); continue; }
+    const w = I[d][rvState[d]] || 0;
+    if (w === 0) return null;
+    sum += w; known++;
+    reasons.push({l, v: tax(d, rvState[d]), w});
+  }
+  if (known < Math.ceil(sel.length / 2)) return null;
+  const score = Math.round(sum / (3 * sel.length) * 100);
+  if (score < 40) return null;
+  return {score, reasons, unknown};
+}
+function renderReverse(){
+  if (!INS) return;
+  const sel = DIMS.filter(([d]) => rvState[d]);
+  if (!sel.length) { $("rv-out").innerHTML = `<div class="rv-empty card">${ic("filter", 22)}<b>条件を選んでください</b><span>業種・企業規模・採用職種・採用対象のうち、分かっているものだけ選べば検索できます。</span></div>`; return; }
+  const rows = SITES.map(s => ({s, r: reverseScore(s)})).filter(x => x.r).sort((a, b) => b.r.score - a.r.score || b.r.reasons.filter(x => x.w === 3).length - a.r.reasons.filter(x => x.w === 3).length || a.s.id - b.s.id).slice(0, 8);
+  const cond = sel.map(([d, l]) => `${l}「${tax(d, rvState[d])}」`).join("・");
+  if (!rows.length) { $("rv-out").innerHTML = `<div class="rv-empty card">${ic("info", 22)}<b>十分な情報がありません</b><span>${esc(cond)}に当てはまる媒体を、このサイトのデータからは判断できませんでした。条件を減らしてください。</span></div>`; return; }
+  $("rv-out").innerHTML = `<p class="rv-note">${ic("info", 14)}<span>${esc(cond)} で関連が高いと推定した媒体（最大8件）。関連度はサイト独自の推定（③）で、条件に合う企業が実際に掲載されていることを保証するものではありません。</span></p>`
+    + rows.map(({s, r}, i) => {
+      const I = insOf(s);
+      return `<article class="rv-card card">
+        <div class="rv-hd"><span class="rv-rank">${i + 1}</span>${av(s.n, 40)}<div class="nm"><b>${esc(s.n)}</b><small>${esc(s.op)} · ${esc(I.bm.map(bmLabel).join("・"))}</small></div>
+          <div class="rv-score"><div class="bar2"><span style="width:${r.score}%"></span></div><small>関連度 <b>${r.score}</b> / 100（独自の推定）</small></div></div>
+        <ul class="rv-reasons">
+          ${r.reasons.map(x => `<li><span class="dim">${esc(x.l)}</span><span class="wchip">${dots(x.w)}${esc(x.v)}<small style="color:var(--text-3)">${INS.taxonomy.w[x.w]}</small></span></li>`).join("")}
+          ${r.unknown.length ? `<li><span class="dim">情報不足</span><span class="unk">${esc(r.unknown.join("・"))}は判断材料がありません</span></li>` : ""}
+          <li><span class="dim">判断の根拠</span><span style="color:var(--text-2)">${esc(I.basis)}</span></li>
+        </ul>
+        <div class="cols2">
+          <div class="box"><b>${lb(s.sec ? 2 : 1)} 掲載企業の特徴</b><span style="font-size:13px;color:var(--text-2);line-height:1.7">${esc(s.co)}</span></div>
+          <div class="box"><b>${lb(3)} 想定される採用ニーズ</b><ul class="hl">${(I.why || []).slice(0, 3).map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
+          <div class="box"><b>${lb(3)} 営業仮説</b><ul class="hl">${[...(I.hire || []).slice(0, 2), ...(I.org || []).slice(0, 1)].map(x => `<li>${esc(x)}の可能性</li>`).join("")}</ul></div>
+        </div>
+        ${I.rel === "search" || I.rel === "review" ? relNote(I) : ""}
+        <div><button type="button" class="lk" data-open="${s.id}" data-opentab="sales">${esc(s.n)}の営業視点を開く${ic("arrowR", 12)}</button></div>
+      </article>`;
+    }).join("");
+}
+
+/* ---------- 関連サービス ---------- */
+const vec = (I, d) => I && I[d] ? I[d] : null;
+function cos(a, b){
+  if (!a || !b) return 0;
+  const ks = new Set([...Object.keys(a), ...Object.keys(b)]);
+  let x = 0, na = 0, nb = 0;
+  ks.forEach(k => { const p = a[k] || 0, q = b[k] || 0; x += p * q; na += p * p; nb += q * q; });
+  return na && nb ? x / Math.sqrt(na * nb) : 0;
+}
+function related(s){
+  const I = insOf(s); const c = COMPANIES.find(x => x.id === s.cid);
+  const others = SITES.filter(x => x.id !== s.id);
+  const sameOp = others.filter(x => x.cid === s.cid).map(x => ({x, why: `同じ運営会社（${s.op}）`}));
+  const sameGroup = c && REAL_GROUPS.has(c.group) ? others.filter(x => x.cid !== s.cid && COMPANIES.some(y => y.id === x.cid && y.group === c.group)).map(x => {
+    const J = insOf(x); return {x, why: `同じグループの別会社（${x.op}）。${J ? J.bm.map(bmLabel).join("・") : ""}${x.s !== s.s ? `、${SEG[x.s].l}向け` : ""}`};
+  }) : [];
+  const used = new Set([...sameOp, ...sameGroup].map(y => y.x.id));
+  if (!I) return {sameOp, sameGroup, similar: [], target: [], model: []};
+  const scored = others.map(x => {
+    const J = insOf(x); if (!J) return null;
+    const bmJ = I.bm.filter(b => J.bm.includes(b)).length / new Set([...I.bm, ...J.bm]).size;
+    const v = bmJ * 2 + cos(vec(I, "ind"), vec(J, "ind")) + cos(vec(I, "role"), vec(J, "role")) + cos(vec(I, "tgt"), vec(J, "tgt")) * 1.5 + cos(vec(I, "size"), vec(J, "size")) * .5;
+    return {x, J, v};
+  }).filter(Boolean).sort((a, b) => b.v - a.v);
+  const common = (J, d) => { const a = topVals(vec(I, d), d, 5), b = topVals(vec(J, d), d, 5); return a.filter(k => b.includes(k)); };
+  const mdiff = x => { const a = s.m.map(k => MODELS[k] ? MODELS[k].l : k), b = x.m.map(k => MODELS[k] ? MODELS[k].l : k); return a.join("・") === b.join("・") ? "料金モデルは同じ" : `料金：${a.join("・")} ／ ${b.join("・")}`; };
+  const similar = scored.filter(y => !used.has(y.x.id)).slice(0, 4).map(({x, J}) => {
+    const cm = [...I.bm.filter(b => J.bm.includes(b)).map(bmLabel), ...common(J, "ind"), ...common(J, "role"), ...common(J, "tgt")];
+    return {x, why: `共通点：${cm.slice(0, 4).join("・") || "情報不足"}。違い：${mdiff(x)}`};
+  });
+  similar.forEach(y => used.add(y.x.id));
+  const mainT = I.tgt ? Object.entries(I.tgt).filter(([, w]) => w === 3).map(([k]) => k) : [];
+  const target = mainT.length ? others.filter(x => !used.has(x.id) && insOf(x) && insOf(x).tgt && mainT.some(k => insOf(x).tgt[k] === 3)).slice(0, 5).map(x => ({x, why: `採用対象の中心が同じ（${mainT.filter(k => insOf(x).tgt[k] === 3).map(k => tax("tgt", k)).join("・")}）。${insOf(x).bm.map(bmLabel).join("・")}`})) : [];
+  target.forEach(y => used.add(y.x.id));
+  const tgtMain = I.tgt ? Object.entries(I.tgt).filter(([, w]) => w >= 2).map(([k]) => k) : [];
+  const model = others.filter(x => !used.has(x.id) && insOf(x) && insOf(x).bm[0] === I.bm[0] && !x.m.some(k => s.m.includes(k)) && insOf(x).tgt && tgtMain.some(k => (insOf(x).tgt[k] || 0) >= 2)).slice(0, 4).map(x => ({x, why: `同じ${bmLabel(I.bm[0])}で料金モデルが違う。${mdiff(x)}`}));
+  return {sameOp, sameGroup, similar, target, model};
+}
+function relatedHTML(s){
+  const R = related(s);
+  const block = (t, arr) => arr.length ? `<div class="rel-g"><h5>${t}</h5><div class="rows">${arr.map(({x, why}) => `<button type="button" data-open="${x.id}">${av(x.n, 28)}<span class="m"><b>${esc(x.n)}</b><span class="why2">${esc(why)}</span></span>${ic("chevR", 14)}</button>`).join("")}</div></div>` : "";
+  const html = block("似ているサービス", R.similar) + block("同じ運営会社のサービス", R.sameOp) + block("同じグループのサービス", R.sameGroup) + block("同じ採用対象を扱うサービス", R.target) + block("料金モデルが違う競合", R.model);
+  return html ? `<p class="note">${ic("info", 14)}<span>関連の判定は、ビジネスモデル・業種・職種・採用対象の推定（③）と、運営会社のデータから自動で行っています。</span></p>${html}` : `<div class="muted-box">十分な情報がありません。</div>`;
+}
+
+/* ---------- 業界構造マップ ---------- */
+function flowHTML(c){
+  return `<div class="flow" role="img" aria-label="${esc(c.l)}のお金と情報の流れ">${c.flow.map(([a, label, b]) => {
+    const money = /料|手数料|報酬|課金|定額/.test(label) && !/無料/.test(label);
+    return `<div class="flow-row"><span class="node${/企業/.test(a) && money ? " pay" : ""}">${esc(a)}</span><span class="arrow${money ? " money" : ""}">${esc(label)}</span><span class="node">${esc(b)}</span></div>`;
+  }).join("")}${c.seekerFree ? `<div class="free">求職者・学生は原則として無料で利用</div>` : ""}</div>`;
+}
+function renderStructure(){
+  if (!BM || !INS) { $("bm-grid").innerHTML = errBox("業界構造のデータを読み込めませんでした。"); return; }
+  $("bm-grid").innerHTML = BM.categories.map(c => {
+    const svc = SITES.filter(s => insOf(s) && insOf(s).bm.includes(c.id));
+    return `<article class="bm card">
+      <div class="bm-hd"><h3>${esc(c.l)}</h3><small>${esc(c.en)}</small><span class="cnt">${svc.length}サービス</span></div>
+      ${flowHTML(c)}
+      <dl class="kv"><dt>払う人</dt><dd>${esc(c.payer)}</dd><dt>提供するもの</dt><dd>${esc(c.provides)}</dd><dt>料金の発生</dt><dd>${esc(c.timing)}</dd><dt>向く企業</dt><dd>${esc(c.fit)}</dd><dt>メリット</dt><dd>${esc(c.merit)}</dd><dt>制約</dt><dd>${esc(c.constraint)}</dd></dl>
+      <div class="box"><b>${lb(3)} このモデルから読み取れること</b><ul class="hl">${c.reading.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
+      <div class="svcs">${svc.map(s => `<button type="button" data-open="${s.id}">${esc(s.n)}${insOf(s).bm.length > 1 ? "<em>複合</em>" : ""}</button>`).join("")}</div>
+    </article>`;
+  }).join("");
+  const mixed = SITES.filter(s => insOf(s) && insOf(s).bm.length > 1);
+  $("bm-mixed").innerHTML = `<table><thead><tr><th>サービス</th><th>持っているモデル</th><th>料金モデル</th><th>運営会社</th></tr></thead><tbody>${mixed.map(s => `<tr><th><button type="button" class="lk" style="margin:0" data-open="${s.id}">${esc(s.n)}</button></th><td>${insOf(s).bm.map(b => `<span class="wchip">${esc(bmLabel(b))}</span>`).join(" ")}</td><td><div class="chips">${s.m.map(chip).join("")}</div></td><td>${esc(s.op)}</td></tr>`).join("")}</tbody></table>`;
+  $("grpmap").innerHTML = GROUPS.filter(g => REAL_GROUPS.has(g.id)).map(g => {
+    const svc = SITES.filter(s => COMPANIES.some(c => c.id === s.cid && c.group === g.id));
+    const note = (BM.groups || {})[g.id] || {facts: [], hypo: []};
+    return `<article class="gm card"><h4>${esc(g.name)}</h4>
+      ${svc.map(s => { const I = insOf(s); return `<div class="gm-row"><div><button type="button" data-open="${s.id}">${esc(s.n)}</button><small>${esc(s.op)} · ${SEG[s.s].l} · ${esc(I ? I.bm.map(bmLabel).join("・") : "")}</small></div><span class="chips">${s.m.map(chip).join("")}</span></div>`; }).join("")}
+      ${note.facts.length ? `<div class="fact">${note.facts.map(x => `<div class="row">${lb(1)}<span>${esc(x)}</span></div>`).join("")}</div>` : ""}
+      ${note.hypo.length ? `<div class="box"><b>${lb(3)} 複数の領域を持つ理由として考えられること</b><ul class="hl">${note.hypo.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
+    </article>`;
+  }).join("");
+}
+
+/* ---------- 営業仮説ガイド ---------- */
+function renderGuides(){
+  if (!GUIDES) { $("guides-list").innerHTML = errBox("ガイドを読み込めませんでした。"); return; }
+  const st = (n, title, label, arr) => `<div class="g-step"><span class="n">${n}</span><div class="c"><b>${title} ${label}</b><ul class="hl">${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div></div>`;
+  $("guides-list").innerHTML = GUIDES.guides.map((g, i) => `<details class="acc" id="guide-${g.id}">
+    <summary><span class="sc-ic" style="width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand);font-family:var(--f-mono);font-weight:600">${i + 1}</span><span class="s-name"><b>${esc(g.t)}</b><small>${esc(g.facts[0])}</small></span><span class="s-side"></span>${ic("chevD", 18, "chev")}</summary>
+    <div class="acc-body">
+      <div class="g-steps">
+        ${st(1, "観察できる事実", '<span class="wchip">営業先で確かめる項目</span>', g.facts)}
+        ${st(2, "考えられる背景", lb(3), g.bg)}
+        ${st(3, "営業仮説", lb(3), g.hypo)}
+        ${st(4, "確認すべき情報", "", g.check)}
+      </div>
+      <div class="g-alt"><b>別の解釈もありえます</b><ul class="hl">${g.alt.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
+      <div class="rel-g"><h5>関連する媒体</h5><div class="svc" style="margin-top:0">${g.related.map(k => byKey[k] != null ? `<button type="button" data-open="${byKey[k]}" data-opentab="sales">${esc(SITES[byKey[k]].n)}</button>` : "").join("")}</div></div>
+    </div></details>`).join("");
+}
+const errBox = msg => `<div class="err-box card"><b>${esc(msg)}</b><span>通信状況を確認して、もう一度お試しください。</span><button type="button" class="btn btn-ghost sm" data-retry>再読み込み</button></div>`;
+
 /* ---------- 読み込み ---------- */
 function loadError(){
-  const msg = `<div class="loading">データを読み込めませんでした。ページを再読み込みしてください。</div>`;
-  ["out", "plans-list", "companies-list", "models", "calc-out", "src-list"].forEach(id => { const el = $(id); if (el) el.innerHTML = msg; });
-  $("changes").innerHTML = `<li>${msg}</li>`;
-  ["market-news", "svc-news"].forEach(id => $(id).innerHTML = `<li>${msg}</li>`);
+  const box = errBox("データを読み込めませんでした。");
+  ["out", "plans-list", "companies-list", "models", "calc-out", "src-list", "insights-list", "rv-out", "rv-filters", "bm-grid", "guides-list"].forEach(id => { const el = $(id); if (el) el.innerHTML = box; });
+  $("changes").innerHTML = `<li>${box}</li>`;
+  ["market-news", "svc-news"].forEach(id => $(id).innerHTML = `<li>${box}</li>`);
 }
 route(location.hash);
-Promise.all([getJSON("sites.json"), getJSON("plans.json"), getJSON("companies.json"), getJSON("news.json").catch(() => null)]).then(([sv, pl, co, nw]) => {
-  META = {sites: sv.updated, plans: pl.updated, companies: co.updated, news: nw ? nw.updated : null};
+const optJSON = name => getJSON(name).catch(() => null);
+Promise.all([getJSON("sites.json"), getJSON("plans.json"), getJSON("companies.json"), optJSON("news.json"), optJSON("insights.json"), optJSON("business_models.json"), optJSON("sales_guides.json")]).then(([sv, pl, co, nw, ins, bm, gd]) => {
+  META = {sites: sv.updated, plans: pl.updated, companies: co.updated, news: nw ? nw.updated : null, insights: ins ? ins.updated : null};
   GROUPS = co.groups || [];
   COMPANIES = co.companies || [];
+  INS = ins; BM = bm; GUIDES = gd;
   const compOf = Object.fromEntries(COMPANIES.map(c => [c.id, c]));
   const planOf = Object.fromEntries((pl.plans || []).map(p => [p.service, p]));
   NEWS = nw; CHANGES = sv.changes || [];
@@ -1773,15 +2249,15 @@ Promise.all([getJSON("sites.json"), getJSON("plans.json"), getJSON("companies.js
   });
   SITES.forEach(s => byKey[s.key] = s.id);
   const newsCount = nw ? (nw.market || []).length + Object.values(nw.services || {}).reduce((a, b) => a + b.length, 0) : 0;
-  renderNav({catalog: SITES.length, operators: COMPANIES.length, news: newsCount || ""});
+  renderNav({catalog: SITES.length, operators: COMPANIES.length, news: newsCount || "", insights: INS ? Object.keys(INS.services || {}).length : ""});
   renderOverview(); renderModels(); setupCatalog(); sync(); render();
   segc($("pl-seg"), [["all", "すべて"], ["new", "新卒"], ["mid", "中途"]], "plSeg", {get plSeg(){ return plSeg; }, set plSeg(v){ plSeg = v; }}, renderPlans);
   renderPlans(); renderCompanies(); renderNews(); renderSources(); renderSchedule();
   setupCalc(); renderCalc(); syncCmp();
+  setupInsights(); renderInsights(); setupReverse(); renderReverse(); renderStructure(); renderGuides();
   route(location.hash);
 }).catch(loadError);
 renderNav({});
-
 </script>
 </body>
 </html>
