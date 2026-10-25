@@ -877,12 +877,14 @@ const PAGE = Object.fromEntries(PAGES.map(p => [p.id, p]));
 const SEC2PAGE = Object.fromEntries(PAGES.flatMap(p => p.secs.map(s => [s, p.id])));
 const SECS = PAGES.map(p => [p.id, p.l, p.i]);
 let view = "home";
+// 姉妹サイトへのリンク（左ナビ下のカードとスマホのメニューに出す）
+const SISTER = `<a class="sister" href="https://wakwakman.github.io/ai-service-navi/" target="_blank" rel="noopener">${ic("sparkle", 14)}<span>姉妹サイト：AIサービスナビ<small>生成AIの診断・活用事例・比較</small></span>${ic("ext", 13)}</a>`;
 function renderNav(counts){
   const upd = META.news || META.sites || "—";
   $("side").innerHTML = navHTML(NAV, PAGE, counts)
-    + `<div class="side-card"><b>${ic("check", 15)}毎週月曜に更新</b><span>ニュース・料金・運営元を公開情報で確認しています。最終更新 <span class="mono">${esc(upd)}</span></span></div>`;
+    + `<div class="side-card"><b>${ic("check", 15)}毎週月曜に更新</b><span>ニュース・料金・運営元を公開情報で確認しています。最終更新 <span class="mono">${esc(upd)}</span></span>${SISTER}</div>`;
   $("ms-body").innerHTML = navHTML(NAV, PAGE, counts);
-  $("ms-ft").innerHTML = `毎週月曜に更新 · 最終更新 <span class="mono">${esc(upd)}</span>`;
+  $("ms-ft").innerHTML = `毎週月曜に更新 · 最終更新 <span class="mono">${esc(upd)}</span>${SISTER}`;
   markNav(view);
 }
 function applyView(){
