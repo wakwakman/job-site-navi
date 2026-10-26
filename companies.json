@@ -659,6 +659,136 @@
           "https://news.microsoft.com/ja-jp/2016/06/14/160614-microsoft-linkedin/"
         ]
       ]
+    },
+    {
+      "id": "willof-construction",
+      "name": "ウィルオブ・コンストラクション",
+      "group": "sub",
+      "capital": "ウィルグループのグループ会社。2011年の東日本大震災を機に生まれた施工管理技士特化の人材サービス会社で、派遣と紹介を扱う。建設メディア「施工の神様」も運営",
+      "listed": "親会社のウィルグループが東証プライム上場（6089）",
+      "services": [
+        "sekokan-navi"
+      ],
+      "src": [
+        [
+          "ウィルグループ 採用ページ（ウィルオブ・コンストラクション）",
+          "https://hrmos.co/pages/willgroup/jobs/00001800"
+        ],
+        [
+          "ウィルグループ 適時開示（JPX）",
+          "https://www2.jpx.co.jp/disc/60890/140120200509407619.pdf"
+        ],
+        [
+          "施工管理求人ナビ 公式サイト",
+          "https://sekokan-navi.jp/"
+        ]
+      ]
+    },
+    {
+      "id": "human-resocia",
+      "name": "ヒューマンリソシア",
+      "group": "sub",
+      "capital": "ヒューマンホールディングスの連結子会社。1988年に人材派遣会社として設立",
+      "listed": "親会社のヒューマンホールディングスが東証上場（2415）",
+      "services": [
+        "kensetsu-tenshoku-navi"
+      ],
+      "src": [
+        [
+          "ヒューマンホールディングス 適時開示（JPX）",
+          "https://www2.jpx.co.jp/disc/24150/140120210331487603.pdf"
+        ],
+        [
+          "ヒューマンホールディングス 有価証券報告書の沿革（edinetdb掲載）",
+          "https://edinetdb.jp/company/E05428/history"
+        ],
+        [
+          "建設転職ナビ 公式サイト",
+          "https://kensetsutenshokunavi.jp/"
+        ]
+      ]
+    },
+    {
+      "id": "rsg",
+      "name": "RSG",
+      "group": "private",
+      "capital": "独立系。2015年3月設立。建設のRSG建設転職と不動産のRSG不動産転職を軸にした人材紹介、採用広告コンサルティング",
+      "listed": "—",
+      "services": [
+        "rsg-kensetsu"
+      ],
+      "src": [
+        [
+          "RSG 公式サイト",
+          "https://rsg-c.jp/"
+        ],
+        [
+          "マイナビ転職 求人情報（株式会社RSG）",
+          "https://mid-tenshoku.com/job/j-19359397/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "archibase",
+      "name": "アーキベース",
+      "group": "private",
+      "capital": "独立系。2017年8月設立。建設・不動産領域のHRテック企業として、建職バンクを運営",
+      "listed": "—",
+      "services": [
+        "kenshoku-bank"
+      ],
+      "src": [
+        [
+          "アーキベース 採用ページ",
+          "https://herp.careers/careers/companies/archibase1"
+        ],
+        [
+          "INITIAL アーキベース",
+          "https://initial.inc/companies/A-32942"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "id": "plex",
+      "name": "プレックス",
+      "group": "private",
+      "capital": "独立系。2018年4月設立。物流・建設・製造のHRテック、建設業のDX（サクミル）、M&A仲介を展開。2025年度の売上高96.1億円（同社発表）",
+      "listed": "非上場",
+      "services": [
+        "plex-job"
+      ],
+      "src": [
+        [
+          "PR TIMES（プレックス）2025年度業績",
+          "https://prtimes.jp/main/html/rd/p/000000031.000048655.html"
+        ],
+        [
+          "INITIAL プレックス",
+          "https://initial.inc/companies/A-32400"
+        ]
+      ]
+    },
+    {
+      "id": "sukedachi",
+      "name": "助太刀",
+      "group": "private",
+      "capital": "独立系スタートアップ。2020年にパーソルホールディングスと業務提携（同社発表）",
+      "listed": "—",
+      "services": [
+        "suketto"
+      ],
+      "src": [
+        [
+          "助太刀 プレスリリース（パーソルHDと業務提携）",
+          "https://suke-dachi.jp/company/pr/200310.pdf"
+        ],
+        [
+          "助太刀 プレスリリース（累計20万事業者）",
+          "https://suke-dachi.jp/company/pr/20230915.pdf"
+        ]
+      ]
     }
   ]
 }

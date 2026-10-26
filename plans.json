@@ -1248,6 +1248,163 @@
           "https://www.businessinsider.jp/post-264666"
         ]
       ]
+    },
+    {
+      "service": "sekokan-navi",
+      "models": [
+        "succ"
+      ],
+      "summary": "人材紹介型。企業は採用が決まったときに手数料を払う仕組みが一般的で、料率は公開されていない",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "人材紹介の成功報酬（料率は問い合わせ制）"
+        },
+        {
+          "name": "求職者",
+          "value": "無料"
+        },
+        {
+          "name": "求人",
+          "value": "独占・未公開求人が常に1,000件以上と案内（時点の記載なし）"
+        }
+      ],
+      "src": [
+        [
+          "施工管理求人ナビ 公式サイト",
+          "https://sekokan-navi.jp/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "kensetsu-tenshoku-navi",
+      "models": [
+        "succ"
+      ],
+      "summary": "人材紹介型。企業は採用が決まったときに手数料を払う仕組みが一般的で、料率は公開されていない",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "人材紹介の成功報酬（料率は問い合わせ制）"
+        },
+        {
+          "name": "求職者",
+          "value": "無料"
+        }
+      ],
+      "src": [
+        [
+          "建設転職ナビ 公式サイト",
+          "https://kensetsutenshokunavi.jp/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "rsg-kensetsu",
+      "models": [
+        "succ"
+      ],
+      "summary": "人材紹介型。企業は採用が決まったときに手数料を払う仕組みが一般的で、料率は公開されていない",
+      "items": [
+        {
+          "name": "課金方式",
+          "value": "人材紹介の成功報酬（料率は問い合わせ制）"
+        },
+        {
+          "name": "関連サービス",
+          "value": "求人サイト「RSG転職ナビ」、採用広告コンサルティング"
+        }
+      ],
+      "src": [
+        [
+          "RSG 公式サイト",
+          "https://rsg-c.jp/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "kenshoku-bank",
+      "models": [
+        "succ",
+        "db"
+      ],
+      "summary": "人材紹介とスカウトを展開。企業向けの料金は公開されていない",
+      "items": [
+        {
+          "name": "人材紹介",
+          "value": "キャリアアドバイザーによる紹介（料率は問い合わせ制）"
+        },
+        {
+          "name": "スカウト",
+          "value": "会員へのスカウト（料金は問い合わせ制）"
+        },
+        {
+          "name": "求職者",
+          "value": "完全無料"
+        }
+      ],
+      "src": [
+        [
+          "建職バンク 公式サイト",
+          "https://kenshoku-bank.com/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "plex-job",
+      "models": [
+        "succ",
+        "db"
+      ],
+      "summary": "企業向けには人材紹介・採用支援を提供。料金は公開されていない",
+      "items": [
+        {
+          "name": "企業向け",
+          "value": "人材紹介・採用支援（企業向けサイトで案内、金額は問い合わせ制）"
+        },
+        {
+          "name": "スカウト",
+          "value": "会員に企業からスカウトが届く"
+        },
+        {
+          "name": "求職者",
+          "value": "登録から転職決定まで無料"
+        }
+      ],
+      "src": [
+        [
+          "プレックスジョブ 公式サイト",
+          "https://www.plex-job.com/"
+        ]
+      ],
+      "secondary": true
+    },
+    {
+      "service": "suketto",
+      "models": [
+        "flat"
+      ],
+      "summary": "法人向けのビジネスプラン・エンタープライズプラン。金額は公開されていない",
+      "items": [
+        {
+          "name": "法人向け",
+          "value": "ビジネスプラン、エンタープライズプラン（金額は問い合わせ制）"
+        },
+        {
+          "name": "補助金",
+          "value": "IT導入補助金の対象として案内（2020年時点）"
+        }
+      ],
+      "src": [
+        [
+          "助太刀 プレスリリース（IT導入補助金・法人プラン）",
+          "https://suke-dachi.jp/company/pr/200903.pdf"
+        ]
+      ]
     }
   ]
 }
